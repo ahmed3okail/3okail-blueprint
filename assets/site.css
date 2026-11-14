@@ -365,4 +365,4 @@ nav.links a.cur{color:var(--ink);background:var(--surface-2)}
 .tool-ic{width:22px;height:22px;flex:none}
 .leaf .tool-ic{width:20px;height:20px;align-self:center}
 @media (max-width:720px){.brow{grid-template-columns:1fr;gap:8px}.co,.tool{font-size:.85rem}}
-[lang=ar] .blabel{font:600 .85rem inherit;letter-spacing:0;text-transform:none}
+[lang=ar] .blabel{font-family:inherit;font-size:.85rem;letter-spacing:0;text-transform:none}
