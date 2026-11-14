@@ -138,7 +138,7 @@ function renderGantt(){
   var c=career.filter(function(x){return x.id===gSel})[0], m=milestones.filter(function(x){return x.id===gSel})[0], o=c||m, chips;
   if(c)chips='<span class="chip">'+fmtD(c.s)+' – '+fmtD(c.e)+'</span><span class="chip">'+(mIdx(c.e||NOW)-mIdx(c.s))+' '+t('months')+'</span>';
   else chips='<span class="chip">'+fmtD(m.d)+'</span>';
-  $('gDetail').innerHTML='<div class="g-detail"><div><h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
+  $('gDetail').innerHTML='<div class="g-detail"><div>'+(o.id!=='edu'?S.coLogo(o.id,'lg'):'')+'<h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
     (c&&c.proj?'<p class="org" style="margin-top:10px"><b>'+t('projects')+':</b> '+esc(c.proj.map(function(x){return x[L]||x}).join(' · '))+'</p>':'')+
     '</div><ul>'+o.pts[L].map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></div>';
 }
@@ -149,14 +149,14 @@ var wbs=[
  {code:'2.0',n:{en:'Project Controls',ar:'مراقبة المشروعات'},items:{en:['Earned value (EVM)','CV / SV','SPI / CPI','AOP tracking','KPI tracking','Cash flow','Cost-to-complete forecasts','PO review vs BOQ'],ar:['القيمة المكتسبة EVM','انحراف التكلفة والجدول','SPI / CPI','متابعة AOP','مؤشرات الأداء KPI','التدفق النقدي','توقعات تكلفة الإنجاز','مراجعة أوامر الشراء مقابل BOQ']}},
  {code:'3.0',n:{en:'Delay Analysis & Claims',ar:'تحليل التأخير والمطالبات'},items:{en:['Delay classification','Fragnets','Time Impact Analysis','Concurrent delay','EOT claims','FIDIC'],ar:['تصنيف التأخيرات','Fragnets','تحليل الأثر الزمني TIA','التأخير المتزامن','مطالبات تمديد المدة','عقود FIDIC']}},
  {code:'4.0',n:{en:'Reporting',ar:'التقارير'},items:{en:['Weekly & monthly reports','Management dashboards','S-curves','Milestone reports','KPI reports'],ar:['تقارير أسبوعية وشهرية','لوحات متابعة للإدارة','منحنيات S','تقارير المعالم','تقارير مؤشرات الأداء']}},
- {code:'5.0',n:{en:'Tools',ar:'الأدوات'},items:{en:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word & PowerPoint','AI tools & web apps'],ar:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word و PowerPoint','أدوات الذكاء الاصطناعي وتطبيقات الويب']}}
+ {code:'5.0',ic:['p6','excel','powerbi','autocad','word','ai'],n:{en:'Tools',ar:'الأدوات'},items:{en:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word & PowerPoint','AI tools & web apps'],ar:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word و PowerPoint','أدوات الذكاء الاصطناعي وتطبيقات الويب']}}
 ];
 var wSel=0;
 function renderWBS(){
   var L=S.lang, s=wbs[wSel], h='<div class="wbs-root"><div class="wbs-node"><code>0.0</code>'+esc(t('wbsRoot'))+'</div></div><div class="wbs-stem"></div><div class="wbs-l1">';
   wbs.forEach(function(w,i){h+='<div><button type="button" class="wbs-node'+(i===wSel?' sel':'')+'" data-w="'+i+'"><code>'+w.code+'</code>'+esc(w.n[L])+'</button></div>'});
   h+='</div><div class="wbs-leaves"><h3><span class="mono" style="color:var(--accent)">'+s.code+'</span> '+esc(s.n[L])+'</h3><div class="leaf-grid">'+
-    s.items[L].map(function(it,j){return '<div class="leaf"><code>'+s.code.charAt(0)+'.'+(j+1)+'</code><span>'+esc(it)+'</span></div>'}).join('')+'</div></div>';
+    s.items[L].map(function(it,j){return '<div class="leaf"><code>'+s.code.charAt(0)+'.'+(j+1)+'</code>'+(s.ic?S.toolIcon(s.ic[j]):'')+'<span>'+esc(it)+'</span></div>'}).join('')+'</div></div>';
   $('wbs').innerHTML=h;
 }
 $('wbs').addEventListener('click',function(ev){var b=ev.target.closest('[data-w]');if(!b)return;wSel=+b.getAttribute('data-w');renderWBS()});
