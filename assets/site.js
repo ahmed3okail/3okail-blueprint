@@ -25,7 +25,7 @@ var Site={
  toolIcon:function(id){return '<img class="tool-ic" src="assets/tools/'+id+'.svg" alt="" width="22" height="22">'},
  brands:function(){
    var co=$('coRow'),tl=$('toolRow');
-   if(co)co.innerHTML=COS.map(function(c){return '<div class="co">'+Site.coLogo(c.id)+'<span>'+esc(tr(c.n))+'</span></div>'}).join('');
+   if(co)co.innerHTML=COS.map(function(c){return '<div class="co'+(LOGOS[c.id]?' only':'')+'" title="'+esc(tr(c.n))+'">'+Site.coLogo(c.id)+(LOGOS[c.id]?'':'<span>'+esc(tr(c.n))+'</span>')+'</div>'}).join('');
    if(tl)tl.innerHTML=TOOLS.map(function(x){return '<div class="tool">'+Site.toolIcon(x[0])+'<span>'+esc(tr(x[1]))+'</span></div>'}).join('');
  },
  get lang(){return lang},
