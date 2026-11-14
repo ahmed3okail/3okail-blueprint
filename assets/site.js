@@ -56,6 +56,8 @@ var Site={
    var q=new URLSearchParams(location.search).get('lang');
    Site.setLang(q==='ar'||q==='en'?q:(store('lang')==='ar'?'ar':'en'));
    Site.reveal();
+   /* public visit count from GoatCounter (shows only if enabled in GoatCounter settings) */
+   var vs=$('visits'); if(vs&&window.fetch&&location.protocol.indexOf('http')===0){fetch('https://3okail-blueprint.goatcounter.com/counter/TOTAL.json').then(function(r){return r.ok?r.json():null}).then(function(d){if(d&&d.count){vs.textContent=(lang==='ar'?'الزيارات: ':'VISITS: ')+d.count+' · ';vs.hidden=false}}).catch(function(){})}
  },
  countUp:function(el){var to=+el.getAttribute('data-to'),st=null;function f(ts){if(!st)st=ts;var p=Math.min((ts-st)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)},
  reveal:function(){
