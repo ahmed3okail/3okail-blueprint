@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="3okail Blueprint: Ahmed AbuOkail, Planning & Project Control Engineer in Cairo. Primavera P6 scheduling, EVM, delay analysis and EOT claims.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="evm">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html" data-i="home"></a>
+    <h1 data-i="evmT"></h1><p data-i="evmP"></p>
+  </div></div>
+
+  <section id="evm">
+    <div class="wrap">
+      <div class="lab reveal">
+        <div class="panel">
+          <div class="presets" id="presets"></div>
+          <div class="ctrl"><label for="bac"><span data-i="inBac"></span><output id="oBac"></output></label><input type="range" id="bac" min="10" max="500" step="10" value="120"></div>
+          <div class="ctrl"><label for="time"><span data-i="inTime"></span><output id="oTime"></output></label><input type="range" id="time" min="5" max="95" value="50"></div>
+          <div class="ctrl"><label for="ev"><span data-i="inEv"></span><output id="oEv"></output></label><input type="range" id="ev" min="0" max="100" value="52"></div>
+          <div class="ctrl"><label for="ac"><span data-i="inAc"></span><output id="oAc"></output></label><input type="range" id="ac" min="0" max="150" value="48"></div>
+          <p class="hint" data-i="evmHint"></p>
+        </div>
+        <div class="panel chart">
+          <svg id="evmChart" viewBox="0 0 640 300" role="img" aria-label="S-curve"></svg>
+          <div class="legend"><span><i style="background:var(--muted)"></i>PV</span><span><i style="background:var(--accent)"></i>EV</span><span><i style="background:var(--crit)"></i>AC</span><span><i style="background:var(--warn)"></i>EAC</span></div>
+          <div class="kpis" id="kpis"></div>
+          <div class="verdict" id="verdict"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="glossary" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">NOTES</div><h2 data-i="gT"></h2></div></div>
+      <div class="svc" id="gloss"></div>
+      <div class="nextlinks"><a class="btn btn-primary" href="delay.html" data-i="goDelay"></a><a class="btn btn-line" href="index.html#contact" data-i="goContact"></a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{evmT:'Earned value lab', evmP:'Drag the sliders to set a project\'s status. The S-curve, indices and forecast update live, the way I report them every month.',
+ inBac:'Budget at completion (BAC)', inTime:'Time elapsed', inEv:'Work actually done', inAc:'Money actually spent', unit:'M', dataDate:'DATA DATE',
+ evmHint:'PV follows a typical S-curve. EV and AC are shares of BAC.',
+ presets:[['ok','On track'],['late','Behind schedule'],['over','Over budget'],['bad','Recovery needed']],
+ vGood:'Ahead of schedule and under budget. Keep the baseline and protect the float.',
+ vLate:'Behind schedule. Time for a recovery schedule: re-sequence work and add resources on the critical path.',
+ vOver:'Over budget. Review purchase orders against the BOQ and tighten the cost-to-complete.',
+ vBad:'Behind schedule and over budget. Escalate to management with a recovery plan and a revised EAC.',
+ gT:'How to read it',
+ gl:[['PV · Planned value','The budgeted cost of the work that should be done by the data date.'],['EV · Earned value','The budgeted cost of the work actually done.'],['AC · Actual cost','What the work done actually cost.'],['SPI = EV / PV','Below 1.00 means the project is behind schedule.'],['CPI = EV / AC','Below 1.00 means each unit of work costs more than planned.'],['EAC = BAC / CPI','The forecast final cost if the current cost efficiency continues.']],
+ goDelay:'Next: delay analysis lab →', goContact:'Contact me'},
+ar:{evmT:'معمل القيمة المكتسبة', evmP:'حرّك المؤشرات لتحديد حالة مشروع. منحنى S والمؤشرات والتوقعات تتحدّث فورًا، بنفس طريقة تقاريري الشهرية.',
+ inBac:'الميزانية عند الإنجاز (BAC)', inTime:'المدة المنقضية', inEv:'الأعمال المنفذة فعليًا', inAc:'المصروف فعليًا', unit:'M', dataDate:'DATA DATE',
+ evmHint:'القيمة المخططة PV تتبع منحنى S نموذجي. EV و AC نسب من BAC.',
+ presets:[['ok','في المسار'],['late','متأخر'],['over','تجاوز الميزانية'],['bad','يحتاج استدراك']],
+ vGood:'متقدم عن البرنامج وأقل من الميزانية. حافظ على البرنامج الأساسي واحمِ الفائض الزمني.',
+ vLate:'متأخر عن البرنامج. وقت برنامج الاستدراك: إعادة تسلسل الأعمال وزيادة الموارد على المسار الحرج.',
+ vOver:'تجاوز الميزانية. راجع أوامر الشراء مقابل جدول الكميات وأحكم تقدير تكلفة الإنجاز.',
+ vBad:'متأخر ومتجاوز للميزانية. صعّد للإدارة بخطة استدراك وتقدير محدّث للتكلفة النهائية.',
+ gT:'إزاي تقرأ النتائج',
+ gl:[['PV · القيمة المخططة','التكلفة المعتمدة للأعمال المفروض تكون اتنفذت حتى تاريخ البيانات.'],['EV · القيمة المكتسبة','التكلفة المعتمدة للأعمال اللي اتنفذت فعلًا.'],['AC · التكلفة الفعلية','اللي اتصرف فعلًا على الأعمال المنفذة.'],['SPI = EV / PV','أقل من 1.00 يعني المشروع متأخر عن البرنامج.'],['CPI = EV / AC','أقل من 1.00 يعني كل وحدة شغل بتتكلف أكتر من المخطط.'],['EAC = BAC / CPI','التكلفة النهائية المتوقعة لو استمرت كفاءة التكلفة الحالية.']],
+ goDelay:'← التالي: معمل تحليل التأخير', goContact:'تواصل معي'}};
+
+function S_(x){var k=9,f=function(v){return 1/(1+Math.exp(-k*(v-.5)))};return (f(x)-f(0))/(f(1)-f(0))}
+var presetVals={ok:[50,52,48],late:[60,42,43],over:[50,50,63],bad:[70,48,70]}, curPreset='ok';
+function money(v){return (Math.round(v*10)/10).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+t('unit')}
+function renderPresets(){$('presets').innerHTML=t('presets').map(function(p){return '<button type="button" class="pill'+(curPreset===p[0]?' on':'')+'" data-p="'+p[0]+'">'+p[1]+'</button>'}).join('')}
+$('presets').addEventListener('click',function(ev){var b=ev.target.closest('[data-p]');if(!b)return;curPreset=b.getAttribute('data-p');var v=presetVals[curPreset];$('time').value=v[0];$('ev').value=v[1];$('ac').value=v[2];renderPresets();renderEVM()});
+['bac','time','ev','ac'].forEach(function(id){$(id).addEventListener('input',function(){if(id!=='bac'&&curPreset){curPreset=null;renderPresets()}renderEVM()})});
+function renderEVM(){
+  var bac=+$('bac').value, tt=+$('time').value/100, e=+$('ev').value/100, a=+$('ac').value/100;
+  var pvP=S_(tt), PV=bac*pvP, EV=bac*e, AC=bac*a;
+  var SPI=PV?EV/PV:0, CPI=AC?EV/AC:(EV?9.99:1), EAC=CPI>0?bac/CPI:bac*3, SV=EV-PV, CV=EV-AC;
+  $('oBac').textContent=money(bac); $('oTime').textContent=Math.round(tt*100)+'%'; $('oEv').textContent=Math.round(e*100)+'%'; $('oAc').textContent=Math.round(a*100)+'%';
+  var W=640,H=300,L=46,R=14,TP=18,B=30, eacShow=Math.min(EAC,bac*2.4), ymax=Math.max(bac*1.12,eacShow*1.08,AC*1.08);
+  function X(x){return L+x*(W-L-R)} function Y(v){return H-B-(v/ymax)*(H-TP-B)}
+  function path(fn,from,to){var d='',n=48;for(var i=0;i<=n;i++){var x=from+(to-from)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(fn(x)).toFixed(1)}return d}
+  var re=pvP?e/pvP:0, ra=pvP?a/pvP:0, g='', i;
+  for(i=0;i<=4;i++){var v=ymax*i/4;g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v).toFixed(1)+'" y2="'+Y(v).toFixed(1)+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(Y(v)+4).toFixed(1)+'" text-anchor="end" font-size="10" font-family="JetBrains Mono" fill="var(--muted)">'+Math.round(v)+'</text>'}
+  for(i=0;i<=10;i+=2)g+='<text x="'+X(i/10)+'" y="'+(H-B+16)+'" text-anchor="middle" font-size="10" font-family="JetBrains Mono" fill="var(--muted)">'+(i*10)+'%</text>';
+  g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(bac)+'" y2="'+Y(bac)+'" stroke="var(--ink)" stroke-dasharray="2 3" opacity=".45"/><text x="'+(W-R-4)+'" y="'+(Y(bac)-5)+'" text-anchor="end" font-size="10" font-family="JetBrains Mono" fill="var(--muted)">BAC '+money(bac)+'</text>';
+  g+='<line x1="'+X(tt)+'" x2="'+(W-R)+'" y1="'+Y(eacShow)+'" y2="'+Y(eacShow)+'" stroke="var(--warn)" stroke-width="1.5" stroke-dasharray="6 4"/><text x="'+(W-R-4)+'" y="'+(Y(eacShow)+(eacShow>bac?-5:13))+'" text-anchor="end" font-size="10" font-weight="600" font-family="JetBrains Mono" fill="var(--warn)">EAC '+money(EAC)+'</text>';
+  g+='<path d="'+path(function(x){return bac*S_(x)},0,tt)+'" fill="none" stroke="var(--muted)" stroke-width="2.5"/>';
+  g+='<path d="'+path(function(x){return bac*S_(x)},tt,1)+'" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5" opacity=".6"/>';
+  g+='<path d="'+path(function(x){return bac*S_(x)*ra},0,tt)+'" fill="none" stroke="var(--crit)" stroke-width="3" stroke-linejoin="round"/>';
+  g+='<path d="'+path(function(x){return bac*S_(x)*re},0,tt)+'" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/>';
+  g+='<line x1="'+X(tt)+'" x2="'+X(tt)+'" y1="'+TP+'" y2="'+(H-B)+'" stroke="var(--ink)" stroke-width="1.2"/><text x="'+(X(tt)+(tt>.75?-5:5))+'" y="'+(TP+2)+'" text-anchor="'+(tt>.75?'end':'start')+'" font-size="10" font-family="JetBrains Mono" fill="var(--ink)">'+t('dataDate')+'</text>';
+  [[PV,'var(--muted)'],[AC,'var(--crit)'],[EV,'var(--accent)']].forEach(function(p){g+='<circle cx="'+X(tt).toFixed(1)+'" cy="'+Y(p[0]).toFixed(1)+'" r="5" fill="'+p[1]+'" stroke="var(--surface)" stroke-width="2"/>'});
+  $('evmChart').innerHTML=g;
+  function k(lbl,val,good){return '<div class="kpi'+(good===null?'':(good?' good':' bad'))+'"><small>'+lbl+'</small><b>'+val+'</b></div>'}
+  $('kpis').innerHTML=k('PV',money(PV),null)+k('EV',money(EV),null)+k('AC',money(AC),null)+k('EAC',money(EAC),EAC<=bac)+
+    k('SV',(SV>=0?'+':'')+money(SV),SV>=0)+k('CV',(CV>=0?'+':'')+money(CV),CV>=0)+k('SPI',SPI.toFixed(2),SPI>=1)+k('CPI',CPI.toFixed(2),CPI>=1);
+  var sOk=SPI>=1, cOk=CPI>=1, v=$('verdict');
+  v.className='verdict '+(sOk&&cOk?'good':(!sOk&&!cOk?'bad':'mix'));
+  v.textContent=sOk&&cOk?t('vGood'):(!sOk&&!cOk?t('vBad'):(!sOk?t('vLate'):t('vOver')));
+}
+function renderGloss(){$('gloss').innerHTML=t('gl').map(function(g){return '<div class="panel"><h3 class="mono" style="font-size:.95rem;color:var(--accent)">'+esc(g[0])+'</h3><p>'+esc(g[1])+'</p></div>'}).join('')}
+S.init({T:T,title:{en:'EVM lab',ar:'معمل EVM'},render:function(){renderPresets();renderEVM();renderGloss()}});
+})();
+</script>
+</body>
+</html>
