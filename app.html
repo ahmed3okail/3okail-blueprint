@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=13">
+<link rel="stylesheet" href="assets/site.css?v=14">
 </head>
 <body data-page="app">
 
@@ -33,7 +33,7 @@
 
 <main>
   <div class="subhero"><div class="wrap">
-    <a class="crumb" href="index.html" data-i="home"></a>
+    <a class="crumb" href="index.html#labs" data-i="back"></a>
     <div class="app-kicker"><span class="chip" data-i="kick"></span><span class="chip">PWA</span><span class="chip">Supabase</span><span class="chip">Realtime</span></div>
     <h1>DME Progress Tracker</h1><p data-i="pP"></p>
   </div></div>
@@ -82,6 +82,8 @@
     <div class="wrap">
       <div class="sheet reveal"><div><div class="no">04 / STACK</div><h2 data-i="stT"></h2></div><p data-i="stP"></p></div>
       <div class="svc" id="stk"></div>
+      <h3 class="more-t" data-i="moreT"></h3>
+      <div class="nextlinks" style="margin-top:10px"><a class="btn btn-line" href="evm.html" data-i="goEvm"></a><a class="btn btn-line" href="delay.html" data-i="goDelay"></a></div>
       <div class="nextlinks"><a class="btn btn-primary" href="index.html#contact" data-i="goContact"></a><a class="btn btn-line" href="articles.html" data-i="goArt"></a></div>
     </div>
   </section>
@@ -91,13 +93,13 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span>END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=13"></script>
+<script src="assets/site.js?v=14"></script>
 <script>
 (function(){
 "use strict";
 var S=window.Site, $=S.$, esc=S.esc, t=S.t;
 var T={
-en:{kick:'Featured project', pP:'A progress tracking system I designed and built for construction sites. Site engineers update progress from their phones, the construction manager reviews it, and planning approves it. Management gets weighted progress, dashboards and weekly reports from one source.',
+en:{kick:'Developed by me', pP:'A progress tracking system I designed and built for construction sites. Site engineers update progress from their phones, the construction manager reviews it, and planning approves it. Management gets weighted progress, dashboards and weekly reports from one source.',
  note:'All screenshots use the built-in demo data: a fictional "Project X". No real project data is shown.',
  k1:'User roles', k2:'Activities from a P6 schedule', k3:'Approval steps', k4:'Languages (EN / AR)',
  probT:'Why I built it', prob1:'Site progress used to reach planning through scattered Excel sheets, photos and messages. Numbers arrived late, came in different formats, and nobody could tell which figure was the approved one.',
@@ -109,8 +111,8 @@ en:{kick:'Featured project', pP:'A progress tracking system I designed and built
  gal:[['dash','Project dashboard'],['bldg','Buildings: floors and trades'],['review','Planning review queue'],['report','Weekly report builder'],['mobile','Site engineer on mobile']],
  stT:'How it is built', stP:'Low-cost, secure, and easy to maintain.',
  stk:[['Frontend','A single-page web app, installable on phones, bilingual with full RTL support.'],['Supabase','PostgreSQL, sign-in, photo storage and live sync between users.'],['Rules in the database','Workflow and permissions are enforced by database triggers and row-level security, not just the screen.'],['Audit trail','Every change keeps its history: original values, reviewer notes and an audit log.']],
- goContact:'Want a tool like this? Contact me', goArt:'Read my articles →'},
-ar:{kick:'مشروع مميز', pP:'نظام متابعة تقدم صمّمته وبنيته لمواقع الإنشاءات. مهندس الموقع يحدّث التقدم من موبايله، ومدير الإنشاءات يراجعه، والتخطيط يعتمده. والإدارة بتشوف التقدم الموزون ولوحات المتابعة والتقارير الأسبوعية من مصدر واحد.',
+ back:'← Tools I have developed', moreT:'More tools I built', goEvm:'Earned value lab →', goDelay:'Delay analysis lab →', goContact:'Want a tool like this? Contact me', goArt:'Read my articles →'},
+ar:{kick:'من تطويري', pP:'نظام متابعة تقدم صمّمته وبنيته لمواقع الإنشاءات. مهندس الموقع يحدّث التقدم من موبايله، ومدير الإنشاءات يراجعه، والتخطيط يعتمده. والإدارة بتشوف التقدم الموزون ولوحات المتابعة والتقارير الأسبوعية من مصدر واحد.',
  note:'كل اللقطات من البيانات التجريبية الموجودة في التطبيق: مشروع وهمي اسمه "Project X". مفيش أي بيانات مشروع حقيقي.',
  k1:'أدوار مستخدمين', k2:'نشاط من برنامج P6', k3:'خطوات اعتماد', k4:'لغات (عربي / إنجليزي)',
  probT:'ليه عملته', prob1:'تقدم الموقع كان بيوصل للتخطيط من ملفات Excel متفرقة وصور ورسائل. الأرقام بتوصل متأخر، وبأشكال مختلفة، ومحدش يعرف أنهي رقم هو المعتمد.',
@@ -122,7 +124,7 @@ ar:{kick:'مشروع مميز', pP:'نظام متابعة تقدم صمّمته 
  gal:[['dash','لوحة متابعة المشروع'],['bldg','المباني: الأدوار والتخصصات'],['review','قائمة مراجعة التخطيط'],['report','إعداد التقرير الأسبوعي'],['mobile','مهندس الموقع على الموبايل']],
  stT:'اتبنى إزاي', stP:'تكلفة قليلة، وآمن، وسهل في الصيانة.',
  stk:[['الواجهة','تطبيق ويب بصفحة واحدة، بيتثبت على الموبايل، وبلغتين مع دعم كامل للعربي.'],['Supabase','قاعدة بيانات PostgreSQL، وتسجيل دخول، وتخزين الصور، ومزامنة لحظية بين المستخدمين.'],['القواعد جوه قاعدة البيانات','خطوات الاعتماد والصلاحيات متطبقة في قاعدة البيانات نفسها مش في الشاشة بس.'],['سجل كامل','كل تعديل محفوظ تاريخه: القيم الأصلية، وملاحظات المراجع، وسجل تدقيق.']],
- goContact:'عايز أداة زي دي؟ تواصل معي', goArt:'← اقرأ مقالاتي'}};
+ back:'→ أدوات طورتها', moreT:'أدوات تانية طورتها', goEvm:'← معمل القيمة المكتسبة', goDelay:'← معمل تحليل التأخير', goContact:'عايز أداة زي دي؟ تواصل معي', goArt:'← اقرأ مقالاتي'}};
 function cards(id,arr){$(id).innerHTML=arr.map(function(m,i){return '<div class="panel reveal in"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
 function render(){
   $('flow').innerHTML=t('flow').map(function(f,i){return '<li><b>'+(i+1)+'</b><div><h4>'+esc(f[0])+'</h4><p>'+esc(f[1])+'</p></div></li>'}).join('');

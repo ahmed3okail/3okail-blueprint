@@ -440,3 +440,4 @@ nav.links a.cur{color:var(--ink);background:var(--surface-2)}
 .art-next small{display:block;color:var(--muted);font:600 .75rem var(--mono);text-transform:uppercase;letter-spacing:.06em}
 :root[lang="ar"] .art-next small{font-family:var(--font);text-transform:none;letter-spacing:0}
 .art-next b{font-size:1.05rem}
+.more-t{margin:34px 0 0;font-size:1.1rem}
