@@ -10,6 +10,8 @@ A static, bilingual (English / Arabic RTL) site with light/dark mode. No build s
 | `career.html` | Career as a Gantt chart, skills as a WBS, training log |
 | `evm.html` | Earned value lab: sliders drive an S-curve, SPI/CPI/EAC |
 | `delay.html` | Delay analysis lab: insert a delay, see the critical path and EOT entitlement |
+| `app.html` | DME Progress Tracker: the progress tracking app, with screenshots from its demo data |
+| `articles.html`, `article-*.html` | Articles (EN/AR): Time Impact Analysis, SPI/CPI, BOQ to tender schedule |
 
 Shared styles and behaviour live in `assets/site.css` and `assets/site.js`.
 

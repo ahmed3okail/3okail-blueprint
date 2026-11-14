@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="DME Progress Tracker: a construction progress tracking app built by Ahmed AbuOkail. P6 import, mobile updates, approval workflow, dashboards and weekly reports.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=12">
+</head>
+<body data-page="app">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html" data-i="home"></a>
+    <div class="app-kicker"><span class="chip" data-i="kick"></span><span class="chip">PWA</span><span class="chip">Supabase</span><span class="chip">Realtime</span></div>
+    <h1>DME Progress Tracker</h1><p data-i="pP"></p>
+  </div></div>
+
+  <section id="shot">
+    <div class="wrap">
+      <figure class="app-hero reveal">
+        <div class="frame"><span></span><span></span><span></span></div>
+        <img src="assets/app/dash.jpg" alt="Project dashboard" loading="eager" width="1600" height="1000">
+      </figure>
+      <p class="hint app-note" data-i="note"></p>
+      <div class="counters reveal">
+        <div class="counter"><b class="count" data-to="5">0</b><span data-i="k1"></span></div>
+        <div class="counter"><b><span class="count" data-to="1700">0</span>+</b><span data-i="k2"></span></div>
+        <div class="counter"><b class="count" data-to="3">0</b><span data-i="k3"></span></div>
+        <div class="counter"><b class="count" data-to="2">0</b><span data-i="k4"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">01 / PROBLEM</div><h2 data-i="probT"></h2></div></div>
+      <div class="about">
+        <div class="panel reveal"><p data-i="prob1"></p><p data-i="prob2"></p></div>
+        <div class="panel reveal flow-panel"><h3 data-i="flowT"></h3><ol class="flow" id="flow"></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="feat">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">02 / FEATURES</div><h2 data-i="featT"></h2></div><p data-i="featP"></p></div>
+      <div class="svc" id="feats"></div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">03 / SCREENS</div><h2 data-i="scrT"></h2></div><p data-i="scrP"></p></div>
+      <div class="gallery" id="gal"></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">04 / STACK</div><h2 data-i="stT"></h2></div><p data-i="stP"></p></div>
+      <div class="svc" id="stk"></div>
+      <div class="nextlinks"><a class="btn btn-primary" href="index.html#contact" data-i="goContact"></a><a class="btn btn-line" href="articles.html" data-i="goArt"></a></div>
+    </div>
+  </section>
+
+<div class="lightbox" id="lb" hidden><button class="icon-btn" id="lbX" type="button" aria-label="Close">✕</button><img id="lbImg" alt=""></div>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js?v=12"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{kick:'Featured project', pP:'A progress tracking system I designed and built for construction sites. Site engineers update progress from their phones, the construction manager reviews it, and planning approves it. Management gets weighted progress, dashboards and weekly reports from one source.',
+ note:'All screenshots use the built-in demo data: a fictional "Project X". No real project data is shown.',
+ k1:'User roles', k2:'Activities from a P6 schedule', k3:'Approval steps', k4:'Languages (EN / AR)',
+ probT:'Why I built it', prob1:'Site progress used to reach planning through scattered Excel sheets, photos and messages. Numbers arrived late, came in different formats, and nobody could tell which figure was the approved one.',
+ prob2:'I wanted one place where every update is traceable: who entered it, who reviewed it, and when it became official. Only approved updates count toward actual progress.',
+ flowT:'Approval workflow', flow:[['Site engineer','Updates % and quantity, adds photos, delay reason and remaining days.'],['Construction manager','Reviews, adjusts with a note, or returns it.'],['Planning','Approves. The update becomes official progress and can no longer be edited.']],
+ featT:'What it does', featP:'Built around how a planning team actually works.',
+ feats:[['P6 import','Activities, WBS, planned dates and weights imported from a Primavera P6 export (CSV).'],['Mobile updates','Installable app (PWA) for site engineers, with photos and an offline queue.'],['Dashboard','Planned vs actual, SPI, forecast finish, S-curve, top 5 risks and delays by responsibility.'],['Buildings view','A drawing of each building, filled floor by floor with actual progress per trade.'],['Weekly report','One-click A4 PDF for the consultant or for internal use, in English or Arabic.'],['Team workflow','Roles and permissions, push notifications, weekly cut-off reminders and team chat.']],
+ scrT:'Screens', scrP:'Click any screen to enlarge it.',
+ gal:[['dash','Project dashboard'],['bldg','Buildings: floors and trades'],['review','Planning review queue'],['report','Weekly report builder'],['mobile','Site engineer on mobile']],
+ stT:'How it is built', stP:'Low-cost, secure, and easy to maintain.',
+ stk:[['Frontend','A single-page web app, installable on phones, bilingual with full RTL support.'],['Supabase','PostgreSQL, sign-in, photo storage and live sync between users.'],['Rules in the database','Workflow and permissions are enforced by database triggers and row-level security, not just the screen.'],['Audit trail','Every change keeps its history: original values, reviewer notes and an audit log.']],
+ goContact:'Want a tool like this? Contact me', goArt:'Read my articles →'},
+ar:{kick:'مشروع مميز', pP:'نظام متابعة تقدم صمّمته وبنيته لمواقع الإنشاءات. مهندس الموقع يحدّث التقدم من موبايله، ومدير الإنشاءات يراجعه، والتخطيط يعتمده. والإدارة بتشوف التقدم الموزون ولوحات المتابعة والتقارير الأسبوعية من مصدر واحد.',
+ note:'كل اللقطات من البيانات التجريبية الموجودة في التطبيق: مشروع وهمي اسمه "Project X". مفيش أي بيانات مشروع حقيقي.',
+ k1:'أدوار مستخدمين', k2:'نشاط من برنامج P6', k3:'خطوات اعتماد', k4:'لغات (عربي / إنجليزي)',
+ probT:'ليه عملته', prob1:'تقدم الموقع كان بيوصل للتخطيط من ملفات Excel متفرقة وصور ورسائل. الأرقام بتوصل متأخر، وبأشكال مختلفة، ومحدش يعرف أنهي رقم هو المعتمد.',
+ prob2:'كنت عايز مكان واحد كل تحديث فيه واضح: مين دخّله، ومين راجعه، وإمتى بقى رسمي. والتحديثات المعتمدة بس هي اللي بتتحسب في التقدم الفعلي.',
+ flowT:'خطوات الاعتماد', flow:[['مهندس الموقع','يحدّث النسبة والكمية، ويضيف صور وسبب التأخير والمدة المتبقية.'],['مدير الإنشاءات','يراجع، أو يعدّل مع ملاحظة، أو يرجّع التحديث.'],['التخطيط','يعتمد. التحديث يبقى تقدم رسمي وما ينفعش يتعدل بعد كده.']],
+ featT:'بيعمل إيه', featP:'مبني على طريقة شغل فريق التخطيط الحقيقية.',
+ feats:[['استيراد من P6','الأنشطة وهيكل WBS والتواريخ المخططة والأوزان بتتسحب من ملف مُصدَّر من Primavera P6 (CSV).'],['تحديث من الموبايل','تطبيق بيتثبت على الموبايل (PWA) لمهندسي الموقع، مع الصور وحفظ التحديثات من غير نت.'],['لوحة المتابعة','المخطط مقابل الفعلي، وSPI، وتاريخ الإنهاء المتوقع، ومنحنى S، وأعلى 5 مخاطر، والتأخيرات حسب المسؤول.'],['شاشة المباني','رسمة لكل مبنى بتتملى دور بدور بالتقدم الفعلي لكل تخصص.'],['التقرير الأسبوعي','PDF مقاس A4 بضغطة واحدة، للاستشاري أو للاستخدام الداخلي، بالعربي أو الإنجليزي.'],['شغل الفريق','أدوار وصلاحيات، وإشعارات على الموبايل، وتذكير بموعد التحديث الأسبوعي، وشات للفريق.']],
+ scrT:'الشاشات', scrP:'دوس على أي شاشة علشان تكبّرها.',
+ gal:[['dash','لوحة متابعة المشروع'],['bldg','المباني: الأدوار والتخصصات'],['review','قائمة مراجعة التخطيط'],['report','إعداد التقرير الأسبوعي'],['mobile','مهندس الموقع على الموبايل']],
+ stT:'اتبنى إزاي', stP:'تكلفة قليلة، وآمن، وسهل في الصيانة.',
+ stk:[['الواجهة','تطبيق ويب بصفحة واحدة، بيتثبت على الموبايل، وبلغتين مع دعم كامل للعربي.'],['Supabase','قاعدة بيانات PostgreSQL، وتسجيل دخول، وتخزين الصور، ومزامنة لحظية بين المستخدمين.'],['القواعد جوه قاعدة البيانات','خطوات الاعتماد والصلاحيات متطبقة في قاعدة البيانات نفسها مش في الشاشة بس.'],['سجل كامل','كل تعديل محفوظ تاريخه: القيم الأصلية، وملاحظات المراجع، وسجل تدقيق.']],
+ goContact:'عايز أداة زي دي؟ تواصل معي', goArt:'← اقرأ مقالاتي'}};
+function cards(id,arr){$(id).innerHTML=arr.map(function(m,i){return '<div class="panel reveal in"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
+function render(){
+  $('flow').innerHTML=t('flow').map(function(f,i){return '<li><b>'+(i+1)+'</b><div><h4>'+esc(f[0])+'</h4><p>'+esc(f[1])+'</p></div></li>'}).join('');
+  cards('feats',t('feats')); cards('stk',t('stk'));
+  $('gal').innerHTML=t('gal').map(function(g,i){return '<button type="button" class="shot'+(g[0]==='mobile'?' tall':'')+'" data-src="assets/app/'+g[0]+'.jpg"><img src="assets/app/'+g[0]+'.jpg" alt="'+esc(g[1])+'" loading="lazy"><span>'+esc(g[1])+'</span></button>'}).join('');
+}
+$('gal').addEventListener('click',function(e){var b=e.target.closest('[data-src]');if(!b)return;$('lbImg').src=b.getAttribute('data-src');$('lbImg').alt=b.querySelector('img').alt;$('lb').hidden=false;document.body.style.overflow='hidden'});
+function closeLb(){$('lb').hidden=true;document.body.style.overflow=''}
+$('lb').addEventListener('click',function(e){if(e.target.id!=='lbImg')closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('lb').hidden)closeLb()});
+S.init({T:T,title:{en:'DME Progress Tracker',ar:'تطبيق متابعة التقدم'},render:render});
+})();
+</script>
+</body>
+</html>

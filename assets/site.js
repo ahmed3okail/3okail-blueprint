@@ -7,10 +7,10 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 function $(id){return document.getElementById(id)}
 
 var C={
- en:{coT:'Companies I have worked with',toolT:'Tools I use',langBtn:'العربية',nav:['Home','Career','EVM lab','Delay lab','Contact'],fullName:'Ahmed Abd El-Basset AbuOkail',titleSfx:'Ahmed AbuOkail',home:'← Home'},
- ar:{coT:'شركات عملت بها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','معمل EVM','معمل التأخير','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
+ en:{coT:'Companies I have worked with',toolT:'Tools I use',langBtn:'العربية',nav:['Home','Career','App','Labs','Articles','Contact'],fullName:'Ahmed Abd El-Basset AbuOkail',titleSfx:'Ahmed AbuOkail',home:'← Home'},
+ ar:{coT:'شركات عملت بها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','التطبيق','المعامل','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
 };
-var NAV=[['index.html','home'],['career.html','career'],['evm.html','evm'],['delay.html','delay'],['index.html#contact','contact']];
+var NAV=[['index.html','home'],['career.html','career'],['app.html','app'],['evm.html','evm delay'],['articles.html','articles'],['index.html#contact','contact']];
 var page=null, lang='en';
 
 var TOOLS=[['p6','Primavera P6'],['excel','Excel'],['powerbi','Power BI'],['autocad','AutoCAD'],['word','Word'],['powerpoint','PowerPoint'],['ai',{en:'AI tools',ar:'أدوات AI'}]];
@@ -42,7 +42,7 @@ var Site={
    document.querySelectorAll('[data-h]').forEach(function(el){el.innerHTML=t(el.getAttribute('data-h'))});
    $('langBtn').textContent=t('langBtn');
    var cur=document.body.getAttribute('data-page');
-   $('nav').innerHTML=NAV.map(function(n,i){return '<a href="'+n[0]+'"'+(n[1]===cur?' class="cur" aria-current="page"':'')+'><span class="n">0'+(i+1)+'</span>'+esc(t('nav')[i])+'</a>'}).join('');
+   $('nav').innerHTML=NAV.map(function(n,i){return '<a href="'+n[0]+'"'+(n[1].split(' ').indexOf(cur)>=0?' class="cur" aria-current="page"':'')+'><span class="n">0'+(i+1)+'</span>'+esc(t('nav')[i])+'</a>'}).join('');
    Site.brands();
    if(page.render)page.render(l);
  },
