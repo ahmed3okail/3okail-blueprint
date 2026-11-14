@@ -16,12 +16,12 @@ var page=null, lang='en';
 var TOOLS=[['p6','Primavera P6'],['excel','Excel'],['powerbi','Power BI'],['autocad','AutoCAD'],['word','Word'],['powerpoint','PowerPoint'],['ai',{en:'AI tools',ar:'أدوات AI'}]];
 var COS=[{id:'dmc',n:'DMC-CURVE',m:'DMC'},{id:'eco',n:'Ecologi',m:'EC'},{id:'tab',n:{en:'Tabarak',ar:'تبارك'},m:'TB'},{id:'acc',n:{en:'Alexandria Construction · TMG',ar:'الإسكندرية للإنشاءات · TMG'},m:'TMG'}];
 /* company ids that have a real logo file at assets/logos/<id>.png; others show a monogram */
-var LOGOS={};
+var LOGOS={dmc:1,eco:1,tab:1,acc:1};
 function tr(v){return typeof v==='string'?v:(v[lang]||v.en)}
 var Site={
  esc:esc, $:$, store:store,
  coLogo:function(id,cls){var c=COS.filter(function(x){return x.id===id})[0];if(!c)return '';
-   return '<span class="co-logo'+(cls?' '+cls:'')+'">'+(LOGOS[id]?'<img src="assets/logos/'+id+'.png" alt="'+esc(tr(c.n))+'">':'<b>'+c.m+'</b>')+'</span>'},
+   return '<span class="co-logo'+(LOGOS[id]?' img':'')+(cls?' '+cls:'')+'">'+(LOGOS[id]?'<img src="assets/logos/'+id+'.png" alt="'+esc(tr(c.n))+'">':'<b>'+c.m+'</b>')+'</span>'},
  toolIcon:function(id){return '<img class="tool-ic" src="assets/tools/'+id+'.svg" alt="" width="22" height="22">'},
  brands:function(){
    var co=$('coRow'),tl=$('toolRow');
