@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="3okail Blueprint: Ahmed AbuOkail, Planning & Project Control Engineer in Cairo. Primavera P6 scheduling, EVM, delay analysis and EOT claims.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="career">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html" data-i="home"></a>
+    <h1 data-i="pT"></h1><p data-i="pP"></p>
+  </div></div>
+
+  <section id="career">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">A-02 / SCHEDULE</div><h2 data-i="careerT"></h2></div><p data-i="careerP"></p></div>
+      <div class="panel gantt reveal">
+        <div class="g-scroll"><div class="g-inner" id="gantt"></div></div>
+        <div id="gDetail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">A-03 / WBS</div><h2 data-i="skillsT"></h2></div><p data-i="skillsP"></p></div>
+      <div class="panel wbs reveal" id="wbs"></div>
+    </div>
+  </section>
+
+  <section id="training">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">A-06 / TRAINING</div><h2 data-i="trainT"></h2></div><p data-i="trainP"></p></div>
+      <div class="panel train reveal" id="train"></div>
+      <div class="nextlinks"><a class="btn btn-primary" href="evm.html" data-i="goEvm"></a><a class="btn btn-line" href="index.html#contact" data-i="goContact"></a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{pT:'Career', pP:'My career as a baseline schedule, my skills as a WBS, and my training log.',
+ careerT:'Career schedule', careerP:'Click any bar or milestone to open the work package.',
+ activity:'ACTIVITY', today:'TODAY', present:'Present', months:'months', projects:'Projects', msRow:'Training milestones', msSub:'Dated certifications',
+ skillsT:'Skills WBS', skillsP:'My skills broken down like a work breakdown structure. Pick a package to drill in.', wbsRoot:'Ahmed AbuOkail · Planning Eng.',
+ trainT:'Training log', trainP:'203 hours of structured training, from structural design to claims.',
+ tr:[['Structural Design Diploma','Villas, high-rise buildings, tanks, halls',74],['Excel & Power BI Workshop','Data analysis, dashboard design, reporting automation',42],['Cost Control Workshop','EVM, budget tracking, cost variance, ERP · HA Management & Training, Sep 2025',30],['Professional Planning Engineer','Planning principles, Excel integration, Primavera',24],['Planning, Scheduling & Reporting with Primavera P6','Baseline preparation, updating and analysis',23],['Delay Analysis, EOT Claims & FIDIC','Delay methodologies, claims templates · Planning FORCE, Jul 2025',10]],
+ hrs:'h', langsT:'Arabic: native · English: professional working proficiency',
+ goEvm:'Try the EVM lab →', goContact:'Contact me'},
+ar:{pT:'المسيرة', pP:'مسيرتي كبرنامج زمني، ومهاراتي كهيكل تجزئة عمل، وسجل التدريب.',
+ careerT:'البرنامج الزمني للمسيرة', careerP:'اضغط على أي نشاط أو معلم لترى تفاصيله.',
+ activity:'النشاط', today:'TODAY', present:'الآن', months:'شهر', projects:'المشروعات', msRow:'معالم التدريب', msSub:'شهادات مؤرخة',
+ skillsT:'هيكل المهارات WBS', skillsP:'مهاراتي مقسّمة كهيكل تجزئة العمل. اختر حزمة لترى تفاصيلها.', wbsRoot:'أحمد أبوعقيل · مهندس تخطيط',
+ trainT:'سجل التدريب', trainP:'203 ساعة تدريب منظم، من التصميم الإنشائي إلى المطالبات.',
+ tr:[['دبلومة التصميم الإنشائي','الفيلات، والأبراج، والخزانات، والصالات',74],['ورشة Excel و Power BI','تحليل البيانات، وتصميم لوحات المتابعة، وأتمتة التقارير',42],['ورشة مراقبة التكاليف','القيمة المكتسبة، ومتابعة الميزانية، وانحراف التكلفة، وERP · HA Management & Training، سبتمبر 2025',30],['مهندس التخطيط المحترف','مبادئ التخطيط، والتكامل مع Excel، وPrimavera',24],['التخطيط والجدولة والتقارير على Primavera P6','إعداد البرنامج الأساسي وتحديثه وتحليله',23],['تحليل التأخير ومطالبات تمديد المدة و FIDIC','منهجيات التأخير ونماذج المطالبات · Planning FORCE، يوليو 2025',10]],
+ hrs:' س', langsT:'العربية: اللغة الأم · الإنجليزية: مستوى مهني',
+ goEvm:'← جرّب معمل EVM', goContact:'تواصل معي'}};
+
+var career=[
+ {id:'edu',kind:'edu',s:[2017,9],e:[2022,6],code:'B.Sc.',
+  title:{en:'B.Sc. Civil Engineering',ar:'بكالوريوس الهندسة المدنية'},org:{en:'Sohag University',ar:'جامعة سوهاج'},short:{en:'Sohag University',ar:'جامعة سوهاج'},
+  pts:{en:['Bachelor of Science in Civil Engineering.','Member, ICE Sohag Student Chapter.'],ar:['بكالوريوس العلوم في الهندسة المدنية.','عضو فرع طلاب ICE بسوهاج.']}},
+ {id:'acc',s:[2022,9],e:[2023,12],code:'TO',
+  title:{en:'Technical Office Engineer',ar:'مهندس مكتب فني'},org:{en:'Alexandria Construction Co. (Talaat Moustafa Group)',ar:'شركة الإسكندرية للإنشاءات (مجموعة طلعت مصطفى)'},short:{en:'Alexandria Construction',ar:'الإسكندرية للإنشاءات'},proj:['The Central Park'],
+  pts:{en:['Prepared shop drawings and quantity surveys for subcontractor invoices.','Issued RFIs and managed material submittals for compliance with specifications.','Prepared daily, weekly and monthly progress reports and coordinated between trades.'],
+       ar:['إعداد الرسومات التنفيذية وحصر الكميات لمستخلصات مقاولي الباطن.','إصدار طلبات الاستيضاح (RFIs) وإدارة اعتمادات المواد وفق المواصفات.','إعداد تقارير التقدم اليومية والأسبوعية والشهرية والتنسيق بين التخصصات.']}},
+ {id:'tab',s:[2023,12],e:[2024,11],code:'PL',
+  title:{en:'Planning Engineer',ar:'مهندس تخطيط'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},short:{en:'Tabarak',ar:'تبارك'},
+  pts:{en:['Developed and updated detailed Primavera P6 schedules and tracked the critical path.','Prepared and presented weekly and monthly progress reports to management.','Ran earned value (EVM) analysis to measure project performance.','Supported delay analysis and EOT claims; coordinated multidisciplinary teams to resolve issues.'],
+       ar:['إعداد وتحديث برامج زمنية تفصيلية على Primavera P6 ومتابعة المسار الحرج.','إعداد وعرض تقارير التقدم الأسبوعية والشهرية على الإدارة.','إجراء تحليل القيمة المكتسبة (EVM) لقياس أداء المشروع.','دعم تحليل التأخير ومطالبات تمديد المدة، والتنسيق مع الفرق متعددة التخصصات.']}},
+ {id:'eco',s:[2024,11],e:[2026,4],code:'PC',
+  title:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},org:{en:'Ecologi, Cairo',ar:'Ecologi، القاهرة'},short:{en:'Ecologi',ar:'Ecologi'},proj:['Sarai Club House','Taj Ville Mall'],
+  pts:{en:['Built, maintained and updated baselines and schedules in Primavera P6.','Weekly and monthly progress reports for management review.','Analyzed delays and prepared EOT claims supported by site records.','Reviewed purchase orders against the budget and approved BOQ.','Monitored petty cash, manpower and equipment sheets against cost codes.','Periodic cost reports: budget, actuals, variances and forecasts.'],
+       ar:['إعداد وتحديث البرامج الأساسية والبرامج الزمنية على Primavera P6.','تقارير تقدم أسبوعية وشهرية لمراجعة الإدارة.','تحليل التأخيرات وإعداد مطالبات تمديد المدة مدعومة بسجلات الموقع.','مراجعة أوامر الشراء مقابل الميزانية وجدول الكميات المعتمد.','متابعة العُهد وكشوف العمالة والمعدات مقابل أكواد التكلفة.','تقارير تكلفة دورية: الميزانية، والفعلي، والانحرافات، والتوقعات.']}},
+ {id:'dmc',s:[2026,4],e:null,code:'PL',now:true,
+  title:{en:'Planning Engineer',ar:'مهندس تخطيط'},org:{en:'DMC-CURVE (Head Office), Cairo',ar:'DMC-CURVE (المكتب الرئيسي)، القاهرة'},short:{en:'DMC-CURVE',ar:'DMC-CURVE'},
+  pts:{en:['Baseline schedules in Primavera P6 for multiple projects across tender and execution.','Tender schedules from BOQs, milestones and drawings: WBS, logic, resources, cost loading, S-curves.','Annual Operating Plan (AOP): progress targets, milestones and KPIs.','Monthly reports and management dashboards; SPI and cash-flow analysis.','Recovery plans and mitigation for delayed activities.','In-house digital tools that automate progress tracking and reporting.','Training trainees and junior planning engineers.'],
+       ar:['برامج أساسية على Primavera P6 لعدة مشروعات في مرحلتي المناقصة والتنفيذ.','جداول مناقصات من جداول الكميات والمعالم والرسومات: WBS، والعلاقات، والموارد، وتحميل التكاليف، ومنحنيات S.','خطة التشغيل السنوية (AOP): مستهدفات التقدم والمعالم ومؤشرات الأداء.','تقارير شهرية ولوحات متابعة للإدارة؛ تحليل SPI والتدفق النقدي.','خطط استدراك وإجراءات تصحيحية للأنشطة المتأخرة.','أدوات رقمية داخلية تُؤتمت متابعة التقدم والتقارير.','تدريب المتدربين ومهندسي التخطيط الجدد.']}}
+];
+var milestones=[
+ {id:'m1',d:[2025,7],title:{en:'Delay Analysis, EOT Claims & FIDIC',ar:'تحليل التأخير ومطالبات تمديد المدة و FIDIC'},org:{en:'Planning FORCE · 10 hrs',ar:'Planning FORCE · 10 ساعات'},pts:{en:['Delay methodologies and claims templates.'],ar:['منهجيات تحليل التأخير ونماذج المطالبات.']}},
+ {id:'m2',d:[2025,9],title:{en:'Cost Control Workshop',ar:'ورشة مراقبة التكاليف'},org:{en:'HA Management & Training · 30 hrs',ar:'HA Management & Training · 30 ساعة'},pts:{en:['EVM, budget tracking, cost variance, ERP overview.'],ar:['القيمة المكتسبة، ومتابعة الميزانية، وانحراف التكلفة، ومقدمة ERP.']}}
+];
+var G0=[2017,7], GN=114, now=new Date(), NOW=[now.getFullYear(),now.getMonth()+1];
+if(NOW[0]<2026||(NOW[0]===2026&&NOW[1]<11))NOW=[2026,11];
+if(NOW[0]>=2027)NOW=[2026,12];
+function mIdx(d){return (d[0]-G0[0])*12+(d[1]-G0[1])}
+function pct(d){return (mIdx(d)/GN*100).toFixed(3)+'%'}
+var MON={en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],ar:['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']};
+function fmtD(d){return d?MON[S.lang][d[1]-1]+' '+d[0]:t('present')}
+var gSel='dmc';
+function vlines(){var s='';for(var y=2018;y<=2026;y++)s+='<span class="g-vline" style="left:'+pct([y,1])+'"></span>';return s}
+function renderGantt(){
+  var L=S.lang, h='<div class="g-row g-axis"><div class="g-label hint">'+t('activity')+'</div><div class="g-track">';
+  for(var y=2018;y<=2026;y++)h+='<span class="g-year" style="left:'+pct([y,1])+'">'+y+'</span>';
+  h+='</div></div>';
+  career.forEach(function(c){
+    var w=(mIdx(c.e||NOW)-mIdx(c.s))/GN*100;
+    h+='<div class="g-row"><div class="g-label">'+esc(c.title[L])+'<small>'+esc(c.short[L])+'</small></div><div class="g-track">'+vlines()+
+      (c.now?'<span class="g-today" style="left:'+pct(NOW)+'"><span>'+t('today')+'</span></span>':'')+
+      '<button type="button" class="g-bar '+(c.kind||'')+(c.now?' now':'')+(gSel===c.id?' sel':'')+'" data-g="'+c.id+'" style="left:'+pct(c.s)+';width:'+w.toFixed(3)+'%" aria-label="'+esc(c.title[L])+'">'+c.code+'</button></div></div>';
+  });
+  h+='<div class="g-row"><div class="g-label">'+t('msRow')+'<small>'+t('msSub')+'</small></div><div class="g-track">'+vlines();
+  milestones.forEach(function(m){h+='<button type="button" class="g-ms'+(gSel===m.id?' sel':'')+'" data-g="'+m.id+'" style="left:'+pct(m.d)+'" aria-label="'+esc(m.title[L])+'"></button>'});
+  $('gantt').innerHTML=h+'</div></div>';
+  var c=career.filter(function(x){return x.id===gSel})[0], m=milestones.filter(function(x){return x.id===gSel})[0], o=c||m, chips;
+  if(c)chips='<span class="chip">'+fmtD(c.s)+' – '+fmtD(c.e)+'</span><span class="chip">'+(mIdx(c.e||NOW)-mIdx(c.s))+' '+t('months')+'</span>';
+  else chips='<span class="chip">'+fmtD(m.d)+'</span>';
+  $('gDetail').innerHTML='<div class="g-detail"><div><h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
+    (c&&c.proj?'<p class="org" style="margin-top:10px"><b>'+t('projects')+':</b> '+esc(c.proj.join(' · '))+'</p>':'')+
+    '</div><ul>'+o.pts[L].map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></div>';
+}
+$('gantt').addEventListener('click',function(ev){var b=ev.target.closest('[data-g]');if(!b)return;gSel=b.getAttribute('data-g');renderGantt()});
+
+var wbs=[
+ {code:'1.0',n:{en:'Planning & Scheduling',ar:'التخطيط والجدولة'},items:{en:['Baselines','WBS','Logic & calendars','Resource & cost loading','Critical path','Schedule updates','Look-ahead schedules','Recovery schedules','Tender schedules from BOQs'],ar:['البرامج الأساسية','هيكل تجزئة العمل','العلاقات والتقويمات','تحميل الموارد والتكاليف','المسار الحرج','تحديث البرامج','البرامج قصيرة المدى','برامج الاستدراك','جداول المناقصات من BOQ']}},
+ {code:'2.0',n:{en:'Project Controls',ar:'مراقبة المشروعات'},items:{en:['Earned value (EVM)','CV / SV','SPI / CPI','AOP tracking','KPI tracking','Cash flow','Cost-to-complete forecasts','PO review vs BOQ'],ar:['القيمة المكتسبة EVM','انحراف التكلفة والجدول','SPI / CPI','متابعة AOP','مؤشرات الأداء KPI','التدفق النقدي','توقعات تكلفة الإنجاز','مراجعة أوامر الشراء مقابل BOQ']}},
+ {code:'3.0',n:{en:'Delay Analysis & Claims',ar:'تحليل التأخير والمطالبات'},items:{en:['Delay classification','Fragnets','Time Impact Analysis','Concurrent delay','EOT claims','FIDIC'],ar:['تصنيف التأخيرات','Fragnets','تحليل الأثر الزمني TIA','التأخير المتزامن','مطالبات تمديد المدة','عقود FIDIC']}},
+ {code:'4.0',n:{en:'Reporting',ar:'التقارير'},items:{en:['Weekly & monthly reports','Management dashboards','S-curves','Milestone reports','KPI reports'],ar:['تقارير أسبوعية وشهرية','لوحات متابعة للإدارة','منحنيات S','تقارير المعالم','تقارير مؤشرات الأداء']}},
+ {code:'5.0',n:{en:'Tools',ar:'الأدوات'},items:{en:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word & PowerPoint','AI tools & web apps'],ar:['Primavera P6','Microsoft Excel','Power BI','AutoCAD','Word و PowerPoint','أدوات الذكاء الاصطناعي وتطبيقات الويب']}}
+];
+var wSel=0;
+function renderWBS(){
+  var L=S.lang, s=wbs[wSel], h='<div class="wbs-root"><div class="wbs-node"><code>0.0</code>'+esc(t('wbsRoot'))+'</div></div><div class="wbs-stem"></div><div class="wbs-l1">';
+  wbs.forEach(function(w,i){h+='<div><button type="button" class="wbs-node'+(i===wSel?' sel':'')+'" data-w="'+i+'"><code>'+w.code+'</code>'+esc(w.n[L])+'</button></div>'});
+  h+='</div><div class="wbs-leaves"><h3><span class="mono" style="color:var(--accent)">'+s.code+'</span> '+esc(s.n[L])+'</h3><div class="leaf-grid">'+
+    s.items[L].map(function(it,j){return '<div class="leaf"><code>'+s.code.charAt(0)+'.'+(j+1)+'</code><span>'+esc(it)+'</span></div>'}).join('')+'</div></div>';
+  $('wbs').innerHTML=h;
+}
+$('wbs').addEventListener('click',function(ev){var b=ev.target.closest('[data-w]');if(!b)return;wSel=+b.getAttribute('data-w');renderWBS()});
+
+var trainSeen=false;
+function fillTrain(){document.querySelectorAll('#train .tr-bar span').forEach(function(s){s.style.width=s.getAttribute('data-w')+'%'})}
+function renderTrain(){
+  $('train').innerHTML=t('tr').map(function(r){return '<div class="tr-row"><div class="tr-name">'+esc(r[0])+'<small>'+esc(r[1])+'</small></div><div class="tr-bar"><span data-w="'+Math.max(r[2]/74*100,14).toFixed(1)+'">'+r[2]+t('hrs')+'</span></div></div>'}).join('')+
+    '<div class="langs"><span class="chip">'+esc(t('langsT'))+'</span></div>';
+  if(trainSeen)requestAnimationFrame(fillTrain);
+}
+S.init({T:T,title:{en:'Career',ar:'المسيرة'},render:function(){renderGantt();renderWBS();renderTrain()},onReveal:function(el){if(el.id==='train'){trainSeen=true;fillTrain()}}});
+})();
+</script>
+</body>
+</html>

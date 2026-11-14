@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="3okail Blueprint: Ahmed AbuOkail, Planning & Project Control Engineer in Cairo. Primavera P6 scheduling, EVM, delay analysis and EOT claims.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="delay">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html" data-i="home"></a>
+    <h1 data-i="tiaT"></h1><p data-i="tiaP"></p>
+  </div></div>
+
+  <section id="delay">
+    <div class="wrap">
+      <div class="lab reveal">
+        <div class="panel">
+          <div class="ctrl"><label for="tAct"><span data-i="inAct"></span></label><select id="tAct"></select></div>
+          <div class="ctrl"><label for="tDays"><span data-i="inDays"></span><output id="oDays"></output></label><input type="range" id="tDays" min="0" max="60" value="20"></div>
+          <div class="ctrl"><label><span data-i="inResp"></span></label><div class="seg" id="tResp"></div></div>
+          <p class="hint" data-i="tiaHint"></p>
+        </div>
+        <div class="panel">
+          <div class="t-scroll"><div id="tiaChart"></div></div>
+          <div class="result" id="tiaRes"></div>
+          <div class="verdict" id="tiaEnt"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="matrix" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">NOTES</div><h2 data-i="mT"></h2></div><p data-i="mP"></p></div>
+      <div class="svc" id="mx"></div>
+      <div class="nextlinks"><a class="btn btn-primary" href="index.html#contact" data-i="goContact"></a><a class="btn btn-line" href="evm.html" data-i="goEvm"></a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{tiaT:'Delay analysis lab', tiaP:'A mini Time Impact Analysis. Insert a delay event (fragnet) into the schedule and see whether it hits the critical path and what it entitles.',
+ inAct:'Delay event hits activity', inDays:'Delay duration', inResp:'Responsibility', days:'d',
+ resp:[['emp','Employer'],['neu','Neutral (force majeure)'],['con','Contractor']],
+ tiaHint:'Red bars are critical. Grey lines show float. The hatched block is the delay fragnet; the red line is the new finish.',
+ acts:{A:'Mobilization',B:'Excavation',C:'Foundations',D:'MEP rough-in',E:'Superstructure',F:'Finishes & handover'},
+ rOrig:'Original finish', rNew:'Impacted finish', rDelay:'Project delay',
+ eAbsorb:'Absorbed by float: the activity had {f} days of float, so the finish date doesn\'t move and no EOT is due.',
+ eEmp:'Excusable and compensable: the contractor is entitled to an EOT of {d} days plus prolongation costs.',
+ eNeu:'Excusable, non-compensable: an EOT of {d} days, with no additional cost.',
+ eCon:'Non-excusable: no EOT. The contractor must recover {d} days or face delay damages.',
+ eZero:'No delay event yet. Move the slider to test one.',
+ mT:'Who carries the delay?', mP:'The three outcomes the lab can give, in short.',
+ mx:[['Excusable · compensable','Caused by the employer (late drawings, variations, late access). Time and money.'],['Excusable · non-compensable','Caused by neutral events such as force majeure or exceptional weather. Time, no money.'],['Non-excusable','Caused by the contractor. No time, no money; delay damages may apply.']],
+ goContact:'Need a delay claim? Contact me', goEvm:'← EVM lab'},
+ar:{tiaT:'معمل تحليل التأخير', tiaP:'تحليل أثر زمني (TIA) مصغّر. أدخل حدث تأخير (Fragnet) في البرنامج وشوف هل يؤثر على المسار الحرج وإيه الاستحقاق.',
+ inAct:'النشاط المتأثر بالتأخير', inDays:'مدة التأخير', inResp:'المسؤولية', days:' يوم',
+ resp:[['emp','المالك'],['neu','محايد (قوة قاهرة)'],['con','المقاول']],
+ tiaHint:'الأشرطة الحمراء على المسار الحرج. الخطوط الرمادية هي الفائض الزمني. الكتلة المخططة هي حدث التأخير، والخط الأحمر هو تاريخ الإنهاء الجديد.',
+ acts:{A:'التجهيز والتعبئة',B:'الحفر',C:'الأساسات',D:'أعمال MEP الأولية',E:'الهيكل الخرساني',F:'التشطيبات والتسليم'},
+ rOrig:'الإنهاء الأصلي', rNew:'الإنهاء بعد الأثر', rDelay:'تأخير المشروع',
+ eAbsorb:'امتصه الفائض الزمني: النشاط كان عنده {f} يوم فائض، فتاريخ الإنهاء لا يتغير ولا يُستحق تمديد.',
+ eEmp:'تأخير مُعذَر وقابل للتعويض: يستحق المقاول تمديد مدة {d} يوم بالإضافة إلى تكاليف إطالة المدة.',
+ eNeu:'تأخير مُعذَر غير قابل للتعويض: تمديد مدة {d} يوم بدون تكاليف إضافية.',
+ eCon:'تأخير غير مُعذَر: لا تمديد. على المقاول استدراك {d} يوم أو تطبيق غرامات التأخير.',
+ eZero:'لا يوجد حدث تأخير بعد. حرّك المؤشر لتجربة حدث.',
+ mT:'مين يتحمل التأخير؟', mP:'النتائج الثلاثة اللي ممكن يطلعها المعمل، باختصار.',
+ mx:[['مُعذَر وقابل للتعويض','سببه المالك (تأخر الرسومات، أوامر التغيير، تأخر تسليم الموقع). وقت وفلوس.'],['مُعذَر غير قابل للتعويض','سببه أحداث محايدة زي القوة القاهرة أو الطقس الاستثنائي. وقت بدون فلوس.'],['غير مُعذَر','سببه المقاول. لا وقت ولا فلوس، وممكن تُطبّق غرامات التأخير.']],
+ goContact:'محتاج مطالبة تأخير؟ تواصل معي', goEvm:'معمل EVM →'}};
+
+var acts=[{id:'A',d:10,p:[]},{id:'B',d:20,p:['A']},{id:'C',d:25,p:['B']},{id:'D',d:30,p:['B']},{id:'E',d:40,p:['C']},{id:'F',d:30,p:['D','E']}];
+var tAct='D', tResp='emp';
+function cpm(extra){
+  var es={},ef={},ls={},lf={},tf={};
+  acts.forEach(function(a){es[a.id]=a.p.length?Math.max.apply(null,a.p.map(function(p){return ef[p]})):0;ef[a.id]=es[a.id]+a.d+(extra[a.id]||0)});
+  var end=Math.max.apply(null,acts.map(function(a){return ef[a.id]}));
+  acts.slice().reverse().forEach(function(a){var succ=acts.filter(function(s){return s.p.indexOf(a.id)>=0});lf[a.id]=succ.length?Math.min.apply(null,succ.map(function(s){return ls[s.id]})):end;ls[a.id]=lf[a.id]-a.d-(extra[a.id]||0)});
+  acts.forEach(function(a){tf[a.id]=ls[a.id]-es[a.id]});
+  return {es:es,ef:ef,tf:tf,end:end};
+}
+function renderTIAControls(){
+  $('tAct').innerHTML=acts.map(function(a){return '<option value="'+a.id+'"'+(a.id===tAct?' selected':'')+'>'+a.id+' · '+esc(t('acts')[a.id])+' ('+a.d+t('days')+')</option>'}).join('');
+  $('tResp').innerHTML=t('resp').map(function(r){return '<button type="button" data-r="'+r[0]+'" class="'+(tResp===r[0]?'on':'')+'">'+r[1]+'</button>'}).join('');
+}
+$('tAct').addEventListener('change',function(){tAct=this.value;renderTIA()});
+$('tDays').addEventListener('input',renderTIA);
+$('tResp').addEventListener('click',function(ev){var b=ev.target.closest('[data-r]');if(!b)return;tResp=b.getAttribute('data-r');renderTIAControls();renderTIA()});
+function renderTIA(){
+  var days=+$('tDays').value; $('oDays').textContent=days+t('days');
+  var base=cpm({}), ex={}; ex[tAct]=days; var imp=cpm(ex), SC=190;
+  function P(v){return (v/SC*100).toFixed(2)+'%'}
+  var h='<div class="t-rows"><div class="t-axis"><div></div><div class="t-track">';
+  for(var d=0;d<=180;d+=30)h+='<span class="t-tick" style="left:'+P(d)+'">'+d+'</span>';
+  h+='</div></div>';
+  acts.forEach(function(a){
+    var crit=imp.tf[a.id]===0, es=imp.es[a.id], fr=(a.id===tAct&&days>0)?days:0;
+    h+='<div class="t-row"><div class="nm">'+a.id+' · '+esc(t('acts')[a.id])+'<small>'+a.d+t('days')+(fr?' + '+fr+t('days'):'')+' · TF '+imp.tf[a.id]+'</small></div><div class="t-track">'+
+      '<span class="t-line orig" style="left:'+P(base.end)+'"></span><span class="t-line new" style="left:'+P(imp.end)+'"></span>'+
+      (fr?'<span class="t-frag" style="left:'+P(es)+';width:'+P(fr)+'"></span>':'')+
+      '<span class="t-bar'+(crit?' crit':'')+'" style="left:'+P(es+fr)+';width:'+P(a.d)+'">'+a.id+'</span>'+
+      (imp.tf[a.id]>0?'<span class="t-float" style="left:'+P(imp.ef[a.id])+';width:'+P(imp.tf[a.id])+'"></span>':'')+
+      '</div></div>';
+  });
+  $('tiaChart').innerHTML=h+'</div>';
+  var delay=imp.end-base.end;
+  function box(l,v,bad){return '<div class="kpi'+(bad===null?'':(bad?' bad':' good'))+'"><small>'+l+'</small><b>'+v+'</b></div>'}
+  $('tiaRes').innerHTML=box(t('rOrig'),base.end+t('days'),null)+box(t('rNew'),imp.end+t('days'),delay>0)+box(t('rDelay'),delay+t('days'),delay>0);
+  var msg,cls;
+  if(days===0){msg=t('eZero');cls='mix'}
+  else if(delay===0){msg=t('eAbsorb').replace('{f}',base.tf[tAct]);cls='good'}
+  else{msg=t(tResp==='emp'?'eEmp':tResp==='neu'?'eNeu':'eCon').replace('{d}',delay);cls=tResp==='con'?'bad':(tResp==='emp'?'good':'mix')}
+  $('tiaEnt').className='verdict '+cls; $('tiaEnt').textContent=msg;
+}
+function renderMx(){$('mx').innerHTML=t('mx').map(function(m,i){return '<div class="panel"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
+S.init({T:T,title:{en:'Delay lab',ar:'معمل التأخير'},render:function(){renderTIAControls();renderTIA();renderMx()}});
+})();
+</script>
+</body>
+</html>

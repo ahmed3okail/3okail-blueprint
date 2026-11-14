@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="3okail Blueprint: Ahmed AbuOkail, Planning & Project Control Engineer in Cairo. Primavera P6 scheduling, EVM, delay analysis and EOT claims.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="home">
+
+<div id="loader" aria-hidden="true"><img src="assets/logo-full.png" alt="" width="500" height="161"><div class="pc"><span id="ldPc">0</span>%</div><div class="bar"><i id="ldBar"></i></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="tag"><span class="pulse"></span><span data-i="status"></span></span>
+          <h1 data-h="heroName"></h1>
+          <p class="typer"><span class="mono">&gt; </span><b id="typed"></b><span class="caret"></span></p>
+          <p class="lead" data-i="heroLead"></p>
+          <div class="cta">
+            <a class="btn btn-primary" href="career.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span data-i="ctaCareer"></span></a>
+            <a class="btn btn-line" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-i="ctaContact"></span></a>
+          </div>
+        </div>
+        <div class="titleblock reveal">
+          <div class="tb-head"><span>3okail Blueprint</span><span>DWG A-000 · REV 26</span></div>
+          <div class="tb-chart">
+            <svg viewBox="0 0 320 140" aria-hidden="true">
+              <g stroke="var(--line)" stroke-width="1"><line x1="20" y1="120" x2="310" y2="120"/><line x1="20" y1="10" x2="20" y2="120"/><line x1="20" y1="65" x2="310" y2="65" stroke-dasharray="3 4"/></g>
+              <path class="draw" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" d="M20 118 C 90 116, 120 100, 160 66 S 240 14, 310 12"/>
+              <path class="draw" style="animation-delay:.9s" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" d="M20 118 C 85 116, 118 98, 150 70 S 190 38, 214 30"/>
+              <circle cx="214" cy="30" r="5" fill="var(--accent)"><animate attributeName="r" values="4;7;4" dur="1.8s" repeatCount="indefinite"/></circle>
+              <text x="26" y="22" font-family="JetBrains Mono" font-size="10" fill="var(--muted)">S-CURVE</text>
+              <text x="224" y="36" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="var(--accent)">SPI 1.04</text>
+            </svg>
+          </div>
+          <div class="tb-rows">
+            <div><small data-i="tbEng"></small><b data-i="tbEngV"></b></div>
+            <div><small data-i="tbDisc"></small><b data-i="tbDiscV"></b></div>
+            <div><small data-i="tbLoc"></small><b data-i="tbLocV"></b></div>
+            <div><small data-i="tbNow"></small><b>DMC-CURVE</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="profile">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">01 / PROFILE</div><h2 data-i="profT"></h2></div><a class="hint" href="career.html" data-i="profMore"></a></div>
+      <div class="about">
+        <div class="panel reveal"><p data-i="about1"></p><p data-i="about2"></p></div>
+        <div class="counters reveal" style="margin:0;grid-template-columns:1fr 1fr">
+          <div class="counter"><b><span class="count" data-to="4">0</span>+</b><span data-i="cYears"></span></div>
+          <div class="counter"><b class="count" data-to="4">0</b><span data-i="cCompanies"></span></div>
+          <div class="counter"><b class="count" data-to="203">0</b><span data-i="cHours"></span></div>
+          <div class="counter"><b class="count" data-to="6">0</b><span data-i="cCerts"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">02 / SERVICES</div><h2 data-i="svcT"></h2></div><p data-i="svcP"></p></div>
+      <div class="svc" id="svc"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">03 / PROJECTS</div><h2 data-i="prjT"></h2></div><p data-i="prjP"></p></div>
+      <div class="filters reveal" id="filters"></div>
+      <div class="proj-grid" id="projGrid"></div>
+    </div>
+  </section>
+
+  <section id="labs">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">04 / LABS</div><h2 data-i="labsT"></h2></div><p data-i="labsP"></p></div>
+      <div class="labs">
+        <a class="labcard reveal" href="evm.html">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><path d="M20 135 C 120 132, 160 110, 210 75 S 320 20, 385 16" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-dasharray="6 5"/><path d="M20 135 C 110 131, 150 105, 190 75 S 240 44, 260 38" fill="none" stroke="var(--crit)" stroke-width="3.5"/><path d="M20 135 C 110 132, 150 112, 190 85 S 240 60, 260 54" fill="none" stroke="var(--accent)" stroke-width="3.5"/><line x1="260" y1="10" x2="260" y2="140" stroke="var(--ink)" stroke-width="1.5"/><text x="28" y="30" font-family="JetBrains Mono" font-size="13" font-weight="600" fill="var(--ink)">SPI 0.97</text><text x="28" y="50" font-family="JetBrains Mono" font-size="13" font-weight="600" fill="var(--crit)">CPI 0.92</text></svg>
+          <div class="lc"><h3 data-i="lab1T"></h3><p data-i="lab1P"></p><span class="go" data-i="labGo"></span></div>
+        </a>
+        <a class="labcard reveal" href="delay.html">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect x="20" y="22" width="60" height="16" rx="3" fill="var(--crit)"/><rect x="80" y="50" width="80" height="16" rx="3" fill="var(--crit)"/><rect x="160" y="78" width="40" height="16" rx="3" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 3"/><rect x="200" y="78" width="90" height="16" rx="3" fill="var(--crit)"/><rect x="160" y="106" width="70" height="16" rx="3" fill="var(--accent)"/><line x1="230" y1="114" x2="290" y2="114" stroke="var(--muted)" stroke-width="2"/><line x1="290" y1="10" x2="290" y2="140" stroke="var(--ink)" stroke-opacity=".35" stroke-width="2"/><line x1="330" y1="10" x2="330" y2="140" stroke="var(--crit)" stroke-width="2"/><text x="336" y="26" font-family="JetBrains Mono" font-size="12" fill="var(--crit)">EOT</text></svg>
+          <div class="lc"><h3 data-i="lab2T"></h3><p data-i="lab2P"></p><span class="go" data-i="labGo"></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">05 / CONTACT</div><h2 data-i="contactT"></h2></div></div>
+      <div class="contact">
+        <div class="panel reveal">
+          <p style="margin:0;color:var(--muted);font-size:1.04rem" data-i="contactP"></p>
+          <div class="links-list">
+            <a href="mailto:ahmedokail04@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ahmedokail04@gmail.com</a>
+            <a href="tel:+201146902535"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span dir="ltr">+20 114 690 2535</span></a>
+            <a href="https://wa.me/201146902535" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+            <a href="https://www.linkedin.com/in/ahmed-abd-al-basset" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.84 0-2.12 1.43-2.12 2.9V21h-4V9Z"/></svg>linkedin.com/in/ahmed-abd-al-basset</a>
+          </div>
+        </div>
+        <form class="rfi reveal" id="rfi">
+          <div class="rfi-head"><span data-i="rfiHead"></span><span id="rfiNo">RFI</span></div>
+          <div class="rfi-body">
+            <label><span data-i="fName"></span><input id="fName" required autocomplete="name"></label>
+            <label><span data-i="fSubj"></span><input id="fSubj" required></label>
+            <label><span data-i="fMsg"></span><textarea id="fMsg" required></textarea></label>
+            <button class="btn btn-primary" type="submit" style="justify-self:start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg><span data-i="fSend"></span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box">
+    <div class="mh"><span id="mNo"></span><button class="icon-btn" id="mClose" type="button" aria-label="Close">✕</button></div>
+    <div class="mb" id="mBody"></div>
+    <div class="mf"><button class="btn btn-line" id="mPrev" type="button"></button><button class="btn btn-line" id="mNext" type="button"></button></div>
+  </div>
+</div>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{
+ status:'Cairo, Egypt · Open to opportunities', heroName:'Ahmed <em>AbuOkail</em>',
+ typed:['Planning & Project Control Engineer','Primavera P6 scheduler','EVM & cost control','Delay analysis & EOT claims'],
+ heroLead:'Engineering meets technology. I turn schedules, costs and site data into clear decisions for construction projects, and I build the digital tools that make project controls faster and sharper.',
+ ctaCareer:'View my career', ctaContact:'Get in touch',
+ tbEng:'Engineer', tbEngV:'A. AbuOkail', tbDisc:'Discipline', tbDiscV:'Planning & Controls', tbLoc:'Location', tbLocV:'Cairo, EG', tbNow:'Current',
+ profT:'Who I am', profMore:'Full career →',
+ about1:'Planning and project control engineer with 4+ years in construction and infrastructure, now in a head-office planning role at DMC-CURVE.',
+ about2:'I specialize in Primavera P6 scheduling, earned value management, cost control, delay analysis and EOT claims, and I build digital tools that automate project controls.',
+ cYears:'Years in construction', cCompanies:'Companies', cHours:'Training hours', cCerts:'Certifications',
+ svcT:'What I provide', svcP:'From the first tender schedule to the final EOT claim.',
+ svc:[['Baseline & tender schedules','Primavera P6 baselines with WBS, logic, calendars, resource and cost loading. Tender schedules built straight from BOQs and drawings.'],
+      ['Progress monitoring & reporting','Weekly and monthly progress reports, S-curves, look-ahead and milestone reports that show where the project really stands.'],
+      ['Earned value & cost control','EVM with CV/SV and CPI/SPI, cash flow, cost-to-complete forecasts and PO reviews against the BOQ.'],
+      ['Delay analysis & EOT claims','Delay classification, fragnets, Time Impact Analysis and concurrent delay, prepared under FIDIC and backed by site records.'],
+      ['Dashboards & AOP tracking','Power BI and Excel dashboards for management, with Annual Operating Plan targets and KPI tracking.'],
+      ['Recovery plans & training','Recovery schedules for delayed work, in-house automation tools, and P6 training for junior planners.']],
+ prjT:'Selected projects', prjP:'Click a project to open its work package.',
+ filters:[['all','All'],['site','Project sites'],['office','Head office']],
+ open:'Open →', prev:'← Previous', next:'Next →', role:'Role',
+ labsT:'Try it yourself', labsP:'Two small tools that show how I work. Each has its own page.',
+ lab1T:'Earned value lab', lab1P:'Set a project\'s budget, time and progress and watch the S-curve, SPI, CPI and EAC react.',
+ lab2T:'Delay analysis lab', lab2P:'Drop a delay into a schedule, see if it hits the critical path, and find out whether it earns an EOT.',
+ labGo:'Open the lab →',
+ contactT:'Let\'s build what\'s next', contactP:'Have a project that needs planning, controls or a delay claim? Send me an RFI and I\'ll reply by email.',
+ rfiHead:'Request for information', fName:'Your name', fSubj:'Subject', fMsg:'Message', fSend:'Submit RFI'
+},
+ar:{
+ status:'القاهرة، مصر · متاح لفرص جديدة', heroName:'أحمد <em>أبوعقيل</em>',
+ typed:['مهندس تخطيط ومراقبة مشروعات','جدولة على Primavera P6','القيمة المكتسبة ومراقبة التكاليف','تحليل التأخير ومطالبات تمديد المدة'],
+ heroLead:'الهندسة تلتقي بالتكنولوجيا. أحوّل البرامج الزمنية والتكاليف وبيانات الموقع إلى قرارات واضحة في مشروعات التشييد، وأطوّر أدوات رقمية تجعل مراقبة المشروعات أسرع وأدق.',
+ ctaCareer:'شاهد مسيرتي', ctaContact:'تواصل معي',
+ tbEng:'المهندس', tbEngV:'أ. أبوعقيل', tbDisc:'التخصص', tbDiscV:'تخطيط ومراقبة', tbLoc:'الموقع', tbLocV:'القاهرة', tbNow:'الحالي',
+ profT:'من أنا', profMore:'← المسيرة كاملة',
+ about1:'مهندس تخطيط ومراقبة مشروعات بخبرة تزيد على 4 سنوات في التشييد والبنية التحتية، وأعمل حاليًا في إدارة التخطيط بالمكتب الرئيسي لشركة DMC-CURVE.',
+ about2:'متخصص في الجدولة على Primavera P6، وإدارة القيمة المكتسبة، ومراقبة التكاليف، وتحليل التأخيرات ومطالبات تمديد المدة، وأطوّر أدوات رقمية تُؤتمت مراقبة المشروعات.',
+ cYears:'سنوات في التشييد', cCompanies:'شركات', cHours:'ساعة تدريب', cCerts:'شهادات',
+ svcT:'ماذا أقدّم', svcP:'من أول برنامج مناقصة وحتى آخر مطالبة تمديد مدة.',
+ svc:[['البرامج الأساسية وبرامج المناقصات','برامج أساسية على Primavera P6 بهيكل WBS والعلاقات والتقويمات وتحميل الموارد والتكاليف، وبرامج مناقصات مبنية مباشرة من جداول الكميات والرسومات.'],
+      ['متابعة التقدم والتقارير','تقارير تقدم أسبوعية وشهرية، ومنحنيات S، وبرامج قصيرة المدى وتقارير معالم توضح موقف المشروع الحقيقي.'],
+      ['القيمة المكتسبة ومراقبة التكاليف','EVM بمؤشرات CV/SV و CPI/SPI، والتدفق النقدي، وتوقعات تكلفة الإنجاز، ومراجعة أوامر الشراء مقابل جدول الكميات.'],
+      ['تحليل التأخير ومطالبات تمديد المدة','تصنيف التأخيرات، وFragnets، وتحليل الأثر الزمني، والتأخير المتزامن، وفق FIDIC ومدعومة بسجلات الموقع.'],
+      ['لوحات المتابعة وخطة AOP','لوحات متابعة على Power BI و Excel للإدارة، مع متابعة مستهدفات خطة التشغيل السنوية ومؤشرات الأداء.'],
+      ['خطط الاستدراك والتدريب','برامج استدراك للأعمال المتأخرة، وأدوات أتمتة داخلية، وتدريب مهندسي التخطيط الجدد على P6.']],
+ prjT:'مشروعات مختارة', prjP:'اضغط على أي مشروع لترى تفاصيل دوري فيه.',
+ filters:[['all','الكل'],['site','مواقع المشروعات'],['office','المكتب الرئيسي']],
+ open:'← التفاصيل', prev:'→ السابق', next:'التالي ←', role:'الدور',
+ labsT:'جرّب بنفسك', labsP:'أداتان صغيرتان توضحان طريقة شغلي. لكل واحدة صفحة مستقلة.',
+ lab1T:'معمل القيمة المكتسبة', lab1P:'حدّد ميزانية المشروع ومدته ونسبة الإنجاز وشوف منحنى S و SPI و CPI و EAC بيتغيروا.',
+ lab2T:'معمل تحليل التأخير', lab2P:'أضف تأخير في برنامج زمني، وشوف هل يأثر على المسار الحرج، وهل يستحق تمديد مدة.',
+ labGo:'← افتح المعمل',
+ contactT:'لنبنِ الخطوة القادمة', contactP:'عندك مشروع محتاج تخطيط أو مراقبة أو مطالبة تأخير؟ ابعتلي RFI وهرد عليك بالإيميل.',
+ rfiHead:'طلب استيضاح', fName:'اسمك', fSubj:'الموضوع', fMsg:'الرسالة', fSend:'إرسال الطلب'
+}};
+
+var projects=[
+ {id:'dmc',cat:'office',k:'2026 –',name:{en:'Head-office project portfolio',ar:'محفظة مشروعات المكتب الرئيسي'},org:{en:'DMC-CURVE · Cairo',ar:'DMC-CURVE · القاهرة'},role:{en:'Planning Engineer',ar:'مهندس تخطيط'},period:{en:'Apr 2026 – Present',ar:'أبريل 2026 – الآن'},
+  pts:{en:['Baseline schedules in Primavera P6 for multiple projects in tender and execution stages.','Tender schedules from BOQs, milestones and drawings, with cost loading and S-curves.','Annual Operating Plan (AOP) targets, KPIs and monthly management dashboards.','Recovery plans for delayed activities and in-house tools that automate reporting.'],
+       ar:['برامج أساسية على Primavera P6 لعدة مشروعات في مرحلتي المناقصة والتنفيذ.','برامج مناقصات من جداول الكميات والمعالم والرسومات مع تحميل التكاليف ومنحنيات S.','مستهدفات خطة التشغيل السنوية ومؤشرات الأداء ولوحات متابعة شهرية للإدارة.','خطط استدراك للأنشطة المتأخرة وأدوات داخلية تُؤتمت التقارير.']}},
+ {id:'sarai',cat:'site',k:'2024 – 2026',name:{en:'Sarai Club House',ar:'Sarai Club House'},org:{en:'Ecologi',ar:'Ecologi'},role:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},period:{en:'Nov 2024 – Apr 2026',ar:'نوفمبر 2024 – أبريل 2026'},
+  pts:{en:['Built and updated the Primavera P6 baseline and schedule.','Weekly and monthly progress reports for management.','Delay analysis and EOT claim preparation backed by site records.','Cost reports on budget, actuals, variances and forecasts.'],
+       ar:['إعداد وتحديث البرنامج الأساسي والبرنامج الزمني على Primavera P6.','تقارير تقدم أسبوعية وشهرية للإدارة.','تحليل التأخير وإعداد مطالبة تمديد المدة مدعومة بسجلات الموقع.','تقارير تكلفة عن الميزانية والفعلي والانحرافات والتوقعات.']}},
+ {id:'taj',cat:'site',k:'2024 – 2026',name:{en:'Taj Ville Mall',ar:'Taj Ville Mall'},org:{en:'Ecologi',ar:'Ecologi'},role:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},period:{en:'Nov 2024 – Apr 2026',ar:'نوفمبر 2024 – أبريل 2026'},
+  pts:{en:['Schedule baseline and periodic updates in Primavera P6.','Purchase order review against the budget and approved BOQ.','Petty cash, manpower and equipment monitoring against cost codes.','Coordination with contractors and stakeholders for reporting data.'],
+       ar:['البرنامج الأساسي والتحديثات الدورية على Primavera P6.','مراجعة أوامر الشراء مقابل الميزانية وجدول الكميات المعتمد.','متابعة العُهد والعمالة والمعدات مقابل أكواد التكلفة.','التنسيق مع المقاولين والأطراف المعنية لبيانات التقارير.']}},
+ {id:'tab',cat:'site',k:'2023 – 2024',name:{en:'Construction projects',ar:'مشروعات إنشائية'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},role:{en:'Planning Engineer',ar:'مهندس تخطيط'},period:{en:'Dec 2023 – Nov 2024',ar:'ديسمبر 2023 – نوفمبر 2024'},
+  pts:{en:['Detailed Primavera P6 schedules and critical path tracking.','Earned value analysis to measure project performance.','Weekly and monthly progress reports presented to management.','Support for delay analysis and EOT claims.'],
+       ar:['برامج زمنية تفصيلية على Primavera P6 ومتابعة المسار الحرج.','تحليل القيمة المكتسبة لقياس أداء المشروع.','تقارير تقدم أسبوعية وشهرية تُعرض على الإدارة.','دعم تحليل التأخير ومطالبات تمديد المدة.']}},
+ {id:'cp',cat:'site',k:'2022 – 2023',name:{en:'The Central Park',ar:'The Central Park'},org:{en:'Alexandria Construction Co. (Talaat Moustafa Group)',ar:'شركة الإسكندرية للإنشاءات (مجموعة طلعت مصطفى)'},role:{en:'Technical Office Engineer',ar:'مهندس مكتب فني'},period:{en:'Sep 2022 – Dec 2023',ar:'سبتمبر 2022 – ديسمبر 2023'},
+  pts:{en:['Shop drawings and quantity surveys for subcontractor invoices.','RFIs and material submittals for compliance with specifications.','Daily, weekly and monthly progress reports and coordination between trades.'],
+       ar:['الرسومات التنفيذية وحصر الكميات لمستخلصات مقاولي الباطن.','طلبات الاستيضاح واعتمادات المواد وفق المواصفات.','تقارير التقدم اليومية والأسبوعية والشهرية والتنسيق بين التخصصات.']}}
+];
+var filter='all', shown=[], mIdx=-1;
+
+function renderSvc(){
+  $('svc').innerHTML=t('svc').map(function(s,i){return '<div class="panel"><div class="no2">0'+(i+1)+'</div><h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></div>'}).join('');
+}
+function renderProjects(){
+  $('filters').innerHTML=t('filters').map(function(f){var n=f[0]==='all'?projects.length:projects.filter(function(p){return p.cat===f[0]}).length;return '<button type="button" class="pill'+(filter===f[0]?' on':'')+'" data-f="'+f[0]+'">'+esc(f[1])+' · '+n+'</button>'}).join('');
+  shown=projects.filter(function(p){return filter==='all'||p.cat===filter});
+  var L=S.lang;
+  $('projGrid').innerHTML=shown.map(function(p,i){return '<button type="button" class="proj" data-i2="'+i+'"><span class="k">'+p.k+'</span><h3>'+esc(p.name[L])+'</h3><span class="o">'+esc(p.org[L])+'</span><span class="o">'+esc(p.role[L])+'</span><span class="more">'+esc(t('open'))+'</span></button>'}).join('');
+}
+function openModal(i){
+  mIdx=(i+shown.length)%shown.length; var p=shown[mIdx], L=S.lang;
+  $('mNo').textContent=(mIdx+1)+' / '+shown.length;
+  $('mBody').innerHTML='<h3 id="mTitle">'+esc(p.name[L])+'</h3><p style="color:var(--muted);margin:0 0 10px">'+esc(p.org[L])+'</p><span class="chip">'+esc(t('role'))+': '+esc(p.role[L])+'</span><span class="chip">'+esc(p.period[L])+'</span><ul>'+p.pts[L].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
+  $('mPrev').textContent=t('prev'); $('mNext').textContent=t('next');
+  $('modal').classList.add('open'); $('mClose').focus();
+}
+function closeModal(){$('modal').classList.remove('open');mIdx=-1}
+$('filters').addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;filter=b.getAttribute('data-f');renderProjects()});
+$('projGrid').addEventListener('click',function(e){var b=e.target.closest('[data-i2]');if(b)openModal(+b.getAttribute('data-i2'))});
+$('mClose').onclick=closeModal; $('mPrev').onclick=function(){openModal(mIdx-1)}; $('mNext').onclick=function(){openModal(mIdx+1)};
+$('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+document.addEventListener('keydown',function(e){if(mIdx<0)return;if(e.key==='Escape')closeModal();if(e.key==='ArrowRight')openModal(mIdx+(S.lang==='ar'?-1:1));if(e.key==='ArrowLeft')openModal(mIdx+(S.lang==='ar'?1:-1))});
+
+var typer=(function(){var w=0,c=0,del=false,timer;function tick(){var words=t('typed'),word=words[w%words.length];
+  c+=del?-1:1;$('typed').textContent=word.slice(0,c);var wait=del?30:60;
+  if(!del&&c>=word.length){del=true;wait=1800}else if(del&&c<=0){del=false;w++;wait=300}
+  timer=setTimeout(tick,wait)}return{reset:function(){clearTimeout(timer);w=0;c=0;del=false;tick()}}})();
+
+$('rfi').addEventListener('submit',function(ev){ev.preventDefault();
+  location.href='mailto:ahmedokail04@gmail.com?subject='+encodeURIComponent('[RFI] '+$('fSubj').value.trim())+'&body='+encodeURIComponent($('fMsg').value.trim()+'\n\n— '+$('fName').value.trim());});
+var d=new Date(); $('rfiNo').textContent='RFI-'+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+
+S.init({T:T,render:function(){renderSvc();renderProjects();typer.reset();if(mIdx>=0)openModal(mIdx)}});
+
+/* loader: runs once per visit */
+var ld=$('loader'), seen=false;
+try{seen=sessionStorage.getItem('ld')==='1';sessionStorage.setItem('ld','1')}catch(e){}
+if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){ld.classList.add('done')}
+else{var st=null;requestAnimationFrame(function f(ts){if(st===null)st=ts;var p=Math.min((ts-st)/900,1),v=Math.round(p*100);$('ldPc').textContent=v;$('ldBar').style.width=v+'%';if(p<1)requestAnimationFrame(f);else setTimeout(function(){ld.classList.add('done')},150)})}
+setTimeout(function(){ld.classList.add('done')},2500);
+})();
+</script>
+</body>
+</html>
