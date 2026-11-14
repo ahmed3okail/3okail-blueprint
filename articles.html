@@ -42,9 +42,9 @@
   </div></section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span>END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=12"></script>
+<script src="assets/site.js?v=13"></script>
 <script>
 (function(){"use strict";var S=window.Site,$=S.$,esc=S.esc,t=S.t;
 var T={"en": {"pT": "Articles", "pP": "Short, practical notes on planning, project controls and delay claims, from what I do every day.", "go": "Read →", "read": "min read", "contact": "Questions about your project? Contact me"}, "ar": {"pT": "مقالات", "pP": "ملاحظات عملية قصيرة عن التخطيط ومراقبة المشروعات ومطالبات التأخير، من شغلي اليومي.", "go": "← اقرأ", "read": "دقائق قراءة", "contact": "عندك سؤال عن مشروعك؟ تواصل معي"}};
@@ -52,5 +52,6 @@ var A=[{"id": "tia", "date": "2026-11-14", "min": 6, "tag": {"en": "Delay & clai
 function render(l){$('artList').innerHTML=A.map(function(a,i){return '<a class="art-card reveal in" href="article-'+a.id+'.html"><div class="art-meta"><span class="chip">'+esc(a.tag[l])+'</span><span class="mono">'+a.date+' · '+a.min+' '+esc(t('read'))+'</span></div><h2>'+esc(a.title[l])+'</h2><p>'+esc(a.sum[l])+'</p><span class="go">'+esc(t('go'))+'</span></a>'}).join('')}
 S.init({T:T,title:{en:'Articles',ar:'مقالات'},render:render});})();
 </script>
+<script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

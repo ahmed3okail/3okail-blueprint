@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=12">
+<link rel="stylesheet" href="assets/site.css?v=13">
 </head>
 <body data-page="app">
 
@@ -89,9 +89,9 @@
 <div class="lightbox" id="lb" hidden><button class="icon-btn" id="lbX" type="button" aria-label="Close">✕</button><img id="lbImg" alt=""></div>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span>END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=12"></script>
+<script src="assets/site.js?v=13"></script>
 <script>
 (function(){
 "use strict";
@@ -136,5 +136,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('lb').hi
 S.init({T:T,title:{en:'DME Progress Tracker',ar:'تطبيق متابعة التقدم'},render:render});
 })();
 </script>
+<script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
