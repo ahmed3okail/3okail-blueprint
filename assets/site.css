@@ -346,3 +346,4 @@ nav.links a.cur{color:var(--ink);background:var(--surface-2)}
 #loader .pc{color:#3b9bff} #loader .bar{background:#16304f} #loader .bar i{background:#2f8cff}
 .counter b span{font-size:inherit;color:inherit}
 :root[lang="ar"] .subhero .crumb{font-family:var(--font);letter-spacing:0;font-size:.9rem}
+.proj .res{font-weight:600;font-size:.86rem;color:var(--good);background:var(--good-soft);border-radius:8px;padding:5px 9px;margin-top:6px;align-self:flex-start}

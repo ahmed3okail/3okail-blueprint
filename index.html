@@ -180,7 +180,7 @@ en:{
       ['Recovery plans & training','Recovery schedules for delayed work, in-house automation tools, and P6 training for junior planners.']],
  prjT:'Selected projects', prjP:'Click a project to open its work package.',
  filters:[['all','All'],['site','Project sites'],['office','Head office']],
- open:'Open →', prev:'← Previous', next:'Next →', role:'Role',
+ open:'Open →', result:'Result', prev:'← Previous', next:'Next →', role:'Role',
  labsT:'Try it yourself', labsP:'Two small tools that show how I work. Each has its own page.',
  lab1T:'Earned value lab', lab1P:'Set a project\'s budget, time and progress and watch the S-curve, SPI, CPI and EAC react.',
  lab2T:'Delay analysis lab', lab2P:'Drop a delay into a schedule, see if it hits the critical path, and find out whether it earns an EOT.',
@@ -207,7 +207,7 @@ ar:{
       ['خطط الاستدراك والتدريب','برامج استدراك للأعمال المتأخرة، وأدوات أتمتة داخلية، وتدريب مهندسي التخطيط الجدد على P6.']],
  prjT:'مشروعات مختارة', prjP:'اضغط على أي مشروع لترى تفاصيل دوري فيه.',
  filters:[['all','الكل'],['site','مواقع المشروعات'],['office','المكتب الرئيسي']],
- open:'← التفاصيل', prev:'→ السابق', next:'التالي ←', role:'الدور',
+ open:'← التفاصيل', result:'النتيجة', prev:'→ السابق', next:'التالي ←', role:'الدور',
  labsT:'جرّب بنفسك', labsP:'أداتان صغيرتان توضحان طريقة شغلي. لكل واحدة صفحة مستقلة.',
  lab1T:'معمل القيمة المكتسبة', lab1P:'حدّد ميزانية المشروع ومدته ونسبة الإنجاز وشوف منحنى S و SPI و CPI و EAC بيتغيروا.',
  lab2T:'معمل تحليل التأخير', lab2P:'أضف تأخير في برنامج زمني، وشوف هل يأثر على المسار الحرج، وهل يستحق تمديد مدة.',
@@ -223,13 +223,13 @@ var projects=[
  {id:'sarai',cat:'site',k:'2024 – 2026',name:{en:'Sarai Club House',ar:'Sarai Club House'},org:{en:'Ecologi',ar:'Ecologi'},role:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},period:{en:'Nov 2024 – Apr 2026',ar:'نوفمبر 2024 – أبريل 2026'},
   pts:{en:['Built and updated the Primavera P6 baseline and schedule.','Weekly and monthly progress reports for management.','Delay analysis and EOT claim preparation backed by site records.','Cost reports on budget, actuals, variances and forecasts.'],
        ar:['إعداد وتحديث البرنامج الأساسي والبرنامج الزمني على Primavera P6.','تقارير تقدم أسبوعية وشهرية للإدارة.','تحليل التأخير وإعداد مطالبة تمديد المدة مدعومة بسجلات الموقع.','تقارير تكلفة عن الميزانية والفعلي والانحرافات والتوقعات.']}},
- {id:'taj',cat:'site',k:'2024 – 2026',name:{en:'Taj Ville Mall',ar:'Taj Ville Mall'},org:{en:'Ecologi',ar:'Ecologi'},role:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},period:{en:'Nov 2024 – Apr 2026',ar:'نوفمبر 2024 – أبريل 2026'},
+ {id:'taj',res:{en:'15-day EOT + mitigation plan',ar:'تمديد 15 يوم + خطة تصحيحية'},resL:{en:'Prepared the time claim that secured a 15-day EOT on a 6-month project, and built the project\'s mitigation plan.',ar:'أعددت المطالبة الزمنية التي حصلت بها على تمديد 15 يوم في مشروع مدته 6 شهور، وأعددت الخطة التصحيحية (Mitigation Plan) للمشروع.'},cat:'site',k:'2024 – 2026',name:{en:'Taj Ville Mall',ar:'Taj Ville Mall'},org:{en:'Ecologi',ar:'Ecologi'},role:{en:'Project Control Engineer',ar:'مهندس مراقبة مشروعات'},period:{en:'Nov 2024 – Apr 2026',ar:'نوفمبر 2024 – أبريل 2026'},
   pts:{en:['Schedule baseline and periodic updates in Primavera P6.','Purchase order review against the budget and approved BOQ.','Petty cash, manpower and equipment monitoring against cost codes.','Coordination with contractors and stakeholders for reporting data.'],
        ar:['البرنامج الأساسي والتحديثات الدورية على Primavera P6.','مراجعة أوامر الشراء مقابل الميزانية وجدول الكميات المعتمد.','متابعة العُهد والعمالة والمعدات مقابل أكواد التكلفة.','التنسيق مع المقاولين والأطراف المعنية لبيانات التقارير.']}},
- {id:'tab',cat:'site',k:'2023 – 2024',name:{en:'Water Treatment Plant, Luxor',ar:'محطة معالجة مياه بالأقصر'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},role:{en:'Planning Engineer',ar:'مهندس تخطيط'},period:{en:'Dec 2023 – Nov 2024',ar:'ديسمبر 2023 – نوفمبر 2024'},
+ {id:'tab',res:{en:'3-month EOT secured',ar:'تمديد مدة 3 شهور'},resL:{en:'Prepared the time claim that secured a 3-month Extension of Time (EOT).',ar:'أعددت المطالبة الزمنية التي حصلت بها على تمديد مدة 3 شهور (EOT).'},cat:'site',k:'2023 – 2024',name:{en:'Water Treatment Plant, Luxor',ar:'محطة معالجة مياه بالأقصر'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},role:{en:'Planning Engineer',ar:'مهندس تخطيط'},period:{en:'Dec 2023 – Nov 2024',ar:'ديسمبر 2023 – نوفمبر 2024'},
   pts:{en:['Detailed Primavera P6 schedules and critical path tracking.','Earned value analysis to measure project performance.','Weekly and monthly progress reports presented to management.','Support for delay analysis and EOT claims.'],
        ar:['برامج زمنية تفصيلية على Primavera P6 ومتابعة المسار الحرج.','تحليل القيمة المكتسبة لقياس أداء المشروع.','تقارير تقدم أسبوعية وشهرية تُعرض على الإدارة.','دعم تحليل التأخير ومطالبات تمديد المدة.']}},
- {id:'cp',cat:'site',k:'2022 – 2023',name:{en:'The Central Park',ar:'The Central Park'},org:{en:'Alexandria Construction Co. (Talaat Moustafa Group)',ar:'شركة الإسكندرية للإنشاءات (مجموعة طلعت مصطفى)'},role:{en:'Technical Office Engineer',ar:'مهندس مكتب فني'},period:{en:'Sep 2022 – Dec 2023',ar:'سبتمبر 2022 – ديسمبر 2023'},
+ {id:'cp',res:{en:'EGP 5M+ in quantity differences recovered',ar:'استرجاع فروق كميات +5 مليون جنيه'},resL:{en:'Reviewed quantity surveys and recovered quantity differences worth more than EGP 5 million in the owner\'s interim payment certificates.',ar:'راجعت حصر الكميات واسترجعت فروق كميات بقيمة تتجاوز 5 مليون جنيه في مستخلصات المالك.'},cat:'site',k:'2022 – 2023',name:{en:'The Central Park',ar:'The Central Park'},org:{en:'Alexandria Construction Co. (Talaat Moustafa Group)',ar:'شركة الإسكندرية للإنشاءات (مجموعة طلعت مصطفى)'},role:{en:'Technical Office Engineer',ar:'مهندس مكتب فني'},period:{en:'Sep 2022 – Dec 2023',ar:'سبتمبر 2022 – ديسمبر 2023'},
   pts:{en:['Shop drawings and quantity surveys for subcontractor invoices.','RFIs and material submittals for compliance with specifications.','Daily, weekly and monthly progress reports and coordination between trades.'],
        ar:['الرسومات التنفيذية وحصر الكميات لمستخلصات مقاولي الباطن.','طلبات الاستيضاح واعتمادات المواد وفق المواصفات.','تقارير التقدم اليومية والأسبوعية والشهرية والتنسيق بين التخصصات.']}}
 ];
@@ -242,12 +242,12 @@ function renderProjects(){
   $('filters').innerHTML=t('filters').map(function(f){var n=f[0]==='all'?projects.length:projects.filter(function(p){return p.cat===f[0]}).length;return '<button type="button" class="pill'+(filter===f[0]?' on':'')+'" data-f="'+f[0]+'">'+esc(f[1])+' · '+n+'</button>'}).join('');
   shown=projects.filter(function(p){return filter==='all'||p.cat===filter});
   var L=S.lang;
-  $('projGrid').innerHTML=shown.map(function(p,i){return '<button type="button" class="proj" data-i2="'+i+'"><span class="k">'+p.k+'</span><h3>'+esc(p.name[L])+'</h3><span class="o">'+esc(p.org[L])+'</span><span class="o">'+esc(p.role[L])+'</span><span class="more">'+esc(t('open'))+'</span></button>'}).join('');
+  $('projGrid').innerHTML=shown.map(function(p,i){return '<button type="button" class="proj" data-i2="'+i+'"><span class="k">'+p.k+'</span><h3>'+esc(p.name[L])+'</h3><span class="o">'+esc(p.org[L])+'</span><span class="o">'+esc(p.role[L])+'</span>'+(p.res?'<span class="res">'+esc(p.res[L])+'</span>':'')+'<span class="more">'+esc(t('open'))+'</span></button>'}).join('');
 }
 function openModal(i){
   mIdx=(i+shown.length)%shown.length; var p=shown[mIdx], L=S.lang;
   $('mNo').textContent=(mIdx+1)+' / '+shown.length;
-  $('mBody').innerHTML='<h3 id="mTitle">'+esc(p.name[L])+'</h3><p style="color:var(--muted);margin:0 0 10px">'+esc(p.org[L])+'</p><span class="chip">'+esc(t('role'))+': '+esc(p.role[L])+'</span><span class="chip">'+esc(p.period[L])+'</span><ul>'+p.pts[L].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
+  $('mBody').innerHTML='<h3 id="mTitle">'+esc(p.name[L])+'</h3><p style="color:var(--muted);margin:0 0 10px">'+esc(p.org[L])+'</p><span class="chip">'+esc(t('role'))+': '+esc(p.role[L])+'</span><span class="chip">'+esc(p.period[L])+'</span>'+(p.resL?'<div class="verdict good" style="margin-top:14px"><b>'+esc(t('result'))+':</b> '+esc(p.resL[L])+'</div>':'')+'<ul>'+p.pts[L].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
   $('mPrev').textContent=t('prev'); $('mNext').textContent=t('next');
   $('modal').classList.add('open'); $('mClose').focus();
 }
