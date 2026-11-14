@@ -43,8 +43,8 @@
           <p class="typer"><span class="mono">&gt; </span><b id="typed"></b><span class="caret"></span></p>
           <p class="lead" data-i="heroLead"></p>
           <div class="cta">
-            <a class="btn btn-primary" href="career.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span data-i="ctaCareer"></span></a>
-            <a class="btn btn-line" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-i="ctaContact"></span></a>
+            <a class="btn btn-primary" href="assets/Ahmed-AbuOkail-CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span data-i="ctaCv"></span></a>
+            <a class="btn btn-line" href="career.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span data-i="ctaCareer"></span></a>
           </div>
         </div>
         <div class="titleblock reveal">
@@ -133,9 +133,11 @@
           <div class="rfi-head"><span data-i="rfiHead"></span><span id="rfiNo">RFI</span></div>
           <div class="rfi-body">
             <label><span data-i="fName"></span><input id="fName" required autocomplete="name"></label>
+            <label><span data-i="fEmail"></span><input id="fEmail" type="email" required autocomplete="email" dir="ltr"></label>
             <label><span data-i="fSubj"></span><input id="fSubj" required></label>
             <label><span data-i="fMsg"></span><textarea id="fMsg" required></textarea></label>
             <button class="btn btn-primary" type="submit" style="justify-self:start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg><span data-i="fSend"></span></button>
+            <p class="hint" id="fStatus" role="status" style="margin:0"></p>
           </div>
         </form>
       </div>
@@ -163,12 +165,12 @@ en:{
  status:'Cairo, Egypt · Open to opportunities', heroName:'Ahmed <em>AbuOkail</em>',
  typed:['Planning & Project Control Engineer','Primavera P6 scheduler','EVM & cost control','Delay analysis & EOT claims'],
  heroLead:'Engineering meets technology. I turn schedules, costs and site data into clear decisions for construction projects, and I build the digital tools that make project controls faster and sharper.',
- ctaCareer:'View my career', ctaContact:'Get in touch',
+ ctaCareer:'View my career', ctaCv:'Download CV',
  tbEng:'Engineer', tbEngV:'A. AbuOkail', tbDisc:'Discipline', tbDiscV:'Planning & Controls', tbLoc:'Location', tbLocV:'Cairo, EG', tbNow:'Current',
  profT:'Who I am', profMore:'Full career →',
  about1:'Planning and project control engineer with 4+ years in construction and infrastructure, now in a head-office planning role at DMC-CURVE.',
  about2:'I specialize in Primavera P6 scheduling, earned value management, cost control, delay analysis and EOT claims, and I build digital tools that automate project controls.',
- cYears:'Years in construction', cCompanies:'Companies', cHours:'Training hours', cCerts:'Certifications',
+ cYears:'Years in construction', cCompanies:'Companies', cHours:'Training hours', cCerts:'Training courses',
  svcT:'What I provide', svcP:'From the first tender schedule to the final EOT claim.',
  svc:[['Baseline & tender schedules','Primavera P6 baselines with WBS, logic, calendars, resource and cost loading. Tender schedules built straight from BOQs and drawings.'],
       ['Progress monitoring & reporting','Weekly and monthly progress reports, S-curves, look-ahead and milestone reports that show where the project really stands.'],
@@ -184,18 +186,18 @@ en:{
  lab2T:'Delay analysis lab', lab2P:'Drop a delay into a schedule, see if it hits the critical path, and find out whether it earns an EOT.',
  labGo:'Open the lab →',
  contactT:'Let\'s build what\'s next', contactP:'Have a project that needs planning, controls or a delay claim? Send me an RFI and I\'ll reply by email.',
- rfiHead:'Request for information', fName:'Your name', fSubj:'Subject', fMsg:'Message', fSend:'Submit RFI'
+ rfiHead:'Request for information', fName:'Your name', fEmail:'Your email', fSubj:'Subject', fMsg:'Message', fSend:'Submit RFI', fSending:'Sending…', fOk:'Thanks! Your RFI was sent. I\'ll reply by email soon.', fErr:'Sending failed. Please email me at ahmedokail04@gmail.com or message me on WhatsApp.', fGmail:'Opening Gmail to send your RFI. Not using Gmail? Email ahmedokail04@gmail.com or use WhatsApp.'
 },
 ar:{
  status:'القاهرة، مصر · متاح لفرص جديدة', heroName:'أحمد <em>أبوعقيل</em>',
  typed:['مهندس تخطيط ومراقبة مشروعات','جدولة على Primavera P6','القيمة المكتسبة ومراقبة التكاليف','تحليل التأخير ومطالبات تمديد المدة'],
  heroLead:'الهندسة تلتقي بالتكنولوجيا. أحوّل البرامج الزمنية والتكاليف وبيانات الموقع إلى قرارات واضحة في مشروعات التشييد، وأطوّر أدوات رقمية تجعل مراقبة المشروعات أسرع وأدق.',
- ctaCareer:'شاهد مسيرتي', ctaContact:'تواصل معي',
+ ctaCareer:'شاهد مسيرتي', ctaCv:'تحميل الـ CV',
  tbEng:'المهندس', tbEngV:'أ. أبوعقيل', tbDisc:'التخصص', tbDiscV:'تخطيط ومراقبة', tbLoc:'الموقع', tbLocV:'القاهرة', tbNow:'الحالي',
  profT:'من أنا', profMore:'← المسيرة كاملة',
  about1:'مهندس تخطيط ومراقبة مشروعات بخبرة تزيد على 4 سنوات في التشييد والبنية التحتية، وأعمل حاليًا في إدارة التخطيط بالمكتب الرئيسي لشركة DMC-CURVE.',
  about2:'متخصص في الجدولة على Primavera P6، وإدارة القيمة المكتسبة، ومراقبة التكاليف، وتحليل التأخيرات ومطالبات تمديد المدة، وأطوّر أدوات رقمية تُؤتمت مراقبة المشروعات.',
- cYears:'سنوات في التشييد', cCompanies:'شركات', cHours:'ساعة تدريب', cCerts:'شهادات',
+ cYears:'سنوات في التشييد', cCompanies:'شركات', cHours:'ساعة تدريب', cCerts:'دورات تدريبية',
  svcT:'ماذا أقدّم', svcP:'من أول برنامج مناقصة وحتى آخر مطالبة تمديد مدة.',
  svc:[['البرامج الأساسية وبرامج المناقصات','برامج أساسية على Primavera P6 بهيكل WBS والعلاقات والتقويمات وتحميل الموارد والتكاليف، وبرامج مناقصات مبنية مباشرة من جداول الكميات والرسومات.'],
       ['متابعة التقدم والتقارير','تقارير تقدم أسبوعية وشهرية، ومنحنيات S، وبرامج قصيرة المدى وتقارير معالم توضح موقف المشروع الحقيقي.'],
@@ -211,7 +213,7 @@ ar:{
  lab2T:'معمل تحليل التأخير', lab2P:'أضف تأخير في برنامج زمني، وشوف هل يأثر على المسار الحرج، وهل يستحق تمديد مدة.',
  labGo:'← افتح المعمل',
  contactT:'لنبنِ الخطوة القادمة', contactP:'عندك مشروع محتاج تخطيط أو مراقبة أو مطالبة تأخير؟ ابعتلي RFI وهرد عليك بالإيميل.',
- rfiHead:'طلب استيضاح', fName:'اسمك', fSubj:'الموضوع', fMsg:'الرسالة', fSend:'إرسال الطلب'
+ rfiHead:'طلب استيضاح', fName:'اسمك', fEmail:'بريدك الإلكتروني', fSubj:'الموضوع', fMsg:'الرسالة', fSend:'إرسال الطلب', fSending:'جارٍ الإرسال…', fOk:'شكرًا! وصلني طلبك، وهرد عليك بالإيميل قريب.', fErr:'الإرسال فشل. ابعتلي على ahmedokail04@gmail.com أو كلمني واتساب.', fGmail:'بيتفتح Gmail لإرسال طلبك. لو مش بتستخدم Gmail ابعت على ahmedokail04@gmail.com أو كلمني واتساب.'
 }};
 
 var projects=[
@@ -261,8 +263,20 @@ var typer=(function(){var w=0,c=0,del=false,timer;function tick(){var words=t('t
   if(!del&&c>=word.length){del=true;wait=1800}else if(del&&c<=0){del=false;w++;wait=300}
   timer=setTimeout(tick,wait)}return{reset:function(){clearTimeout(timer);w=0;c=0;del=false;tick()}}})();
 
+/* Contact form: set W3F_KEY to the Web3Forms access key to deliver messages straight to the inbox. */
+var W3F_KEY='';
 $('rfi').addEventListener('submit',function(ev){ev.preventDefault();
-  location.href='mailto:ahmedokail04@gmail.com?subject='+encodeURIComponent('[RFI] '+$('fSubj').value.trim())+'&body='+encodeURIComponent($('fMsg').value.trim()+'\n\n— '+$('fName').value.trim());});
+  var n=$('fName').value.trim(),em=$('fEmail').value.trim(),sj=$('fSubj').value.trim(),m=$('fMsg').value.trim(),st=$('fStatus'),btn=this.querySelector('button[type=submit]');
+  if(!W3F_KEY){
+    var url='https://mail.google.com/mail/?view=cm&fs=1&to=ahmedokail04@gmail.com&su='+encodeURIComponent('[RFI] '+sj)+'&body='+encodeURIComponent(m+'\n\n— '+n+' ('+em+')');
+    window.open(url,'_blank','noopener'); st.textContent=t('fGmail'); return;
+  }
+  btn.disabled=true; st.textContent=t('fSending');
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({access_key:W3F_KEY,subject:'[RFI] '+sj,from_name:'3okail Blueprint website',name:n,email:em,message:m,botcheck:''})})
+  .then(function(r){return r.json()}).then(function(d){if(!d.success)throw 0;st.textContent=t('fOk');ev.target.reset()})
+  .catch(function(){st.textContent=t('fErr')}).then(function(){btn.disabled=false});
+});
 var d=new Date(); $('rfiNo').textContent='RFI-'+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
 
 S.init({T:T,render:function(){renderSvc();renderProjects();typer.reset();if(mIdx>=0)openModal(mIdx)}});

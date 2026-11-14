@@ -78,7 +78,8 @@ en:{tiaT:'Delay analysis lab', tiaP:'A mini Time Impact Analysis. Insert a delay
  tiaHint:'Red bars are critical. Grey lines show float. The hatched block is the delay fragnet; the red line is the new finish.',
  acts:{A:'Mobilization',B:'Excavation',C:'Foundations',D:'MEP rough-in',E:'Superstructure',F:'Finishes & handover'},
  rOrig:'Original finish', rNew:'Impacted finish', rDelay:'Project delay',
- eAbsorb:'Absorbed by float: the activity had {f} days of float, so the finish date doesn\'t move and no EOT is due.',
+ eAbsorb:'Absorbed by float: the activity had {f} days of float (TF {f} → {r}). The {x}-day delay uses {x} of them, so the finish date doesn\'t move and no EOT is due.',
+ eOver:'The activity had {f} days of float. The {x}-day delay uses all of it and pushes the finish by {d} days. ',
  eEmp:'Excusable and compensable: the contractor is entitled to an EOT of {d} days plus prolongation costs.',
  eNeu:'Excusable, non-compensable: an EOT of {d} days, with no additional cost.',
  eCon:'Non-excusable: no EOT. The contractor must recover {d} days or face delay damages.',
@@ -92,7 +93,8 @@ ar:{tiaT:'معمل تحليل التأخير', tiaP:'تحليل أثر زمني 
  tiaHint:'الأشرطة الحمراء على المسار الحرج. الخطوط الرمادية هي الفائض الزمني. الكتلة المخططة هي حدث التأخير، والخط الأحمر هو تاريخ الإنهاء الجديد.',
  acts:{A:'التجهيز والتعبئة',B:'الحفر',C:'الأساسات',D:'أعمال MEP الأولية',E:'الهيكل الخرساني',F:'التشطيبات والتسليم'},
  rOrig:'الإنهاء الأصلي', rNew:'الإنهاء بعد الأثر', rDelay:'تأخير المشروع',
- eAbsorb:'امتصه الفائض الزمني: النشاط كان عنده {f} يوم فائض، فتاريخ الإنهاء لا يتغير ولا يُستحق تمديد.',
+ eAbsorb:'امتصه الفائض الزمني: النشاط كان عنده {f} يوم فائض (TF {f} → {r}). التأخير ({x} يوم) استهلك {x} يوم منهم، فتاريخ الإنهاء لا يتغير ولا يُستحق تمديد.',
+ eOver:'النشاط كان عنده {f} يوم فائض. التأخير ({x} يوم) استهلكه كله وأخّر تاريخ الإنهاء {d} يوم. ',
  eEmp:'تأخير مُعذَر وقابل للتعويض: يستحق المقاول تمديد مدة {d} يوم بالإضافة إلى تكاليف إطالة المدة.',
  eNeu:'تأخير مُعذَر غير قابل للتعويض: تمديد مدة {d} يوم بدون تكاليف إضافية.',
  eCon:'تأخير غير مُعذَر: لا تمديد. على المقاول استدراك {d} يوم أو تطبيق غرامات التأخير.',
@@ -127,7 +129,7 @@ function renderTIA(){
   h+='</div></div>';
   acts.forEach(function(a){
     var crit=imp.tf[a.id]===0, es=imp.es[a.id], fr=(a.id===tAct&&days>0)?days:0;
-    h+='<div class="t-row"><div class="nm">'+a.id+' · '+esc(t('acts')[a.id])+'<small>'+a.d+t('days')+(fr?' + '+fr+t('days'):'')+' · TF '+imp.tf[a.id]+'</small></div><div class="t-track">'+
+    h+='<div class="t-row"><div class="nm">'+a.id+' · '+esc(t('acts')[a.id])+'<small>'+a.d+t('days')+(fr?' + '+fr+t('days'):'')+' · TF '+(base.tf[a.id]!==imp.tf[a.id]?base.tf[a.id]+' → '+imp.tf[a.id]:imp.tf[a.id])+'</small></div><div class="t-track">'+
       '<span class="t-line orig" style="left:'+P(base.end)+'"></span><span class="t-line new" style="left:'+P(imp.end)+'"></span>'+
       (fr?'<span class="t-frag" style="left:'+P(es)+';width:'+P(fr)+'"></span>':'')+
       '<span class="t-bar'+(crit?' crit':'')+'" style="left:'+P(es+fr)+';width:'+P(a.d)+'">'+a.id+'</span>'+
@@ -140,8 +142,8 @@ function renderTIA(){
   $('tiaRes').innerHTML=box(t('rOrig'),base.end+t('days'),null)+box(t('rNew'),imp.end+t('days'),delay>0)+box(t('rDelay'),delay+t('days'),delay>0);
   var msg,cls;
   if(days===0){msg=t('eZero');cls='mix'}
-  else if(delay===0){msg=t('eAbsorb').replace('{f}',base.tf[tAct]);cls='good'}
-  else{msg=t(tResp==='emp'?'eEmp':tResp==='neu'?'eNeu':'eCon').replace('{d}',delay);cls=tResp==='con'?'bad':(tResp==='emp'?'good':'mix')}
+  else if(delay===0){msg=t('eAbsorb').replace(/\{f\}/g,base.tf[tAct]).replace(/\{x\}/g,days).replace('{r}',imp.tf[tAct]);cls='good'}
+  else{msg=(base.tf[tAct]>0?t('eOver').replace('{f}',base.tf[tAct]).replace('{x}',days).replace('{d}',delay):'')+t(tResp==='emp'?'eEmp':tResp==='neu'?'eNeu':'eCon').replace('{d}',delay);cls=tResp==='con'?'bad':(tResp==='emp'?'good':'mix')}
   $('tiaEnt').className='verdict '+cls; $('tiaEnt').textContent=msg;
 }
 function renderMx(){$('mx').innerHTML=t('mx').map(function(m,i){return '<div class="panel"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
