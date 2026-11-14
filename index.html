@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=11">
+<link rel="stylesheet" href="assets/site.css?v=12">
 </head>
 <body data-page="home">
 
@@ -99,6 +99,8 @@
   <section id="projects">
     <div class="wrap">
       <div class="sheet reveal"><div><div class="no">03 / PROJECTS</div><h2 data-i="prjT"></h2></div><p data-i="prjP"></p></div>
+      <a class="feat-app reveal" href="app.html"><img src="assets/app/dash.jpg" alt="DME Progress Tracker dashboard" loading="lazy"><div class="fa"><div><span class="chip" data-i="faK"></span></div><h3>DME Progress Tracker</h3><p data-i="faP"></p><span class="go" data-i="faGo"></span></div></a>
+      <div style="height:18px"></div>
       <div class="filters reveal" id="filters"></div>
       <div class="proj-grid" id="projGrid"></div>
     </div>
@@ -159,7 +161,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=11"></script>
+<script src="assets/site.js?v=12"></script>
 <script>
 (function(){
 "use strict";
@@ -185,6 +187,7 @@ en:{
  prjT:'Selected projects', prjP:'Click a project to open its work package.',
  filters:[['all','All'],['site','Project sites'],['office','Head office']],
  open:'Open →', result:'Result', prev:'← Previous', next:'Next →', role:'Role',
+ faK:'Featured · App I built', faP:'A progress tracking app for construction sites: P6 import, mobile updates, a 3-step approval workflow, live dashboards and one-click weekly reports.', faGo:'See the app →',
  labsT:'Try it yourself', labsP:'Two small tools that show how I work. Each has its own page.',
  lab1T:'Earned value lab', lab1P:'Set a project\'s budget, time and progress and watch the S-curve, SPI, CPI and EAC react.',
  lab2T:'Delay analysis lab', lab2P:'Drop a delay into a schedule, see if it hits the critical path, and find out whether it earns an EOT.',
@@ -212,6 +215,7 @@ ar:{
  prjT:'مشروعات مختارة', prjP:'اضغط على أي مشروع لترى تفاصيل دوري فيه.',
  filters:[['all','الكل'],['site','مواقع المشروعات'],['office','المكتب الرئيسي']],
  open:'← التفاصيل', result:'النتيجة', prev:'→ السابق', next:'التالي ←', role:'الدور',
+ faK:'مشروع مميز · تطبيق عملته', faP:'تطبيق لمتابعة تقدم مواقع الإنشاءات: استيراد من P6، وتحديث من الموبايل، واعتماد على 3 خطوات، ولوحات متابعة لحظية، وتقرير أسبوعي بضغطة واحدة.', faGo:'← شوف التطبيق',
  labsT:'جرّب بنفسك', labsP:'أداتان صغيرتان توضحان طريقة شغلي. لكل واحدة صفحة مستقلة.',
  lab1T:'معمل القيمة المكتسبة', lab1P:'حدّد ميزانية المشروع ومدته ونسبة الإنجاز وشوف منحنى S و SPI و CPI و EAC بيتغيروا.',
  lab2T:'معمل تحليل التأخير', lab2P:'أضف تأخير في برنامج زمني، وشوف هل يأثر على المسار الحرج، وهل يستحق تمديد مدة.',

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="Articles by Ahmed AbuOkail on planning, Primavera P6, earned value management, delay analysis and EOT claims.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=11">
+</head>
+<body data-page="articles">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html" data-i="home"></a>
+    <h1 data-i="pT"></h1><p data-i="pP"></p>
+  </div></div>
+  <section id="list"><div class="wrap">
+    <div class="art-list" id="artList"></div>
+    <div class="nextlinks"><a class="btn btn-primary" href="index.html#contact" data-i="contact"></a></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js?v=12"></script>
+<script>
+(function(){"use strict";var S=window.Site,$=S.$,esc=S.esc,t=S.t;
+var T={"en": {"pT": "Articles", "pP": "Short, practical notes on planning, project controls and delay claims, from what I do every day.", "go": "Read →", "read": "min read", "contact": "Questions about your project? Contact me"}, "ar": {"pT": "مقالات", "pP": "ملاحظات عملية قصيرة عن التخطيط ومراقبة المشروعات ومطالبات التأخير، من شغلي اليومي.", "go": "← اقرأ", "read": "دقائق قراءة", "contact": "عندك سؤال عن مشروعك؟ تواصل معي"}};
+var A=[{"id": "tia", "date": "2026-11-14", "min": 6, "tag": {"en": "Delay & claims", "ar": "التأخير والمطالبات"}, "title": {"en": "Time Impact Analysis, step by step: how to prove an EOT", "ar": "تحليل الأثر الزمني خطوة بخطوة: إزاي تثبت استحقاق تمديد المدة"}, "sum": {"en": "A practical walk-through of TIA: from the baseline and the delay event to the fragnet, the impacted schedule and a claim the engineer can accept.", "ar": "شرح عملي لتحليل الأثر الزمني (TIA): من البرنامج الأساسي وحدث التأخير إلى الـ Fragnet والبرنامج المتأثر ومطالبة يقدر المهندس يقبلها."}}, {"id": "evm", "date": "2026-11-14", "min": 5, "tag": {"en": "Project controls", "ar": "مراقبة المشروعات"}, "title": {"en": "SPI and CPI: what management really needs to know", "ar": "SPI و CPI: إيه اللي الإدارة محتاجة تعرفه فعلاً"}, "sum": {"en": "Earned value in plain language: the three numbers behind every report, how to read SPI and CPI together, and the traps that make them lie.", "ar": "القيمة المكتسبة بلغة بسيطة: الأرقام التلاتة ورا أي تقرير، وإزاي تقرا SPI و CPI مع بعض، والفخاخ اللي بتخليهم يضللوك."}}, {"id": "boq", "date": "2026-11-14", "min": 6, "tag": {"en": "Scheduling", "ar": "الجدولة"}, "title": {"en": "From BOQ to tender schedule in Primavera P6", "ar": "من جدول الكميات لبرنامج المناقصة على Primavera P6"}, "sum": {"en": "How I turn a bill of quantities, drawings and contract milestones into a cost-loaded tender schedule with a credible S-curve, in a few days.", "ar": "إزاي بحوّل جدول الكميات والرسومات ومعالم العقد لبرنامج مناقصة محمّل بالتكاليف ومنحنى S مقنع، في أيام قليلة."}}];
+function render(l){$('artList').innerHTML=A.map(function(a,i){return '<a class="art-card reveal in" href="article-'+a.id+'.html"><div class="art-meta"><span class="chip">'+esc(a.tag[l])+'</span><span class="mono">'+a.date+' · '+a.min+' '+esc(t('read'))+'</span></div><h2>'+esc(a.title[l])+'</h2><p>'+esc(a.sum[l])+'</p><span class="go">'+esc(t('go'))+'</span></a>'}).join('')}
+S.init({T:T,title:{en:'Articles',ar:'مقالات'},render:render});})();
+</script>
+</body>
+</html>
