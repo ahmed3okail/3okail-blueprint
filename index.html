@@ -264,7 +264,7 @@ var typer=(function(){var w=0,c=0,del=false,timer;function tick(){var words=t('t
   timer=setTimeout(tick,wait)}return{reset:function(){clearTimeout(timer);w=0;c=0;del=false;tick()}}})();
 
 /* Contact form: set W3F_KEY to the Web3Forms access key to deliver messages straight to the inbox. */
-var W3F_KEY='';
+var W3F_KEY='b0b9e95a-a13c-451d-9714-da2daa3ec7c9';
 $('rfi').addEventListener('submit',function(ev){ev.preventDefault();
   var n=$('fName').value.trim(),em=$('fEmail').value.trim(),sj=$('fSubj').value.trim(),m=$('fMsg').value.trim(),st=$('fStatus'),btn=this.querySelector('button[type=submit]');
   if(!W3F_KEY){
