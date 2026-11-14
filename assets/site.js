@@ -14,9 +14,9 @@ var NAV=[['index.html','home'],['career.html','career'],['evm.html','evm'],['del
 var page=null, lang='en';
 
 var TOOLS=[['p6','Primavera P6'],['excel','Excel'],['powerbi','Power BI'],['autocad','AutoCAD'],['word','Word'],['powerpoint','PowerPoint'],['ai',{en:'AI tools',ar:'أدوات AI'}]];
-var COS=[{id:'dmc',n:'DMC-CURVE',m:'DMC'},{id:'eco',n:'Ecologi',m:'EC'},{id:'tab',n:{en:'Tabarak',ar:'تبارك'},m:'TB'},{id:'acc',n:{en:'Alexandria Construction · TMG',ar:'الإسكندرية للإنشاءات · TMG'},m:'TMG'}];
+var COS=[{id:'edu',n:{en:'Sohag University · Faculty of Engineering',ar:'جامعة سوهاج · كلية الهندسة'},m:'SU',hide:1},{id:'dmc',n:'DMC-CURVE',m:'DMC'},{id:'eco',n:'Ecologi',m:'EC'},{id:'tab',n:{en:'Tabarak',ar:'تبارك'},m:'TB'},{id:'acc',n:{en:'Alexandria Construction · TMG',ar:'الإسكندرية للإنشاءات · TMG'},m:'TMG'}];
 /* company ids that have a real logo file at assets/logos/<id>.png; others show a monogram */
-var LOGOS={dmc:1,eco:1,tab:1,acc:1};
+var LOGOS={edu:1,dmc:1,eco:1,tab:1,acc:1};
 function tr(v){return typeof v==='string'?v:(v[lang]||v.en)}
 var Site={
  esc:esc, $:$, store:store,
@@ -25,7 +25,7 @@ var Site={
  toolIcon:function(id){return '<img class="tool-ic" src="assets/tools/'+id+'.svg" alt="" width="22" height="22">'},
  brands:function(){
    var co=$('coRow'),tl=$('toolRow');
-   if(co)co.innerHTML=COS.map(function(c){return '<div class="co'+(LOGOS[c.id]?' only':'')+'" title="'+esc(tr(c.n))+'">'+Site.coLogo(c.id)+(LOGOS[c.id]?'':'<span>'+esc(tr(c.n))+'</span>')+'</div>'}).join('');
+   if(co)co.innerHTML=COS.filter(function(c){return !c.hide}).map(function(c){return '<div class="co'+(LOGOS[c.id]?' only':'')+'" title="'+esc(tr(c.n))+'">'+Site.coLogo(c.id)+(LOGOS[c.id]?'':'<span>'+esc(tr(c.n))+'</span>')+'</div>'}).join('');
    if(tl)tl.innerHTML=TOOLS.map(function(x){return '<div class="tool">'+Site.toolIcon(x[0])+'<span>'+esc(tr(x[1]))+'</span></div>'}).join('');
  },
  get lang(){return lang},
