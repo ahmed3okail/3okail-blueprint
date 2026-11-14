@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="stylesheet" href="assets/site.css?v=11">
 </head>
 <body data-page="career">
 
@@ -65,7 +65,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono">END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=10"></script>
+<script src="assets/site.js?v=11"></script>
 <script>
 (function(){
 "use strict";
@@ -138,7 +138,7 @@ function renderGantt(){
   var c=career.filter(function(x){return x.id===gSel})[0], m=milestones.filter(function(x){return x.id===gSel})[0], o=c||m, chips;
   if(c)chips='<span class="chip">'+fmtD(c.s)+' – '+fmtD(c.e)+'</span><span class="chip">'+(mIdx(c.e||NOW)-mIdx(c.s))+' '+t('months')+'</span>';
   else chips='<span class="chip">'+fmtD(m.d)+'</span>';
-  $('gDetail').innerHTML='<div class="g-detail"><div>'+(o.id!=='edu'?S.coLogo(o.id,'lg'):'')+'<h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
+  $('gDetail').innerHTML='<div class="g-detail"><div>'+S.coLogo(o.id,'lg')+'<h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
     (c&&c.proj?'<p class="org" style="margin-top:10px"><b>'+t('projects')+':</b> '+esc(c.proj.map(function(x){return x[L]||x}).join(' · '))+'</p>':'')+
     '</div><ul>'+o.pts[L].map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></div>';
 }
