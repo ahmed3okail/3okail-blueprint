@@ -97,7 +97,7 @@ var career=[
   pts:{en:['Prepared shop drawings and quantity surveys for subcontractor invoices.','Issued RFIs and managed material submittals for compliance with specifications.','Prepared daily, weekly and monthly progress reports and coordinated between trades.'],
        ar:['إعداد الرسومات التنفيذية وحصر الكميات لمستخلصات مقاولي الباطن.','إصدار طلبات الاستيضاح (RFIs) وإدارة اعتمادات المواد وفق المواصفات.','إعداد تقارير التقدم اليومية والأسبوعية والشهرية والتنسيق بين التخصصات.']}},
  {id:'tab',s:[2023,12],e:[2024,11],code:'PL',
-  title:{en:'Planning Engineer',ar:'مهندس تخطيط'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},short:{en:'Tabarak',ar:'تبارك'},
+  title:{en:'Planning Engineer',ar:'مهندس تخطيط'},org:{en:'Tabarak for Engineering and Construction',ar:'تبارك للهندسة والمقاولات'},short:{en:'Tabarak',ar:'تبارك'},proj:[{en:'Water Treatment Plant, Luxor',ar:'محطة معالجة مياه بالأقصر'}],
   pts:{en:['Developed and updated detailed Primavera P6 schedules and tracked the critical path.','Prepared and presented weekly and monthly progress reports to management.','Ran earned value (EVM) analysis to measure project performance.','Supported delay analysis and EOT claims; coordinated multidisciplinary teams to resolve issues.'],
        ar:['إعداد وتحديث برامج زمنية تفصيلية على Primavera P6 ومتابعة المسار الحرج.','إعداد وعرض تقارير التقدم الأسبوعية والشهرية على الإدارة.','إجراء تحليل القيمة المكتسبة (EVM) لقياس أداء المشروع.','دعم تحليل التأخير ومطالبات تمديد المدة، والتنسيق مع الفرق متعددة التخصصات.']}},
  {id:'eco',s:[2024,11],e:[2026,4],code:'PC',
@@ -139,7 +139,7 @@ function renderGantt(){
   if(c)chips='<span class="chip">'+fmtD(c.s)+' – '+fmtD(c.e)+'</span><span class="chip">'+(mIdx(c.e||NOW)-mIdx(c.s))+' '+t('months')+'</span>';
   else chips='<span class="chip">'+fmtD(m.d)+'</span>';
   $('gDetail').innerHTML='<div class="g-detail"><div><h3>'+esc(o.title[L])+'</h3><p class="org">'+esc(o.org[L])+'</p>'+chips+
-    (c&&c.proj?'<p class="org" style="margin-top:10px"><b>'+t('projects')+':</b> '+esc(c.proj.join(' · '))+'</p>':'')+
+    (c&&c.proj?'<p class="org" style="margin-top:10px"><b>'+t('projects')+':</b> '+esc(c.proj.map(function(x){return x[L]||x}).join(' · '))+'</p>':'')+
     '</div><ul>'+o.pts[L].map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></div>';
 }
 $('gantt').addEventListener('click',function(ev){var b=ev.target.closest('[data-g]');if(!b)return;gSel=b.getAttribute('data-g');renderGantt()});
