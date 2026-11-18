@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=14">
+<link rel="stylesheet" href="assets/site.css?v=15">
 </head>
 <body data-page="home">
 
@@ -118,6 +118,11 @@
           <svg viewBox="0 0 400 150" aria-hidden="true"><rect x="20" y="22" width="60" height="16" rx="3" fill="var(--crit)"/><rect x="80" y="50" width="80" height="16" rx="3" fill="var(--crit)"/><rect x="160" y="78" width="40" height="16" rx="3" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 3"/><rect x="200" y="78" width="90" height="16" rx="3" fill="var(--crit)"/><rect x="160" y="106" width="70" height="16" rx="3" fill="var(--accent)"/><line x1="230" y1="114" x2="290" y2="114" stroke="var(--muted)" stroke-width="2"/><line x1="290" y1="10" x2="290" y2="140" stroke="var(--ink)" stroke-opacity=".35" stroke-width="2"/><line x1="330" y1="10" x2="330" y2="140" stroke="var(--crit)" stroke-width="2"/><text x="336" y="26" font-family="JetBrains Mono" font-size="12" fill="var(--crit)">EOT</text></svg>
           <div class="lc"><h3 data-i="lab2T"></h3><p data-i="lab2P"></p><span class="go" data-i="labGo"></span></div>
         </a>
+
+        <a class="labcard reveal" href="tender.html">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><g font-family="JetBrains Mono" font-size="10" fill="var(--muted)"><text x="20" y="24">BOQ</text></g><rect x="20" y="32" width="110" height="9" rx="2" fill="var(--line)"/><rect x="20" y="48" width="90" height="9" rx="2" fill="var(--line)"/><rect x="20" y="64" width="100" height="9" rx="2" fill="var(--line)"/><rect x="20" y="80" width="80" height="9" rx="2" fill="var(--line)"/><path d="M140 60 h22" stroke="var(--ink)" stroke-width="2"/><path d="M158 55 l6 5 -6 5" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="180" y="28" width="40" height="11" rx="2" fill="var(--crit)"/><rect x="208" y="46" width="70" height="11" rx="2" fill="var(--crit)"/><rect x="240" y="64" width="50" height="11" rx="2" fill="var(--accent)"/><rect x="262" y="82" width="70" height="11" rx="2" fill="var(--crit)"/><path d="M180 140 C 230 138, 260 110, 290 80 S 350 22, 385 20" fill="none" stroke="var(--accent)" stroke-width="3"/><line x1="360" y1="10" x2="360" y2="140" stroke="var(--crit)" stroke-width="2"/></svg>
+          <div class="lc"><h3 data-i="lab3T"></h3><p data-i="lab3P"></p><span class="go" data-i="labGo"></span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -160,7 +165,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span>END OF DRAWING SET</span></div></footer>
 
-<script src="assets/site.js?v=14"></script>
+<script src="assets/site.js?v=15"></script>
 <script>
 (function(){
 "use strict";
@@ -187,9 +192,10 @@ en:{
  filters:[['all','All'],['site','Project sites'],['office','Head office']],
  open:'Open →', result:'Result', prev:'← Previous', next:'Next →', role:'Role',
  faK:'Developed by me · Web app', faP:'A progress tracking app for construction sites: P6 import, mobile updates, a 3-step approval workflow, live dashboards and one-click weekly reports.', faGo:'See how it works →',
- labsT:'Tools I have developed', labsP:'Digital tools I built to make planning and project controls faster: a full progress tracking app, plus two interactive labs you can try.',
+ labsT:'Tools I have developed', labsP:'Digital tools I built to make planning and project controls faster: a full progress tracking app, plus three interactive labs you can try.',
  lab1T:'Earned value lab', lab1P:'Set a project\'s budget, time and progress and watch the S-curve, SPI, CPI and EAC react.',
  lab2T:'Delay analysis lab', lab2P:'Drop a delay into a schedule, see if it hits the critical path, and find out whether it earns an EOT.',
+ lab3T:'Tender schedule lab', lab3P:'Turn a BOQ into a schedule: change quantities and crews, see the critical path, S-curve and monthly cash flow.',
  labGo:'Open the lab →',
  contactT:'Let\'s build what\'s next', contactP:'Have a project that needs planning, controls or a delay claim? Send me an RFI and I\'ll reply by email.',
  rfiHead:'Request for information', fName:'Your name', fEmail:'Your email', fSubj:'Subject', fMsg:'Message', fSend:'Submit RFI', fSending:'Sending…', fOk:'Thanks! Your RFI was sent. I\'ll reply by email soon.', fErr:'Sending failed. Please email me at ahmedokail04@gmail.com or message me on WhatsApp.', fGmail:'Opening Gmail to send your RFI. Not using Gmail? Email ahmedokail04@gmail.com or use WhatsApp.'
@@ -215,9 +221,10 @@ ar:{
  filters:[['all','الكل'],['site','مواقع المشروعات'],['office','المكتب الرئيسي']],
  open:'← التفاصيل', result:'النتيجة', prev:'→ السابق', next:'التالي ←', role:'الدور',
  faK:'من تطويري · تطبيق ويب', faP:'تطبيق لمتابعة تقدم مواقع الإنشاءات: استيراد من P6، وتحديث من الموبايل، واعتماد على 3 خطوات، ولوحات متابعة لحظية، وتقرير أسبوعي بضغطة واحدة.', faGo:'← شوف بيشتغل إزاي',
- labsT:'أدوات طورتها', labsP:'أدوات رقمية بنيتها علشان التخطيط ومراقبة المشروعات يبقوا أسرع: تطبيق كامل لمتابعة التقدم، ومعملين تفاعليين تقدر تجربهم.',
+ labsT:'أدوات طورتها', labsP:'أدوات رقمية بنيتها علشان التخطيط ومراقبة المشروعات يبقوا أسرع: تطبيق كامل لمتابعة التقدم، و3 معامل تفاعلية تقدر تجربها.',
  lab1T:'معمل القيمة المكتسبة', lab1P:'حدّد ميزانية المشروع ومدته ونسبة الإنجاز وشوف منحنى S و SPI و CPI و EAC بيتغيروا.',
  lab2T:'معمل تحليل التأخير', lab2P:'أضف تأخير في برنامج زمني، وشوف هل يأثر على المسار الحرج، وهل يستحق تمديد مدة.',
+ lab3T:'معمل برنامج المناقصة', lab3P:'حوّل جدول الكميات لبرنامج زمني: غيّر الكميات والأطقم، وشوف المسار الحرج ومنحنى S والتدفق النقدي الشهري.',
  labGo:'← افتح المعمل',
  contactT:'لنبنِ الخطوة القادمة', contactP:'عندك مشروع محتاج تخطيط أو مراقبة أو مطالبة تأخير؟ ابعتلي RFI وهرد عليك بالإيميل.',
  rfiHead:'طلب استيضاح', fName:'اسمك', fEmail:'بريدك الإلكتروني', fSubj:'الموضوع', fMsg:'الرسالة', fSend:'إرسال الطلب', fSending:'جارٍ الإرسال…', fOk:'شكرًا! وصلني طلبك، وهرد عليك بالإيميل قريب.', fErr:'الإرسال فشل. ابعتلي على ahmedokail04@gmail.com أو كلمني واتساب.', fGmail:'بيتفتح Gmail لإرسال طلبك. لو مش بتستخدم Gmail ابعت على ahmedokail04@gmail.com أو كلمني واتساب.'

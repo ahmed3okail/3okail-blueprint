@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3okail Blueprint</title>
+<meta name="description" content="Tender schedule lab: turn a simple BOQ into a schedule, critical path, S-curve and monthly cash flow. By Ahmed AbuOkail.">
+<meta property="og:title" content="3okail Blueprint — Ahmed AbuOkail">
+<meta property="og:description" content="Planning & Project Control Engineer. Primavera P6, EVM, delay analysis and EOT claims.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="assets/logo-full.png">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=15">
+</head>
+<body data-page="tender">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html#labs" data-i="back"></a>
+    <h1 data-i="tT"></h1><p data-i="tP"></p>
+  </div></div>
+
+  <section id="tender">
+    <div class="wrap">
+      <div class="panel boq reveal">
+        <div class="boq-head"><h3 data-i="boqT"></h3><div class="presets" id="presets"></div></div>
+        <div class="boq-scroll"><table class="boq-t" id="boq"></table></div>
+        <div class="boq-foot">
+          <div class="ctrl"><label for="cd"><span data-i="inCd"></span><output id="oCd"></output></label><input type="range" id="cd" min="6" max="24" value="14"></div>
+          <p class="hint" data-i="boqHint"></p>
+        </div>
+      </div>
+      <div class="result tr-res" id="kpis"></div>
+      <div class="verdict" id="verdict"></div>
+      <div class="lab2">
+        <div class="panel"><h3 class="pt" data-i="ganttT"></h3><div class="t-scroll"><div id="gantt"></div></div><p class="hint" data-i="ganttHint"></p><details class="logic"><summary data-i="lgT"></summary><table id="logic"></table><p class="hint" data-i="lgNote"></p></details></div>
+        <div class="panel chart"><h3 class="pt" data-i="scT"></h3><svg id="sc" viewBox="0 0 640 300" role="img" aria-label="S-curve"></svg>
+          <div class="legend"><span><i style="background:var(--accent)"></i><span data-i="lgCum"></span></span><span><i style="background:var(--accent-soft);height:10px"></i><span data-i="lgMon"></span></span><span><i style="background:var(--crit)"></i><span data-i="lgCd"></span></span></div></div>
+      </div>
+      <div class="nextlinks"><a class="btn btn-primary" href="article-boq.html" data-i="goArt"></a><a class="btn btn-line" href="index.html#contact" data-i="goContact"></a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span>END OF DRAWING SET</span></div></footer>
+
+<script src="assets/site.js?v=15"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+var T={
+en:{back:'← Tools I have developed', tT:'Tender schedule lab', tP:'Turn a simple bill of quantities into a schedule. Change the quantities or the number of crews and watch the duration, critical path, S-curve and monthly cash flow update, the way I build a tender schedule in Primavera P6.',
+ boqT:'Bill of quantities', presets:[['res','Residential building G+4'],['villa','Villa'],['wh','Warehouse']],
+ cols:['Item','Qty','Unit','Rate (EGP)','Output / crew / day','Crews','Duration','Value'],
+ inCd:'Contract duration', mo:'months', d:'d', boqHint:'Durations = quantity ÷ (output × crews), in working days (6 days a week). Overlaps follow typical site logic.',
+ kV:'Contract value', kD:'Planned finish', kF:'Against contract', kP:'Peak month',
+ ganttT:'Schedule (critical path in red)', ganttHint:'Grey line = float. Red line = contract finish.', scT:'S-curve and monthly cash flow', lgCum:'Cumulative %', lgMon:'Monthly value', lgCd:'Contract finish',
+ vOk:'Fits the contract with {f} days of float. This is a tender schedule you can submit.', vTight:'Fits, but only {f} days of float. Add a crew on a critical item to protect the finish date.', vBad:'Finishes {f} days after the contract date. Add crews on the red (critical) items or ask for a longer duration.',
+ lgT:'How the activities are linked', lgCols:['Activity','Predecessor','Link'], lgNote:'SS lag = % of the predecessor\'s duration. Every SS link also keeps the successor from finishing before its predecessor.',
+ goArt:'Read: From BOQ to tender schedule →', goContact:'Need a tender schedule? Contact me', M:'M', items:{mob:'Mobilization & site setup',exc:'Excavation',fnd:'Foundations (RC)',str:'Superstructure (RC)',mas:'Masonry',mep:'MEP rough-in',pla:'Plaster',fin:'Finishes (tiles & paint)',ext:'External works & landscape',hnd:'Testing & handover'}},
+ar:{back:'→ أدوات طورتها', tT:'معمل برنامج المناقصة', tP:'حوّل جدول كميات بسيط لبرنامج زمني. غيّر الكميات أو عدد الأطقم وشوف المدة والمسار الحرج ومنحنى S والتدفق النقدي الشهري بيتغيروا، بنفس الطريقة اللي ببني بيها برنامج المناقصة على Primavera P6.',
+ boqT:'جدول الكميات', presets:[['res','عمارة سكنية أرضي + 4'],['villa','فيلا'],['wh','مخزن']],
+ cols:['البند','الكمية','الوحدة','الفئة (جنيه)','إنتاجية الطاقم / يوم','الأطقم','المدة','القيمة'],
+ inCd:'مدة العقد', mo:'شهر', d:' يوم', boqHint:'المدة = الكمية ÷ (الإنتاجية × عدد الأطقم)، بأيام العمل (6 أيام في الأسبوع). والتداخل بين البنود حسب التسلسل المعتاد في الموقع.',
+ kV:'قيمة العقد', kD:'الإنهاء المخطط', kF:'مقارنة بالعقد', kP:'أعلى شهر',
+ ganttT:'البرنامج الزمني (المسار الحرج بالأحمر)', ganttHint:'الخط الرمادي = الفائض الزمني. الخط الأحمر = نهاية العقد.', scT:'منحنى S والتدفق النقدي الشهري', lgCum:'النسبة التراكمية', lgMon:'قيمة الشهر', lgCd:'نهاية العقد',
+ vOk:'البرنامج جوه مدة العقد بفائض {f} يوم. ده برنامج مناقصة تقدر تقدّمه.', vTight:'جوه المدة، بس الفائض {f} يوم بس. زوّد طاقم على بند حرج علشان تحمي تاريخ الإنهاء.', vBad:'الإنهاء بعد مدة العقد بـ {f} يوم. زوّد الأطقم على البنود الحمرا (الحرجة) أو اطلب مدة أطول.',
+ lgT:'الأنشطة مربوطة ببعض إزاي', lgCols:['النشاط','النشاط السابق','العلاقة'], lgNote:'الـ Lag في علاقات SS نسبة من مدة النشاط السابق. وكل علاقة SS بتمنع النشاط اللاحق إنه يخلص قبل السابق.',
+ goArt:'← اقرأ: من جدول الكميات لبرنامج المناقصة', goContact:'محتاج برنامج مناقصة؟ تواصل معي', M:' م', items:{mob:'التجهيز والتعبئة',exc:'الحفر',fnd:'الأساسات الخرسانية',str:'الهيكل الخرساني',mas:'المباني',mep:'تأسيس الكهرباء والميكانيكا',pla:'المحارة',fin:'التشطيبات (بلاط ودهانات)',ext:'الأعمال الخارجية واللاندسكيب',hnd:'الاختبارات والتسليم'}}};
+// id, unit, rate, output/crew/day (0 = fixed duration in days), predecessors [id, type, overlap% of pred]
+var LOGIC={mob:[],exc:[['mob','FS']],fnd:[['exc','SS',.4]],str:[['fnd','FS']],mas:[['str','SS',.35]],mep:[['str','SS',.45]],pla:[['mas','SS',.4],['mep','SS',.3]],fin:[['pla','SS',.5],['mep','FS']],ext:[['str','FS']],hnd:[['fin','FS'],['ext','FS']]};
+var UNITS={en:{LS:'LS',m3:'m³',m2:'m²',pt:'pt'},ar:{LS:'مقطوعية',m3:'م³',m2:'م²',pt:'نقطة'}};
+var PRESETS={
+ res:{cd:14,rows:[['mob',1,'LS',1500000,0,1,15],['exc',6000,'m3',120,420,1],['fnd',900,'m3',9500,21,1],['str',2400,'m3',10500,10,2],['mas',9000,'m2',450,63,2],['mep',4000,'pt',600,22,2],['pla',18000,'m2',220,126,2],['fin',12000,'m2',900,49,2],['ext',3000,'m2',650,35,1],['hnd',1,'LS',600000,0,1,20]]},
+ villa:{cd:10,rows:[['mob',1,'LS',400000,0,1,10],['exc',900,'m3',140,210,1],['fnd',180,'m3',9800,8,1],['str',420,'m3',11000,6,1],['mas',2200,'m2',480,42,1],['mep',900,'pt',650,14,1],['pla',4200,'m2',240,84,1],['fin',2600,'m2',1400,28,1],['ext',1200,'m2',900,28,1],['hnd',1,'LS',150000,0,1,10]]},
+ wh:{cd:8,rows:[['mob',1,'LS',600000,0,1,10],['exc',4000,'m3',110,420,1],['fnd',700,'m3',9000,21,1],['str',500,'m3',10000,11,1],['mas',3500,'m2',420,70,1],['mep',1200,'pt',550,28,1],['pla',5000,'m2',200,140,1],['fin',6000,'m2',500,98,1],['ext',5000,'m2',450,84,1],['hnd',1,'LS',300000,0,1,10]]}};
+var cur='res', rows, WD=6/7;
+function load(p){cur=p;rows=PRESETS[p].rows.map(function(r){return r.slice()});$('cd').value=PRESETS[p].cd}
+function dur(r){return r[4]?Math.max(1,Math.ceil(r[1]/(r[4]*r[5]))):r[6]}
+function fmt(n){return Math.round(n).toLocaleString('en-US')}
+function mny(v){return (v/1e6).toFixed(v>=1e8?0:1)+t('M')}
+function cpm(){
+  var A={},order=rows.map(function(r){return r[0]});
+  rows.forEach(function(r){A[r[0]]={d:Math.round(dur(r)/WD),v:r[1]*r[3]}});
+  order.forEach(function(id){var a=A[id],es=0;LOGIC[id].forEach(function(l){var p=A[l[0]];if(l[1]==='FS')es=Math.max(es,p.ef);else{es=Math.max(es,p.es+Math.round(l[2]*p.d),p.ef-a.d+1)}});a.es=es;a.ef=es+a.d});
+  var end=Math.max.apply(null,order.map(function(id){return A[id].ef}));
+  order.slice().reverse().forEach(function(id){var a=A[id],lf=end;order.forEach(function(s){LOGIC[s].forEach(function(l){if(l[0]!==id)return;var b=A[s];if(l[1]==='FS')lf=Math.min(lf,b.ls);else lf=Math.min(lf,b.ls-Math.round(l[2]*a.d)+a.d,b.lf+a.d-1)})});a.lf=lf;a.ls=lf-a.d;a.tf=a.ls-a.es});
+  return {A:A,end:end,order:order};
+}
+function renderLogic(){var c=t('lgCols'),I=t('items'),h='<thead><tr>'+c.map(function(x){return '<th>'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>';
+  Object.keys(LOGIC).forEach(function(id){LOGIC[id].forEach(function(l){h+='<tr><td>'+esc(I[id])+'</td><td>'+esc(I[l[0]])+'</td><td class="rel"><bdi dir="ltr">'+l[1]+(l[1]==='SS'?' + '+Math.round(l[2]*100)+'%':'')+'</bdi></td></tr>'})});
+  $('logic').innerHTML=h+'</tbody>'}
+function renderPresets(){$('presets').innerHTML=t('presets').map(function(p){return '<button type="button" class="pill'+(cur===p[0]?' on':'')+'" data-p="'+p[0]+'">'+esc(p[1])+'</button>'}).join('')}
+function renderBoq(){
+  var c=t('cols'),U=UNITS[S.lang],h='<thead><tr>'+c.map(function(x){return '<th>'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>';
+  rows.forEach(function(r,i){var fixed=!r[4];
+    h+='<tr><td class="it">'+esc(t('items')[r[0]])+'</td><td>'+(fixed?'1':'<input type="number" min="1" step="1" value="'+r[1]+'" data-r="'+i+'" data-k="1" aria-label="qty">')+'</td><td>'+U[r[2]]+'</td><td class="num">'+fmt(r[3])+'</td><td class="num">'+(fixed?'—':fmt(r[4]))+'</td><td>'+(fixed?'—':'<select data-r="'+i+'" data-k="5" aria-label="crews">'+[1,2,3,4].map(function(n){return '<option'+(n===r[5]?' selected':'')+'>'+n+'</option>'}).join('')+'</select>')+'</td><td class="num dur" id="d'+i+'"></td><td class="num" id="v'+i+'"></td></tr>'});
+  $('boq').innerHTML=h+'</tbody><tfoot><tr><td colspan="7"></td><td class="num" id="vt"></td></tr></tfoot>';
+}
+$('boq').addEventListener('input',function(e){var el=e.target.closest('[data-r]');if(!el)return;var v=Math.max(1,+el.value||1);rows[+el.getAttribute('data-r')][+el.getAttribute('data-k')]=v;calc()});
+$('presets').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(!b)return;load(b.getAttribute('data-p'));renderPresets();renderBoq();calc()});
+$('cd').addEventListener('input',calc);
+function calc(){
+  var R=cpm(),A=R.A,cdM=+$('cd').value,cdD=Math.round(cdM*30.4),tot=0;
+  $('oCd').textContent=cdM+' '+t('mo');
+  rows.forEach(function(r,i){var a=A[r[0]];tot+=a.v;$('d'+i).textContent=dur(r)+t('d');$('d'+i).className='num dur'+(a.tf<=0?' crit':'');$('v'+i).textContent=mny(a.v)});
+  $('vt').textContent=mny(tot);
+  // monthly distribution (linear per activity)
+  var nM=Math.max(Math.ceil(R.end/30.4),cdM),mon=[];for(var m=0;m<nM;m++)mon.push(0);
+  R.order.forEach(function(id){var a=A[id],perDay=a.v/a.d;for(var d=a.es;d<a.ef;d++){mon[Math.min(nM-1,Math.floor(d/30.4))]+=perDay}});
+  var peak=Math.max.apply(null,mon),pk=mon.indexOf(peak),fl=cdD-R.end;
+  function k(l,v,g){return '<div class="kpi'+(g===null?'':(g?' good':' bad'))+'"><small>'+esc(l)+'</small><b>'+v+'</b></div>'}
+  $('kpis').innerHTML=k(t('kV'),mny(tot),null)+k(t('kD'),(R.end/30.4).toFixed(1)+' '+t('mo'),fl>=0)+k(t('kF'),(fl>=0?'+':'')+fl+t('d'),fl>=0)+k(t('kP'),mny(peak)+' · M'+(pk+1),null);
+  var v=$('verdict'); v.className='verdict '+(fl<0?'bad':fl<15?'mix':'good'); v.textContent=t(fl<0?'vBad':fl<15?'vTight':'vOk').replace('{f}',Math.abs(fl));
+  // gantt
+  var SC=Math.max(R.end,cdD)*1.04; function P(x){return (x/SC*100).toFixed(2)+'%'}
+  var g='<div class="t-rows"><div class="t-axis"><div></div><div class="t-track">';
+  for(m=0;m<=Math.floor(SC/30.4);m+=(SC>500?3:2))g+='<span class="t-tick" style="left:'+P(m*30.4)+'">M'+m+'</span>';
+  g+='</div></div>';
+  R.order.forEach(function(id){var a=A[id];g+='<div class="t-row"><div class="nm">'+esc(t('items')[id])+'<small>'+a.d+t('d')+(a.tf>0?' · TF '+a.tf:'')+'</small></div><div class="t-track"><span class="t-line new" style="left:'+P(cdD)+'"></span><span class="t-bar'+(a.tf<=0?' crit':'')+'" style="left:'+P(a.es)+';width:'+P(a.d)+'"></span>'+(a.tf>0?'<span class="t-float" style="left:'+P(a.ef)+';width:'+P(a.tf)+'"></span>':'')+'</div></div>'});
+  $('gantt').innerHTML=g+'</div>';
+  // s-curve
+  var W=640,H=300,L=46,Rr=14,TP=18,B=30,n=mon.length; function X(i){return L+i/n*(W-L-Rr)} function Y(p){return H-B-p*(H-TP-B)}
+  var s='',cum=0,pts=[[X(0),Y(0)]],mx=peak/tot;
+  for(var i=0;i<=4;i++){var yy=Y(i/4);s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+yy+'" y2="'+yy+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(yy+4)+'" text-anchor="end" font-size="10" font-family="JetBrains Mono" fill="var(--muted)">'+(i*25)+'%</text>'}
+  mon.forEach(function(v,i){var bh=(v/peak)*(H-TP-B)*.55,bw=(W-L-Rr)/n;s+='<rect x="'+(X(i)+bw*.15).toFixed(1)+'" y="'+(H-B-bh).toFixed(1)+'" width="'+(bw*.7).toFixed(1)+'" height="'+bh.toFixed(1)+'" rx="2" fill="var(--accent-soft)"/>';cum+=v;pts.push([X(i+1),Y(cum/tot)]);if(n<=16||i%2===1)s+='<text x="'+(X(i)+bw/2).toFixed(1)+'" y="'+(H-B+16)+'" text-anchor="middle" font-size="10" font-family="JetBrains Mono" fill="var(--muted)">'+(i+1)+'</text>'});
+  s+='<path d="'+pts.map(function(p,i){return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('')+'" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/>';
+  var cx=X(cdM);s+='<line x1="'+cx+'" x2="'+cx+'" y1="'+TP+'" y2="'+(H-B)+'" stroke="var(--crit)" stroke-width="2"/>';
+  $('sc').innerHTML=s;
+}
+load('res');
+S.init({T:T,title:{en:'Tender schedule lab',ar:'معمل برنامج المناقصة'},render:function(){renderPresets();renderBoq();renderLogic();calc()}});
+})();
+</script>
+<script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
