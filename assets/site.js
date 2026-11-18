@@ -10,6 +10,7 @@ var C={
  en:{coT:'Companies I have worked with',toolT:'Tools I use',langBtn:'العربية',nav:['Home','Career','My tools','Articles','Contact'],fullName:'Ahmed Abd El-Basset AbuOkail',titleSfx:'Ahmed AbuOkail',home:'← Home'},
  ar:{coT:'شركات عملت بها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','أدوات طورتها','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
 };
+var NO_AR={PROFILE:'الملف الشخصي',SERVICES:'الخدمات',PROJECTS:'المشروعات',TOOLS:'الأدوات',CONTACT:'تواصل',PROBLEM:'المشكلة',FEATURES:'المميزات',SCREENS:'الشاشات',STACK:'التقنيات',SCHEDULE:'الجدول الزمني',WBS:'هيكل تجزئة العمل',TRAINING:'التدريب',NOTES:'ملاحظات','NOT FOUND':'غير موجودة','END OF DRAWING SET':'نهاية مجموعة اللوحات',DWG:'لوحة',REV:'إصدار'};
 var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay tender'],['articles.html','articles'],['index.html#contact','contact']];
 var page=null, lang='en';
 
@@ -40,6 +41,8 @@ var Site={
    document.title=(page.title?page.title[l]+' · ':'')+'3okail Blueprint · '+t('titleSfx');
    document.querySelectorAll('[data-i]').forEach(function(el){el.textContent=t(el.getAttribute('data-i'))});
    document.querySelectorAll('[data-h]').forEach(function(el){el.innerHTML=t(el.getAttribute('data-h'))});
+   /* drawing-style section labels: keep numbers, translate the words in Arabic */
+   document.querySelectorAll('.no,.no-l').forEach(function(el){var en=el.getAttribute('data-en');if(!en){en=el.textContent;el.setAttribute('data-en',en)}el.textContent=l==='ar'?en.replace(/[A-Z]{2,}(?: [A-Z]{2,})*/g,function(w){return NO_AR[w]||w}):en});
    $('langBtn').textContent=t('langBtn');
    var cur=document.body.getAttribute('data-page');
    $('nav').innerHTML=NAV.map(function(n,i){return '<a href="'+n[0]+'"'+(n[1].split(' ').indexOf(cur)>=0?' class="cur" aria-current="page"':'')+'><span class="n">0'+(i+1)+'</span>'+esc(t('nav')[i])+'</a>'}).join('');
