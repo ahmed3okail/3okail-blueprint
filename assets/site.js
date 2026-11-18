@@ -8,9 +8,9 @@ function $(id){return document.getElementById(id)}
 
 var C={
  en:{coT:'Companies I have worked with',toolT:'Tools I use',langBtn:'العربية',nav:['Home','Career','My tools','Articles','Contact'],fullName:'Ahmed Abd El-Basset AbuOkail',titleSfx:'Ahmed AbuOkail',home:'← Home'},
- ar:{coT:'شركات عملت بها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','أدوات طورتها','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
+ ar:{coT:'شركات اشتغلت فيها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','أدوات طورتها','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
 };
-var NO_AR={PROFILE:'الملف الشخصي',SERVICES:'الخدمات',PROJECTS:'المشروعات',TOOLS:'الأدوات',CONTACT:'تواصل',PROBLEM:'المشكلة',FEATURES:'المميزات',SCREENS:'الشاشات',STACK:'التقنيات',SCHEDULE:'الجدول الزمني',WBS:'هيكل تجزئة العمل',TRAINING:'التدريب',NOTES:'ملاحظات','NOT FOUND':'غير موجودة','END OF DRAWING SET':'نهاية مجموعة اللوحات',DWG:'لوحة',REV:'إصدار'};
+var NO_AR={PROFILE:'الملف الشخصي',SERVICES:'الخدمات',PROJECTS:'المشروعات',TOOLS:'الأدوات',CONTACT:'تواصل',PROBLEM:'المشكلة',FEATURES:'المميزات',SCREENS:'الشاشات',STACK:'التقنيات',SCHEDULE:'الجدول الزمني',WBS:'هيكل تجزئة العمل',TRAINING:'التدريب',NOTES:'ملاحظات','NOT FOUND':'غير موجودة','END OF DRAWING SET':'نهاية الصفحة',DWG:'لوحة',REV:'إصدار'};
 var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay tender'],['articles.html','articles'],['index.html#contact','contact']];
 var page=null, lang='en';
 

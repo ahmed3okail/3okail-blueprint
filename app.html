@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=17">
+<link rel="stylesheet" href="assets/site.css?v=18">
 </head>
 <body data-page="app">
 
@@ -95,7 +95,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=17"></script>
+<script src="assets/site.js?v=18"></script>
 <script>
 (function(){
 "use strict";
@@ -126,7 +126,7 @@ ar:{kick:'من تطويري', pP:'نظام متابعة تقدم صمّمته و
  gal:[['dash','لوحة متابعة المشروع'],['bldg','المباني: الأدوار والتخصصات'],['review','قائمة مراجعة التخطيط'],['report','إعداد التقرير الأسبوعي'],['mobile','مهندس الموقع على الموبايل']],
  stT:'اتبنى إزاي', stP:'تكلفة قليلة، وآمن، وسهل في الصيانة.',
  stk:[['الواجهة','تطبيق ويب بصفحة واحدة، بيتثبت على الموبايل، وبلغتين مع دعم كامل للعربي.'],['Supabase','قاعدة بيانات PostgreSQL، وتسجيل دخول، وتخزين الصور، ومزامنة لحظية بين المستخدمين.'],['القواعد جوه قاعدة البيانات','خطوات الاعتماد والصلاحيات متطبقة في قاعدة البيانات نفسها مش في الشاشة بس.'],['سجل كامل','كل تعديل محفوظ تاريخه: القيم الأصلية، وملاحظات المراجع، وسجل تدقيق.']],
- back:'→ أدوات طورتها', moreT:'أدوات تانية طورتها', goEvm:'← معمل القيمة المكتسبة', goDelay:'← معمل تحليل التأخير', goTender:'← معمل برنامج المناقصة', goContact:'عايز أداة زي دي؟ تواصل معي', goArt:'← اقرأ مقالاتي'}};
+ back:'→ أدوات طورتها', moreT:'أدوات تانية طورتها', goEvm:'← أداة القيمة المكتسبة', goDelay:'← أداة تحليل التأخير', goTender:'← أداة برنامج المناقصة', goContact:'عايز أداة زي دي؟ تواصل معي', goArt:'← اقرأ مقالاتي'}};
 function cards(id,arr){$(id).innerHTML=arr.map(function(m,i){return '<div class="panel reveal in"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
 function render(){
   $('flow').innerHTML=t('flow').map(function(f,i){return '<li><b>'+(i+1)+'</b><div><h4>'+esc(f[0])+'</h4><p>'+esc(f[1])+'</p></div></li>'}).join('');
