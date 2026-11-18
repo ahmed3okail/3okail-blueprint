@@ -10,7 +10,7 @@ var C={
  en:{coT:'Companies I have worked with',toolT:'Tools I use',langBtn:'العربية',nav:['Home','Career','My tools','Articles','Contact'],fullName:'Ahmed Abd El-Basset AbuOkail',titleSfx:'Ahmed AbuOkail',home:'← Home'},
  ar:{coT:'شركات عملت بها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','أدوات طورتها','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
 };
-var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay'],['articles.html','articles'],['index.html#contact','contact']];
+var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay tender'],['articles.html','articles'],['index.html#contact','contact']];
 var page=null, lang='en';
 
 var TOOLS=[['p6','Primavera P6'],['excel','Excel'],['powerbi','Power BI'],['autocad','AutoCAD'],['word','Word'],['powerpoint','PowerPoint'],['ai',{en:'AI tools',ar:'أدوات AI'}]];

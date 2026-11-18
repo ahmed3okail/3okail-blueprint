@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=14">
+<link rel="stylesheet" href="assets/site.css?v=15">
 </head>
 <body data-page="tender">
 
@@ -50,7 +50,7 @@
       <div class="result tr-res" id="kpis"></div>
       <div class="verdict" id="verdict"></div>
       <div class="lab2">
-        <div class="panel"><h3 class="pt" data-i="ganttT"></h3><div class="t-scroll"><div id="gantt"></div></div><p class="hint" data-i="ganttHint"></p></div>
+        <div class="panel"><h3 class="pt" data-i="ganttT"></h3><div class="t-scroll"><div id="gantt"></div></div><p class="hint" data-i="ganttHint"></p><details class="logic"><summary data-i="lgT"></summary><table id="logic"></table><p class="hint" data-i="lgNote"></p></details></div>
         <div class="panel chart"><h3 class="pt" data-i="scT"></h3><svg id="sc" viewBox="0 0 640 300" role="img" aria-label="S-curve"></svg>
           <div class="legend"><span><i style="background:var(--accent)"></i><span data-i="lgCum"></span></span><span><i style="background:var(--accent-soft);height:10px"></i><span data-i="lgMon"></span></span><span><i style="background:var(--crit)"></i><span data-i="lgCd"></span></span></div></div>
       </div>
@@ -74,6 +74,7 @@ en:{back:'← Tools I have developed', tT:'Tender schedule lab', tP:'Turn a simp
  kV:'Contract value', kD:'Planned finish', kF:'Against contract', kP:'Peak month',
  ganttT:'Schedule (critical path in red)', ganttHint:'Grey line = float. Red line = contract finish.', scT:'S-curve and monthly cash flow', lgCum:'Cumulative %', lgMon:'Monthly value', lgCd:'Contract finish',
  vOk:'Fits the contract with {f} days of float. This is a tender schedule you can submit.', vTight:'Fits, but only {f} days of float. Add a crew on a critical item to protect the finish date.', vBad:'Finishes {f} days after the contract date. Add crews on the red (critical) items or ask for a longer duration.',
+ lgT:'How the activities are linked', lgCols:['Activity','Predecessor','Link'], lgNote:'SS lag = % of the predecessor\'s duration. Every SS link also keeps the successor from finishing before its predecessor.',
  goArt:'Read: From BOQ to tender schedule →', goContact:'Need a tender schedule? Contact me', M:'M', items:{mob:'Mobilization & site setup',exc:'Excavation',fnd:'Foundations (RC)',str:'Superstructure (RC)',mas:'Masonry',mep:'MEP rough-in',pla:'Plaster',fin:'Finishes (tiles & paint)',ext:'External works & landscape',hnd:'Testing & handover'}},
 ar:{back:'→ أدوات طورتها', tT:'معمل برنامج المناقصة', tP:'حوّل جدول كميات بسيط لبرنامج زمني. غيّر الكميات أو عدد الأطقم وشوف المدة والمسار الحرج ومنحنى S والتدفق النقدي الشهري بيتغيروا، بنفس الطريقة اللي ببني بيها برنامج المناقصة على Primavera P6.',
  boqT:'جدول الكميات', presets:[['res','عمارة سكنية أرضي + 4'],['villa','فيلا'],['wh','مخزن']],
@@ -82,6 +83,7 @@ ar:{back:'→ أدوات طورتها', tT:'معمل برنامج المناقص
  kV:'قيمة العقد', kD:'الإنهاء المخطط', kF:'مقارنة بالعقد', kP:'أعلى شهر',
  ganttT:'البرنامج الزمني (المسار الحرج بالأحمر)', ganttHint:'الخط الرمادي = الفائض الزمني. الخط الأحمر = نهاية العقد.', scT:'منحنى S والتدفق النقدي الشهري', lgCum:'النسبة التراكمية', lgMon:'قيمة الشهر', lgCd:'نهاية العقد',
  vOk:'البرنامج جوه مدة العقد بفائض {f} يوم. ده برنامج مناقصة تقدر تقدّمه.', vTight:'جوه المدة، بس الفائض {f} يوم بس. زوّد طاقم على بند حرج علشان تحمي تاريخ الإنهاء.', vBad:'الإنهاء بعد مدة العقد بـ {f} يوم. زوّد الأطقم على البنود الحمرا (الحرجة) أو اطلب مدة أطول.',
+ lgT:'الأنشطة مربوطة ببعض إزاي', lgCols:['النشاط','النشاط السابق','العلاقة'], lgNote:'الـ Lag في علاقات SS نسبة من مدة النشاط السابق. وكل علاقة SS بتمنع النشاط اللاحق إنه يخلص قبل السابق.',
  goArt:'← اقرأ: من جدول الكميات لبرنامج المناقصة', goContact:'محتاج برنامج مناقصة؟ تواصل معي', M:' م', items:{mob:'التجهيز والتعبئة',exc:'الحفر',fnd:'الأساسات الخرسانية',str:'الهيكل الخرساني',mas:'المباني',mep:'تأسيس الكهرباء والميكانيكا',pla:'المحارة',fin:'التشطيبات (بلاط ودهانات)',ext:'الأعمال الخارجية واللاندسكيب',hnd:'الاختبارات والتسليم'}}};
 // id, unit, rate, output/crew/day (0 = fixed duration in days), predecessors [id, type, overlap% of pred]
 var LOGIC={mob:[],exc:[['mob','FS']],fnd:[['exc','SS',.4]],str:[['fnd','FS']],mas:[['str','SS',.35]],mep:[['str','SS',.45]],pla:[['mas','SS',.4],['mep','SS',.3]],fin:[['pla','SS',.5],['mep','FS']],ext:[['str','FS']],hnd:[['fin','FS'],['ext','FS']]};
@@ -103,6 +105,9 @@ function cpm(){
   order.slice().reverse().forEach(function(id){var a=A[id],lf=end;order.forEach(function(s){LOGIC[s].forEach(function(l){if(l[0]!==id)return;var b=A[s];if(l[1]==='FS')lf=Math.min(lf,b.ls);else lf=Math.min(lf,b.ls-Math.round(l[2]*a.d)+a.d,b.lf+a.d-1)})});a.lf=lf;a.ls=lf-a.d;a.tf=a.ls-a.es});
   return {A:A,end:end,order:order};
 }
+function renderLogic(){var c=t('lgCols'),I=t('items'),h='<thead><tr>'+c.map(function(x){return '<th>'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>';
+  Object.keys(LOGIC).forEach(function(id){LOGIC[id].forEach(function(l){h+='<tr><td>'+esc(I[id])+'</td><td>'+esc(I[l[0]])+'</td><td class="rel"><bdi dir="ltr">'+l[1]+(l[1]==='SS'?' + '+Math.round(l[2]*100)+'%':'')+'</bdi></td></tr>'})});
+  $('logic').innerHTML=h+'</tbody>'}
 function renderPresets(){$('presets').innerHTML=t('presets').map(function(p){return '<button type="button" class="pill'+(cur===p[0]?' on':'')+'" data-p="'+p[0]+'">'+esc(p[1])+'</button>'}).join('')}
 function renderBoq(){
   var c=t('cols'),U=UNITS[S.lang],h='<thead><tr>'+c.map(function(x){return '<th>'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>';
@@ -142,7 +147,7 @@ function calc(){
   $('sc').innerHTML=s;
 }
 load('res');
-S.init({T:T,title:{en:'Tender schedule lab',ar:'معمل برنامج المناقصة'},render:function(){renderPresets();renderBoq();calc()}});
+S.init({T:T,title:{en:'Tender schedule lab',ar:'معمل برنامج المناقصة'},render:function(){renderPresets();renderBoq();renderLogic();calc()}});
 })();
 </script>
 <script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
