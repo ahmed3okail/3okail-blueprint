@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=17">
+<link rel="stylesheet" href="assets/site.css?v=18">
 </head>
 <body data-page="evm">
 
@@ -71,14 +71,14 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=17"></script>
+<script src="assets/site.js?v=18"></script>
 <script>
 (function(){
 "use strict";
 var S=window.Site, $=S.$, esc=S.esc, t=S.t;
 var T={
 en:{evmT:'Earned value lab', evmP:'Drag the sliders to set a project\'s status. The S-curve, indices and forecast update live, the way I report them every month.',
- inBac:'Budget at completion (BAC)', inTime:'Time elapsed', inEv:'Work actually done', inAc:'Money actually spent', unit:'M', dataDate:'DATA DATE',
+ inBac:'Budget at completion (BAC)', inTime:'Time elapsed', inEv:'Work actually done', inAc:'Money actually spent', unit:'مليون', dataDate:'تاريخ البيانات',
  evmHint:'PV follows a typical S-curve. EV and AC are shares of BAC.',
  presets:[['ok','On track'],['late','Behind schedule'],['over','Over budget'],['bad','Recovery needed']],
  vGood:'Ahead of schedule and under budget. Keep the baseline and protect the float.',
@@ -88,17 +88,17 @@ en:{evmT:'Earned value lab', evmP:'Drag the sliders to set a project\'s status. 
  gT:'How to read it',
  gl:[['PV · Planned value','The budgeted cost of the work that should be done by the data date.'],['EV · Earned value','The budgeted cost of the work actually done.'],['AC · Actual cost','What the work done actually cost.'],['SPI = EV / PV','Below 1.00 means the project is behind schedule.'],['CPI = EV / AC','Below 1.00 means each unit of work costs more than planned.'],['EAC = BAC / CPI','The forecast final cost if the current cost efficiency continues.']],
  goDelay:'Next: delay analysis lab →', goContact:'Contact me'},
-ar:{evmT:'معمل القيمة المكتسبة', evmP:'حرّك المؤشرات لتحديد حالة مشروع. منحنى S والمؤشرات والتوقعات تتحدّث فورًا، بنفس طريقة تقاريري الشهرية.',
- inBac:'الميزانية عند الإنجاز (BAC)', inTime:'المدة المنقضية', inEv:'الأعمال المنفذة فعليًا', inAc:'المصروف فعليًا', unit:'M', dataDate:'DATA DATE',
+ar:{evmT:'أداة القيمة المكتسبة', evmP:'حرّك الأرقام وشوف حالة المشروع. منحنى S والمؤشرات والتوقعات بتتغير على طول، بنفس طريقة تقاريري الشهرية.',
+ inBac:'الميزانية عند الإنجاز (BAC)', inTime:'المدة المنقضية', inEv:'الأعمال المنفذة فعليًا', inAc:'المصروف فعليًا', unit:'مليون', dataDate:'تاريخ البيانات',
  evmHint:'القيمة المخططة PV تتبع منحنى S نموذجي. EV و AC نسب من BAC.',
- presets:[['ok','في المسار'],['late','متأخر'],['over','تجاوز الميزانية'],['bad','يحتاج استدراك']],
- vGood:'متقدم عن البرنامج وأقل من الميزانية. حافظ على البرنامج الأساسي واحمِ الفائض الزمني.',
- vLate:'متأخر عن البرنامج. وقت برنامج الاستدراك: إعادة تسلسل الأعمال وزيادة الموارد على المسار الحرج.',
- vOver:'تجاوز الميزانية. راجع أوامر الشراء مقابل جدول الكميات وأحكم تقدير تكلفة الإنجاز.',
- vBad:'متأخر ومتجاوز للميزانية. صعّد للإدارة بخطة استدراك وتقدير محدّث للتكلفة النهائية.',
+ presets:[['ok','في المسار'],['late','متأخر'],['over','تجاوز الميزانية'],['bad','محتاج خطة تعويض']],
+ vGood:'متقدم عن البرنامج وأقل من الميزانية. كمّل بنفس الطريقة وحافظ على الفائض الزمني.',
+ vLate:'متأخر عن البرنامج. محتاج خطة تعويض تأخير: غيّر ترتيب الأعمال وزوّد الموارد على المسار الحرج.',
+ vOver:'تجاوز الميزانية. راجع أوامر الشراء مقابل جدول الكميات وحدّث تقدير التكلفة النهائية.',
+ vBad:'متأخر ومتجاوز للميزانية. بلّغ الإدارة بخطة تعويض وتقدير محدّث للتكلفة النهائية.',
  gT:'إزاي تقرأ النتائج',
  gl:[['PV · القيمة المخططة','التكلفة المعتمدة للأعمال المفروض تكون اتنفذت حتى تاريخ البيانات.'],['EV · القيمة المكتسبة','التكلفة المعتمدة للأعمال اللي اتنفذت فعلًا.'],['AC · التكلفة الفعلية','اللي اتصرف فعلًا على الأعمال المنفذة.'],['SPI = EV / PV','أقل من 1.00 يعني المشروع متأخر عن البرنامج.'],['CPI = EV / AC','أقل من 1.00 يعني كل وحدة شغل بتتكلف أكتر من المخطط.'],['EAC = BAC / CPI','التكلفة النهائية المتوقعة لو استمرت كفاءة التكلفة الحالية.']],
- goDelay:'← التالي: معمل تحليل التأخير', goContact:'تواصل معي'}};
+ goDelay:'← التالي: أداة تحليل التأخير', goContact:'تواصل معي'}};
 
 function S_(x){var k=9,f=function(v){return 1/(1+Math.exp(-k*(v-.5)))};return (f(x)-f(0))/(f(1)-f(0))}
 var presetVals={ok:[50,52,48],late:[60,42,43],over:[50,50,63],bad:[70,48,70]}, curPreset='ok';
@@ -134,7 +134,7 @@ function renderEVM(){
   v.textContent=sOk&&cOk?t('vGood'):(!sOk&&!cOk?t('vBad'):(!sOk?t('vLate'):t('vOver')));
 }
 function renderGloss(){$('gloss').innerHTML=t('gl').map(function(g){return '<div class="panel"><h3 class="mono" style="font-size:.95rem;color:var(--accent)">'+esc(g[0])+'</h3><p>'+esc(g[1])+'</p></div>'}).join('')}
-S.init({T:T,title:{en:'EVM lab',ar:'معمل EVM'},render:function(){renderPresets();renderEVM();renderGloss()}});
+S.init({T:T,title:{en:'EVM lab',ar:'أداة EVM'},render:function(){renderPresets();renderEVM();renderGloss()}});
 })();
 </script>
 <script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

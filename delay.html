@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=17">
+<link rel="stylesheet" href="assets/site.css?v=18">
 </head>
 <body data-page="delay">
 
@@ -68,7 +68,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=17"></script>
+<script src="assets/site.js?v=18"></script>
 <script>
 (function(){
 "use strict";
@@ -89,21 +89,21 @@ en:{tiaT:'Delay analysis lab', tiaP:'A mini Time Impact Analysis. Insert a delay
  mT:'Who carries the delay?', mP:'The three outcomes the lab can give, in short.',
  mx:[['Excusable · compensable','Caused by the employer (late drawings, variations, late access). Time and money.'],['Excusable · non-compensable','Caused by neutral events such as force majeure or exceptional weather. Time, no money.'],['Non-excusable','Caused by the contractor. No time, no money; delay damages may apply.']],
  goContact:'Need a delay claim? Contact me', goEvm:'← EVM lab'},
-ar:{tiaT:'معمل تحليل التأخير', tiaP:'تحليل أثر زمني (TIA) مصغّر. أدخل حدث تأخير (Fragnet) في البرنامج وشوف هل يؤثر على المسار الحرج وإيه الاستحقاق.',
+ar:{tiaT:'أداة تحليل التأخير', tiaP:'تحليل أثر زمني (TIA) مصغّر. أدخل حدث تأخير (Fragnet) في البرنامج وشوف هل يؤثر على المسار الحرج وإيه الاستحقاق.',
  inAct:'النشاط المتأثر بالتأخير', inDays:'مدة التأخير', inResp:'المسؤولية', days:' يوم',
  resp:[['emp','المالك'],['neu','محايد (قوة قاهرة)'],['con','المقاول']],
  tiaHint:'الأشرطة الحمراء على المسار الحرج. الخطوط الرمادية هي الفائض الزمني. الكتلة المخططة هي حدث التأخير، والخط الأحمر هو تاريخ الإنهاء الجديد.',
  acts:{A:'التجهيز والتعبئة',B:'الحفر',C:'الأساسات',D:'أعمال MEP الأولية',E:'الهيكل الخرساني',F:'التشطيبات والتسليم'},
  rOrig:'الإنهاء الأصلي', rNew:'الإنهاء بعد الأثر', rDelay:'تأخير المشروع',
- eAbsorb:'امتصه الفائض الزمني: النشاط كان عنده {f} يوم فائض (TF {f} → {r}). التأخير ({x} يوم) استهلك {x} يوم منهم، فتاريخ الإنهاء لا يتغير ولا يُستحق تمديد.',
- eOver:'النشاط كان عنده {f} يوم فائض. التأخير ({x} يوم) استهلكه كله وأخّر تاريخ الإنهاء {d} يوم. ',
- eEmp:'تأخير مُعذَر وقابل للتعويض: يستحق المقاول تمديد مدة {d} يوم بالإضافة إلى تكاليف إطالة المدة.',
- eNeu:'تأخير مُعذَر غير قابل للتعويض: تمديد مدة {d} يوم بدون تكاليف إضافية.',
- eCon:'تأخير غير مُعذَر: لا تمديد. على المقاول استدراك {d} يوم أو تطبيق غرامات التأخير.',
- eZero:'لا يوجد حدث تأخير بعد. حرّك المؤشر لتجربة حدث.',
- mT:'مين يتحمل التأخير؟', mP:'النتائج الثلاثة اللي ممكن يطلعها المعمل، باختصار.',
- mx:[['مُعذَر وقابل للتعويض','سببه المالك (تأخر الرسومات، أوامر التغيير، تأخر تسليم الموقع). وقت وفلوس.'],['مُعذَر غير قابل للتعويض','سببه أحداث محايدة زي القوة القاهرة أو الطقس الاستثنائي. وقت بدون فلوس.'],['غير مُعذَر','سببه المقاول. لا وقت ولا فلوس، وممكن تُطبّق غرامات التأخير.']],
- goContact:'محتاج مطالبة تأخير؟ تواصل معي', goEvm:'معمل EVM →'}};
+ eAbsorb:'الفائض الزمني غطّى التأخير: النشاط كان عنده {f} يوم فائض (TF {f} → {r}). التأخير ({x} يوم) أخد {x} يوم منهم، فتاريخ الإنهاء ما اتغيرش ومفيش تمديد مستحق.',
+ eOver:'النشاط كان عنده {f} يوم فائض. التأخير ({x} يوم) خلّص الفائض كله وأخّر تاريخ الإنهاء {d} يوم. ',
+ eEmp:'التأخير على المالك: المقاول يستحق تمديد {d} يوم، ومعاه تعويض عن تكاليف المدة الزيادة.',
+ eNeu:'تأخير محايد: تمديد {d} يوم من غير تعويض مادي.',
+ eCon:'التأخير على المقاول: مفيش تمديد. المقاول لازم يعوّض الـ {d} يوم، وإلا تتطبق غرامات التأخير.',
+ eZero:'لسه مفيش تأخير. حرّك المؤشر وجرّب.',
+ mT:'مين يتحمل التأخير؟', mP:'النتائج التلاتة اللي ممكن تطلعها الأداة، باختصار.',
+ mx:[['يستحق مدة وتعويض','سببه المالك (تأخر الرسومات، أوامر التغيير، تأخر تسليم الموقع). وقت وفلوس.'],['يستحق مدة بس','سببه أحداث محايدة زي القوة القاهرة أو الطقس الاستثنائي. وقت بدون فلوس.'],['على المقاول','سببه المقاول. لا وقت ولا فلوس، وممكن تُطبّق غرامات التأخير.']],
+ goContact:'محتاج مطالبة تأخير؟ تواصل معي', goEvm:'أداة EVM →'}};
 
 var acts=[{id:'A',d:10,p:[]},{id:'B',d:20,p:['A']},{id:'C',d:25,p:['B']},{id:'D',d:30,p:['B']},{id:'E',d:40,p:['C']},{id:'F',d:30,p:['D','E']}];
 var tAct='D', tResp='emp';
@@ -149,7 +149,7 @@ function renderTIA(){
   $('tiaEnt').className='verdict '+cls; $('tiaEnt').textContent=msg;
 }
 function renderMx(){$('mx').innerHTML=t('mx').map(function(m,i){return '<div class="panel"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('')}
-S.init({T:T,title:{en:'Delay lab',ar:'معمل التأخير'},render:function(){renderTIAControls();renderTIA();renderMx()}});
+S.init({T:T,title:{en:'Delay lab',ar:'أداة التأخير'},render:function(){renderTIAControls();renderTIA();renderMx()}});
 })();
 </script>
 <script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

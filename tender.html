@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=17">
+<link rel="stylesheet" href="assets/site.css?v=18">
 </head>
 <body data-page="tender">
 
@@ -63,7 +63,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=17"></script>
+<script src="assets/site.js?v=18"></script>
 <script>
 (function(){
 "use strict";
@@ -78,9 +78,9 @@ en:{back:'← Tools I have developed', tT:'Tender schedule lab', tP:'Turn a simp
  vOk:'Fits the contract with {f} days of float. This is a tender schedule you can submit.', vTight:'Fits, but only {f} days of float. Add a crew on a critical item to protect the finish date.', vBad:'Finishes {f} days after the contract date. Add crews on the red (critical) items or ask for a longer duration.',
  lgT:'How the activities are linked', lgCols:['Activity','Predecessor','Link'], lgNote:'SS lag = % of the predecessor\'s duration. Every SS link also keeps the successor from finishing before its predecessor.',
  goArt:'Read: From BOQ to tender schedule →', goContact:'Need a tender schedule? Contact me', M:'M', items:{mob:'Mobilization & site setup',exc:'Excavation',fnd:'Foundations (RC)',str:'Superstructure (RC)',mas:'Masonry',mep:'MEP rough-in',pla:'Plaster',fin:'Finishes (tiles & paint)',ext:'External works & landscape',hnd:'Testing & handover'}},
-ar:{back:'→ أدوات طورتها', tT:'معمل برنامج المناقصة', tP:'حوّل جدول كميات بسيط لبرنامج زمني. غيّر الكميات أو عدد الأطقم وشوف المدة والمسار الحرج ومنحنى S والتدفق النقدي الشهري بيتغيروا، بنفس الطريقة اللي ببني بيها برنامج المناقصة على Primavera P6.',
+ar:{back:'→ أدوات طورتها', tT:'أداة برنامج المناقصة', tP:'حوّل جدول كميات بسيط لبرنامج زمني. غيّر الكميات أو عدد الأطقم وشوف المدة والمسار الحرج ومنحنى S والتدفق النقدي الشهري بيتغيروا، بنفس الطريقة اللي ببني بيها برنامج المناقصة على Primavera P6.',
  boqT:'جدول الكميات', presets:[['res','عمارة سكنية أرضي + 4'],['villa','فيلا'],['wh','مخزن']],
- cols:['البند','الكمية','الوحدة','الفئة (جنيه)','إنتاجية الطاقم / يوم','الأطقم','المدة','القيمة'],
+ cols:['البند','الكمية','الوحدة','سعر الوحدة (جنيه)','إنتاجية الطاقم / يوم','الأطقم','المدة','القيمة'],
  inCd:'مدة العقد', mo:'شهر', d:' يوم', boqHint:'المدة = الكمية ÷ (الإنتاجية × عدد الأطقم)، بأيام العمل (6 أيام في الأسبوع). والتداخل بين البنود حسب التسلسل المعتاد في الموقع.',
  kV:'قيمة العقد', kD:'الإنهاء المخطط', kF:'مقارنة بالعقد', kP:'أعلى شهر',
  ganttT:'البرنامج الزمني (المسار الحرج بالأحمر)', ganttHint:'الخط الرمادي = الفائض الزمني. الخط الأحمر = نهاية العقد.', scT:'منحنى S والتدفق النقدي الشهري', lgCum:'النسبة التراكمية', lgMon:'قيمة الشهر', lgCd:'نهاية العقد',
@@ -149,7 +149,7 @@ function calc(){
   $('sc').innerHTML=s;
 }
 load('res');
-S.init({T:T,title:{en:'Tender schedule lab',ar:'معمل برنامج المناقصة'},render:function(){renderPresets();renderBoq();renderLogic();calc()}});
+S.init({T:T,title:{en:'Tender schedule lab',ar:'أداة برنامج المناقصة'},render:function(){renderPresets();renderBoq();renderLogic();calc()}});
 })();
 </script>
 <script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
