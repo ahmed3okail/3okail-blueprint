@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahmed3okail.github.io/3okail-blueprint/sitemap.xml
