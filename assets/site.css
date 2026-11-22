@@ -387,7 +387,7 @@ nav.links a.cur{color:var(--ink);background:var(--surface-2)}
 .app-hero{margin:0;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
 .app-hero .frame{display:flex;gap:6px;padding:9px 12px;border-bottom:1.5px solid var(--ink);background:var(--surface-2)}
 .app-hero .frame span{width:10px;height:10px;border-radius:50%;background:var(--line)}
-.app-hero img{display:block;width:100%;height:auto}
+.app-hero img,.app-hero video{display:block;width:100%;height:auto;background:#0f3b3a}
 .app-note{margin:10px 0 0}
 #shot .counters{margin-top:22px}
 .flow-panel{padding:24px}
