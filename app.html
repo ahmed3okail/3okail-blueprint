@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Engaz (إنجاز) · Ahmed AbuOkail</title>
-<meta name="description" content="Engaz (إنجاز): a construction progress tracking app built by Ahmed AbuOkail. P6 import, mobile updates, approval workflow, dashboards and weekly reports.">
-<meta property="og:title" content="Engaz (إنجاز) · Ahmed AbuOkail">
-<meta property="og:description" content="Engaz (إنجاز): a construction progress tracking app built by Ahmed AbuOkail. P6 import, mobile updates, approval workflow, dashboards and weekly reports.">
+<title>Injaz (إنجاز) · Ahmed AbuOkail</title>
+<meta name="description" content="Injaz (إنجاز): a construction progress tracking app built by Ahmed AbuOkail. P6 import, mobile updates, approval workflow, dashboards and weekly reports.">
+<meta property="og:title" content="Injaz (إنجاز) · Ahmed AbuOkail">
+<meta property="og:description" content="Injaz (إنجاز): a construction progress tracking app built by Ahmed AbuOkail. P6 import, mobile updates, approval workflow, dashboards and weekly reports.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="apple-touch-icon" href="assets/logo-mark.png">
@@ -44,7 +44,7 @@
     <div class="wrap">
       <figure class="app-hero reveal">
         <div class="frame"><span></span><span></span><span></span></div>
-        <img src="assets/app/dash.jpg?v=2" alt="Project dashboard" loading="eager" width="1600" height="1000">
+        <img src="assets/app/dash.jpg?v=3" alt="Project dashboard" loading="eager" width="1600" height="1000">
       </figure>
       <p class="hint app-note" data-i="note"></p>
       <div class="counters reveal">
@@ -101,7 +101,7 @@
 "use strict";
 var S=window.Site, $=S.$, esc=S.esc, t=S.t;
 var T={
-en:{appName:'Engaz',kick:'Developed by me', pP:'A progress tracking system I designed and built for construction sites. Site engineers update progress from their phones, the construction manager reviews it, and planning approves it. Management gets weighted progress, dashboards and weekly reports from one source.',
+en:{appName:'Injaz',kick:'Developed by me', pP:'A progress tracking system I designed and built for construction sites. Site engineers update progress from their phones, the construction manager reviews it, and planning approves it. Management gets weighted progress, dashboards and weekly reports from one source.',
  note:'All screenshots use the built-in demo data: a fictional "Project X". No real project data is shown.',
  k1:'User roles', k2:'Activities from a P6 schedule', k3:'Approval steps', k4:'Languages (EN / AR)',
  probT:'Why I built it', prob1:'Site progress used to reach planning through scattered Excel sheets, photos and messages. Numbers arrived late, came in different formats, and nobody could tell which figure was the approved one.',
@@ -137,7 +137,7 @@ $('gal').addEventListener('click',function(e){var b=e.target.closest('[data-src]
 function closeLb(){$('lb').hidden=true;document.body.style.overflow=''}
 $('lb').addEventListener('click',function(e){if(e.target.id!=='lbImg')closeLb()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('lb').hidden)closeLb()});
-S.init({T:T,title:{en:'Engaz',ar:'إنجاز'},render:render});
+S.init({T:T,title:{en:'Injaz',ar:'إنجاز'},render:render});
 })();
 </script>
 <script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

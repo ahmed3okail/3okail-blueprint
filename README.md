@@ -11,7 +11,7 @@ A static, bilingual (English / Arabic RTL) site with light/dark mode. No build s
 | `evm.html` | Earned value lab: sliders drive an S-curve, SPI/CPI/EAC |
 | `delay.html` | Delay analysis lab: insert a delay, see the critical path and EOT entitlement |
 | `tender.html` | Tender schedule lab: BOQ to schedule, critical path, S-curve and monthly cash flow |
-| `app.html` | Engaz (إنجاز): the progress tracking app, with screenshots from its demo data |
+| `app.html` | Injaz (إنجاز): the progress tracking app, with screenshots from its demo data |
 | `articles.html`, `article-*.html` | Articles (EN/AR): Time Impact Analysis, SPI/CPI, BOQ to tender schedule |
 
 Shared styles and behaviour live in `assets/site.css` and `assets/site.js`.
