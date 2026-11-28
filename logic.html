@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Activity relationships library · Ahmed AbuOkail</title>
+<meta name="description" content="A library of construction activity relationships: pick an activity and see what comes before it, what comes after it, the relationship type and lag, and the workflow it belongs to. By Ahmed AbuOkail.">
+<meta property="og:title" content="Activity relationships library · Ahmed AbuOkail">
+<meta property="og:description" content="Pick an activity and see its predecessors, successors, relationship types, lags and workflow. Fast, medium and relaxed logic options, ready for Primavera P6.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:image" content="https://ahmed3okail.github.io/3okail-blueprint/assets/logo-full.png">
+<meta property="og:url" content="https://ahmed3okail.github.io/3okail-blueprint/logic.html">
+<link rel="canonical" href="https://ahmed3okail.github.io/3okail-blueprint/logic.html">
+<meta name="theme-color" content="#021023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=20">
+</head>
+<body data-page="logic">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo-mark.png" alt="3okail Blueprint logo" width="34" height="34"><span class="bt">3okail <span class="bt-b">Blueprint</span></span></a>
+    <nav class="links" id="nav"></nav>
+    <div class="controls">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="icon-btn" id="langBtn" type="button"></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="subhero"><div class="wrap">
+    <a class="crumb" href="index.html#labs" data-i="back"></a>
+    <h1 data-i="lT"></h1><p data-i="lP"></p>
+  </div></div>
+
+  <section id="lib">
+    <div class="wrap">
+      <div class="lg-stages reveal" id="stages" role="tablist"></div>
+
+      <div class="lab lg-lab reveal">
+        <div class="panel lg-side">
+          <div class="lg-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="q" autocomplete="off">
+          </div>
+          <div class="lg-discs" id="discs"></div>
+          <div class="ctrl" style="margin:14px 0 6px"><label><span data-i="modeL"></span></label><div class="seg" id="mode"></div></div>
+          <p class="hint lg-mhint" data-i="modeH"></p>
+          <div class="lg-list" id="list"></div>
+        </div>
+
+        <div class="panel lg-main" id="main">
+          <div class="lg-head" id="head"></div>
+          <div class="lg-net" id="net">
+            <svg class="lg-wires" id="wires" aria-hidden="true"></svg>
+            <div class="lg-col lg-preds"><div class="lg-colh" data-i="before"></div><div id="preds"></div></div>
+            <div class="lg-col lg-mid" id="mid"></div>
+            <div class="lg-col lg-succs"><div class="lg-colh" data-i="after"></div><div id="succs"></div></div>
+          </div>
+          <div class="lg-legend" id="legend"></div>
+
+          <div class="lg-wf">
+            <div class="lg-wfh"><span class="no" id="wfNo">WORKFLOW</span><h3 id="wfT"></h3></div>
+            <ol class="lg-flow" id="flow"></ol>
+          </div>
+
+          <div class="lg-tbl">
+            <div class="lg-tblh"><h3 data-i="tblT"></h3><button class="btn btn-line lg-copy" id="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i="copy"></span></button></div>
+            <div class="boq-scroll"><table class="lg-t" id="tbl"></table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="types" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">NOTES</div><h2 data-i="tyT"></h2></div><p data-i="tyP"></p></div>
+      <div class="lg-types reveal" id="tys"></div>
+    </div>
+  </section>
+
+  <section id="rules" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">5 RULES</div><h2 data-i="ruT"></h2></div><p data-i="ruP"></p></div>
+      <div class="svc reveal" id="rus"></div>
+      <div class="lg-src reveal"><b data-i="srcT"></b><ul id="src"></ul><p data-i="srcN"></p></div>
+      <div class="nextlinks"><button class="btn btn-primary" id="csv" type="button" data-i="csv"></button><a class="btn btn-line" href="tender.html" data-i="goTender"></a></div>
+    </div>
+  </section>
+</main>
+
+<div class="lg-toast" id="toast" role="status" hidden></div>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
+
+<script src="assets/site.js?v=20"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Site, $=S.$, esc=S.esc, t=S.t;
+
+/* ---------- UI text ---------- */
+var T={
+en:{back:'← Tools I have developed', lT:'Activity relationships library', lP:'Pick any building activity and see what must come before it, what follows it, the relationship type and lag, why it is built that way on site, and the workflow it belongs to.',
+ search:'Search an activity…', all:'All', modeL:'Lag option', modes:['Fast','Medium','Relaxed'],
+ modeH:'Where a relationship has three options, pick by the float you have and how busy the floor is.',
+ before:'Before it', after:'After it', none:'Nothing here: a start or end point of the library.',
+ stage:'Stage', preds:'Predecessors', succs:'Successors', up:'All upstream', down:'All downstream',
+ crit:'Critical', crit2:'Usually on the critical path', opts:'3 options',
+ tblT:'Logic for this activity', copy:'Copy for Excel / P6', copied:'Copied. Paste it into Excel, then into P6.',
+ thPred:'Predecessor', thSucc:'Successor', thRel:'Relationship', thWhy:'Why',
+ noRes:'No activity matches your search.',
+ legend:[['FS','Finish to start'],['SS','Start to start'],['FF','Finish to finish'],['SF','Start to finish']],
+ wf:'Workflow', step:'Step',
+ tyT:'Four relationship types', tyP:'What each type means on site, and how often you should see it.',
+ tys:[['FS','Finish to start','The next one starts when the first one finishes. The default for most site logic.'],['SS','Start to start','Both run together with a gap. Good for zone by zone work, but close it with an FF too.'],['FF','Finish to finish','Both finish together with a gap. On its own it leaves the start open, so add an SS or a predecessor.'],['SF','Start to finish','Very rare. If you find one in a schedule, ask why.']],
+ ruT:'5 rules before you copy any relationship', ruP:'So your schedule tells the truth.',
+ rus:[['FF alone only closes the finish','The start of the activity is left with no logic (an open start). Add an SS or link it to the activity before it.'],['SS alone can mislead','On paper the successor can finish before the predecessor. Close it with an FF.'],['A lag without a reason is hidden duration','Write the reason in the notes. In the DCMA check, lags should stay under 5% of relationships, and leads (negative lags) at zero.'],['A test is an activity, not a milestone','It has a duration and an inspection. As a zero duration milestone, P6 assumes the next work starts the same day.'],['Split the activity to fit the logic','Sprinklers: drops before the ceiling, heads after it. Bathrooms floor by floor or zone by zone. Otherwise the lag loses its meaning.']],
+ srcT:'References', srcN:'Durations, lags and sequences differ between projects. Your approved specifications, drawings and method statements always govern.',
+ csv:'Download the full library (CSV)', goTender:'Tender schedule lab →',
+ activities:'activities', relations:'relationships'},
+ar:{back:'→ أدوات طورتها', lT:'مكتبة العلاقات بين الأنشطة', lP:'اختار أي نشاط في المبنى وشوف إيه اللي لازم قبله، وإيه اللي بعده، ونوع العلاقة والـ Lag، وليه بتتعمل كده في الموقع، والـ Workflow اللي هو جزء منه.',
+ search:'دوّر على نشاط…', all:'الكل', modeL:'اختيار الـ Lag', modes:['سريع','متوسط','مريح'],
+ modeH:'لما يبقى للعلاقة 3 اختيارات، اختار على حسب الـ float اللي عندك والزحمة في الدور.',
+ before:'اللي قبله', after:'اللي بعده', none:'مفيش هنا: ده بداية أو نهاية المكتبة.',
+ stage:'المرحلة', preds:'أنشطة قبله', succs:'أنشطة بعده', up:'كل اللي قبله', down:'كل اللي بعده',
+ crit:'حرج', crit2:'غالبًا على المسار الحرج', opts:'3 اختيارات',
+ tblT:'علاقات النشاط ده', copy:'انسخ لـ Excel / P6', copied:'اتنسخ. الصقه في Excel وبعدين في P6.',
+ thPred:'النشاط اللي قبل', thSucc:'النشاط اللي بعد', thRel:'العلاقة', thWhy:'السبب',
+ noRes:'مفيش نشاط بالاسم ده.',
+ legend:[['FS','نهاية ← بداية'],['SS','بداية ← بداية'],['FF','نهاية ← نهاية'],['SF','بداية ← نهاية']],
+ wf:'الـ Workflow', step:'خطوة',
+ tyT:'أنواع العلاقات الأربعة', tyP:'كل نوع معناه إيه في الموقع، وبتشوفه قد إيه.',
+ tys:[['FS','نهاية ← بداية','التاني يبدأ لما الأول يخلص. ده الأساس في أغلب علاقات الموقع.'],['SS','بداية ← بداية','يشتغلوا مع بعض بفرق. مناسب للشغل منطقة منطقة، بس اقفلها بـ FF كمان.'],['FF','نهاية ← نهاية','يخلصوا مع بعض بفرق. لوحدها بتسيب البداية من غير logic، فاربطها بـ SS أو بنشاط قبلها.'],['SF','بداية ← نهاية','نادرة جدًا. لو لقيتها في برنامج، اسأل ليه.']],
+ ruT:'5 قواعد قبل ما تنسخ أي علاقة', ruP:'علشان برنامجك ميكدبش.',
+ rus:[['الـ FF لوحدها بتقفل النهاية بس','بداية النشاط بتفضل من غير logic (open start). اربطها كمان بـ SS أو بالنشاط اللي قبلها.'],['الـ SS لوحدها ممكن تكدب','على الورق التاني ممكن يخلص قبل الأول. اقفلها بـ FF.'],['أي Lag من غير سبب = مدة مستخبية','اكتب السبب في الـ Notes. وفي فحص DCMA الـ Lags متعديش 5% من العلاقات، والـ Lead لازم يبقى صفر.'],['الاختبار نشاط مش milestone','ليه مدة واستلام. لو خليته milestone بمدة صفر، البرنامج هيفترض إن اللي بعده يبدأ في نفس اليوم.'],['قسّم النشاط على قد العلاقة','الرشاشات: الـ drops قبل السقف والرؤوس بعده. والحمامات دور دور أو zone zone، وإلا الـ Lag يفقد معناه.']],
+ srcT:'المراجع', srcN:'المدد والـ Lags والتسلسل بيختلفوا من مشروع للتاني. المواصفات والرسومات وطرق التنفيذ المعتمدة في مشروعك هي اللي بتحكم في الآخر.',
+ csv:'نزّل المكتبة كاملة (CSV)', goTender:'أداة برنامج المناقصة ←',
+ activities:'نشاط', relations:'علاقة'}};
+
+/* ---------- Library data ---------- */
+/* stages: [id, en, ar] — the workflow an activity belongs to, in site order */
+var ST=[
+ ['STR','Structure: floor cycle','الهيكل: دورة الدور'],
+ ['BLK','Blockwork & 1st fix','البلوك وأعمال 1st Fix'],
+ ['TST','Testing before closing','الاختبارات قبل القفل'],
+ ['PLS','Plaster & 2nd fix','المحارة و2nd Fix'],
+ ['WET','Bathrooms','الحمامات'],
+ ['CLG','False ceiling','السقف المعلّق'],
+ ['FIN','Final finishes','التشطيبات النهائية'],
+ ['ROF','Roof','السطح'],
+ ['FAC','Facades','الواجهات'],
+ ['LFT','Lifts','المصاعد'],
+ ['HND','Commissioning & handover','التشغيل والتسليم']];
+/* disciplines */
+var DS=[['CIV','Civil','مدني'],['ELE','Electrical','كهربا'],['PLM','Plumbing','سباكة'],['HVAC','HVAC','تكييف'],['FF','Fire fighting','حريق'],['LFT','Lifts','مصاعد']];
+/* activities: [code, stage, discipline, English, Arabic] */
+var A=[
+ ['S10','STR','CIV','Slab formwork & rebar','شدة وحديد السقف'],
+ ['S20','STR','ELE','MEP sleeves & conduits in slab','الجلب والمواسير المدفونة في السقف'],
+ ['S30','STR','CIV','Slab concrete pour','صب السقف'],
+ ['S40','STR','CIV','Formwork striking','فك الشدة'],
+ ['B10','BLK','CIV','Blockwork','البلوك'],
+ ['B20','BLK','CIV','Blockwork inspection & release','استلام البلوك وتسليمه للتخصصات'],
+ ['B30','BLK','ELE','Marking & chasing walls','تعليم وتكسير الحوائط للكهربا'],
+ ['B40','BLK','ELE','Power & low-current conduits in walls','مواسير الكهربا والتيار الخفيف في الحوائط'],
+ ['B50','BLK','PLM','Concealed water & drainage pipes','مواسير المياه والصرف في الحوائط'],
+ ['B60','BLK','HVAC','Duct & pipe hangers and supports','حوامل وعلاقات الدكت والمواسير'],
+ ['B70','BLK','HVAC','Ductwork','الدكت'],
+ ['B80','BLK','HVAC','Chilled water piping','مواسير المياه المثلجة'],
+ ['B85','BLK','FF','Fire fighting piping','مواسير الحريق'],
+ ['B90','BLK','ELE','Cable trays & trunking','حوامل الكابلات (Cable trays)'],
+ ['T10','TST','PLM','Water & drainage leak test','اختبار تسريب المياه والصرف'],
+ ['T20','TST','HVAC','Chilled water pressure test','اختبار ضغط مواسير التكييف'],
+ ['T30','TST','FF','Fire fighting pipe test','اختبار مواسير الحريق'],
+ ['T40','TST','HVAC','Duct & pipe insulation','عزل الدكت ومواسير التكييف'],
+ ['T50','TST','HVAC','Volume, fire & smoke dampers','الدامبرات (تحكم وحريق ودخان)'],
+ ['P10','PLS','CIV','Plaster preparation (mesh at joints)','تحضير المحارة (شبك الفواصل)'],
+ ['P20','PLS','CIV','Internal plaster','المحارة الداخلية'],
+ ['P30','PLS','CIV','Putty / skim coats','المعجون'],
+ ['P40','PLS','ELE','Wire & cable pulling','سحب السلك والكابلات'],
+ ['P50','PLS','HVAC','FCU installation & connections','تركيب وتوصيل وحدات FCU'],
+ ['P60','PLS','ELE','Distribution boards & terminations','لوحات التوزيع والتوصيلات'],
+ ['W10','WET','PLM','Bathroom floor plumbing & drains','سباكة أرضية الحمام والصفايات'],
+ ['W20','WET','CIV','Bathroom waterproofing','عزل الحمام'],
+ ['W30','WET','CIV','Flood test','اختبار الغمر'],
+ ['W40','WET','CIV','Wall tiling','سيراميك الحوائط'],
+ ['W50','WET','CIV','Floor tiling','سيراميك الأرضيات'],
+ ['W60','WET','CIV','Bathroom gypsum ceiling','سقف جبس الحمام'],
+ ['W70','WET','CIV','Bathroom door','باب الحمام'],
+ ['W80','WET','PLM','Sanitary ware (3rd fix plumbing)','الأطقم الصحية (3rd Fix سباكة)'],
+ ['W85','WET','CIV','Bathroom accessories','إكسسوارات الحمام'],
+ ['C10','CLG','CIV','Ceiling grid & suspension','شبكة السقف والتعليق (Grid)'],
+ ['C20','CLG','FF','Sprinkler drops','نزلات الرشاشات (drops)'],
+ ['C30','CLG','CIV','Ceiling closure (boards)','قفل السقف (ألواح الجبس)'],
+ ['C40','CLG','FF','Sprinkler heads','رؤوس الرشاشات'],
+ ['C50','CLG','HVAC','Diffusers & grilles','الديفيوزرات والجريلات'],
+ ['C60','CLG','ELE','Light fittings','الكشافات'],
+ ['F10','FIN','CIV','Porcelain & floor finishes','البورسلين والأرضيات'],
+ ['F20','FIN','CIV','Skirting','الوزرة'],
+ ['F30','FIN','CIV','Doors & fire doors','الأبواب وأبواب الحريق'],
+ ['F40','FIN','CIV','Stair treads (marble / granite)','درج السلم (رخام / جرانيت)'],
+ ['F50','FIN','CIV','Final paint','الدهان النهائي'],
+ ['F60','FIN','ELE','Circuit continuity test','اختبار استمرارية الدوائر'],
+ ['F70','FIN','ELE','Switches, sockets & fire alarm (3rd fix)','المفاتيح والبرايز والإنذار (3rd Fix)'],
+ ['F90','FIN','CIV','Preliminary testing & snagging','الاختبارات المبدئية والملاحظات'],
+ ['R10','ROF','CIV','Roof plaster / screed','محارة السطح'],
+ ['R20','ROF','CIV','Roof waterproofing','العزل المائي للسطح'],
+ ['R30','ROF','CIV','Roof thermal insulation','العزل الحراري للسطح'],
+ ['R40','ROF','CIV','Lightweight slope concrete','خرسانة الميول الخفيفة'],
+ ['R50','ROF','CIV','Terrazzo tiles & skirting','بلاط ووزرة التيرازو'],
+ ['R60','ROF','CIV','Steel ladder & roof doors','السلم الحديد وأبواب السطح'],
+ ['X10','FAC','CIV','External blockwork','البلوك الخارجي'],
+ ['X20','FAC','CIV','Facade scaffolding & preparation','سقالات وتأسيس الواجهة'],
+ ['X30','FAC','CIV','Damp proofing','عزل الرطوبة'],
+ ['X40','FAC','CIV','Thermal insulation (rock wool)','العزل الحراري (صوف)'],
+ ['X50','FAC','CIV','Cladding system & marble','الـ System والرخام'],
+ ['X60','FAC','CIV','Glazing & windows','الزجاج والشبابيك'],
+ ['X70','FAC','CIV','Side facades: plaster & paint','لياسة ودهان الواجهات الجانبية'],
+ ['L10','LFT','LFT','Lift 1st fix (rails)','مصاعد 1st Fix (القضبان)'],
+ ['L20','LFT','LFT','Lift 2nd fix (cabin)','مصاعد 2nd Fix (الكابينة)'],
+ ['L30','LFT','LFT','Lift 3rd fix (finishes)','مصاعد 3rd Fix (التشطيب)'],
+ ['H10','HND','ELE','Testing & commissioning','الاختبارات والتشغيل'],
+ ['H20','HND','CIV','Civil defence & authority approvals','اعتماد الدفاع المدني والجهات'],
+ ['H30','HND','CIV','Kerbs','البردورات'],
+ ['H40','HND','CIV','Backfill & compaction','الردم والدك'],
+ ['H50','HND','CIV','Interlock paving','الإنترلوك'],
+ ['H60','HND','CIV','Handover','التسليم']];
+
+/* relationships: [predecessor, successor, logic, critical, why EN, why AR]
+   logic: 'FS', 'SS+2', 'FS+5-15', 'FS+24-48h', 'SS+1fl' (floor), or [fast, medium, relaxed] */
+var R=[
+ ['S10','S20','SS+1',0,'Sleeves and conduits go in while the rebar is being fixed.','الجلب والمواسير بتتركب مع تركيب الحديد.'],
+ ['S10','S30','FS',0,'Pour only after the consultant accepts the rebar.','الصب بعد استلام الحديد من الاستشاري.'],
+ ['S20','S30','FS',0,'Everything embedded must be in before the pour. Forgetting it means core drilling later.','كل المدفون لازم يتركب قبل الصب، وإلا هتخرّم الخرسانة بعدين.'],
+ ['S30','S40','FS+5-15',1,'The slab must carry itself first: about 5 to 7 days for post-tension, 10 to 15 for conventional slabs, depending on spans.','السقف محتاج يشد ويشيل نفسه: من 5 لـ 7 أيام للـ post-tension، ومن 10 لـ 15 يوم للعادي حسب البحور.'],
+ ['S40','B10','FS',1,'The floor must be cleared of formwork and props before blockwork comes in.','الدور لازم يفضى من الشدة والدعامات قبل ما البلوك يدخل.'],
+ ['S40','B60','FS',0,'HVAC can start early: its work is in the ceiling and does not need the walls.','التكييف ينفع يبدأ بدري: شغله كله في السقف ومش محتاج البلوك.'],
+ ['S40','B85','FS',0,'Fire fighting mains hang from the slab, so they do not wait for blockwork.','خطوط الحريق متعلقة في السقف، فمش مستنية البلوك.'],
+ ['S40','R10','FS',0,'Roof finishes start once the roof slab is struck.','تشطيبات السطح تبدأ بعد فك شدة سقف الرووف.'],
+ ['S40','X10','FS',0,'External walls follow the frame floor by floor.','الحوائط الخارجية بتمشي ورا الهيكل دور دور.'],
+ ['B10','B20','FS',0,'The consultant inspects the walls, zone by zone.','الاستشاري بيستلم الحيطة، منطقة منطقة.'],
+ ['B10','B90',['SS+5','SS+10','FS'],0,'Trays run along the walls, so a few rooms of blockwork must be up first.','الحوامل ماشية على الحيطان، فلازم كام أوضة بلوك تخلص الأول.'],
+ ['B10','L10','FS',0,'Wait for the last block at the top, even on the setback roof: the machine and wires are installed from above.','آخر بلوك فوق (حتى في المرتد): الماكينة والـ wires بيتركبوا من فوق.'],
+ ['B20','B30',['SS+2','SS+5','FS'],0,'Trades start only in walls the consultant has released.','التخصصات بتدخل بس في الحيطان اللي الاستشاري سلّمها.'],
+ ['B20','B50',['SS+2','SS+5','FS'],0,'Bathroom and kitchen pipes run inside the walls.','مواسير الحمامات والمطابخ ماشية في الحيطان.'],
+ ['B20','P10','FS',0,'Plaster preparation starts on released walls.','تحضير المحارة على الحيطان المستلمة.'],
+ ['B20','W10','FS',0,'Floor drains are set out against the finished walls.','الصفايات بتتظبط على الحيطان بعد ما تخلص.'],
+ ['B30','B40',['SS+2','SS+5','FS'],0,'Chasing, boxes and conduits go inside the wall, so the wall comes first.','التكسير والعلب والمواسير جوه الحيطة، فالحيطة لازم تخلص الأول.'],
+ ['B40','P20',['FF+2','FF+5','FS'],1,'Conduits are buried in the wall: plastering before them means breaking it again. FF alone leaves plaster with an open start, so it is also tied to its preparation.','المواسير مدفونة في الحيطة، ولو المحارة قفلت قبلها يبقى تكسير. الـ FF لوحدها بتسيب بداية المحارة من غير logic، فهي مربوطة كمان بالتحضير.'],
+ ['B50','P20',['FF+2','FF+5','FS'],0,'Concealed pipes are finished before the wall is closed.','المواسير المدفونة تخلص قبل ما الحيطة تتقفل.'],
+ ['B50','T10','FS',0,'You cannot test a line that is not finished.','مينفعش تختبر خط لسه مخلصش.'],
+ ['B60','B70',['SS+2','FS','FS'],0,'Ducts hang on the supports.','الدكت بيتعلق على الحوامل.'],
+ ['B60','B80',['SS+2','FS','FS'],0,'Pipes need their hangers.','المواسير محتاجة حواملها.'],
+ ['B60','B85','SS+2',0,'Shared support routes are set out together.','مسارات الحوامل المشتركة بتتظبط مع بعض.'],
+ ['B70','T50',['SS+5','SS+8','FS'],0,'Dampers are fitted into installed duct runs.','الدامبرات بتتركب على الدكت بعد تركيبه.'],
+ ['B70','C10','FS',0,'Ducts and large pipes go in before the grid. Small connections and valves can follow it, ducts cannot.','الدكت والمواسير الكبيرة قبل الـ Grid. الوصلات الخفيفة والمحابس ممكن بعده، إنما الدكت لأ.'],
+ ['B80','T20','FS',0,'Test only a complete line. The test has a duration and an inspection.','الاختبار لخط كامل، وليه مدة واستلام.'],
+ ['B80','T40',['SS+5','SS+10','FS'],0,'Ties the start of insulation, so its FF link below is not left with an open start.','بتربط بداية العزل، علشان علاقة الـ FF اللي تحت متسيبش البداية مفتوحة.'],
+ ['B85','T30','FS',0,'Test the complete fire fighting line.','اختبار خط الحريق بعد ما يكمل.'],
+ ['B90','P40',['SS+4','SS+7','FS'],0,'Cables are laid on installed trays.','الكابلات بتتمد على الحوامل بعد تركيبها.'],
+ ['T10','W20','FS',0,'Floor pipes and drains are fixed and tested before waterproofing.','الصفاية والمواسير بتتركب وتتختبر قبل العزل.'],
+ ['T10','C10','FS',1,'The test is a gate: nobody closes over untested work.','الاختبار بوابة: محدش يقفل على شغل ما اتختبرش.'],
+ ['T10','W60','FS',0,'Valves and pipes above the bathroom ceiling are tested first.','المحابس والمواسير فوق سقف الحمام بتتختبر الأول.'],
+ ['T20','T40',['FF+2','FF+4','FF+7'],0,'Insulation can follow the test section by section, so it need not wait for the whole line.','العزل ممكن يمشي ورا الاختبار جزء جزء، فمش لازم يستنى الخط كله.'],
+ ['T20','P50','FS',0,'FCUs connect to tested pipes.','الـ FCU بتتوصل على مواسير متختبرة.'],
+ ['T30','C20','FS',0,'Drops come off a tested main.','النزلات بتطلع من خط متختبر.'],
+ ['T40','C10','FS',0,'Insulated ducts and pipes are needed before the grid.','الدكت والمواسير لازم تتعزل قبل الـ Grid.'],
+ ['T50','T40',['SS','SS+5','FS'],0,'Duct insulation follows the dampers.','عزل الدكت بيمشي ورا الدامبرات.'],
+ ['P10','P20','FS',0,'Mesh goes over block and concrete joints first. Plaster usually takes about as long as the blockwork.','الشبك على فواصل البلوك والخرسانة الأول، ومدة المحارة غالبًا قد مدة البلوك.'],
+ ['P20','P30','FS',0,'Usually two coats, a third if the plaster is poor.','سكينتين غالبًا، والتالتة لو البياض وحش.'],
+ ['P20','P40','FS',0,'Wires are pulled through the conduits after plaster.','السلك بيتسحب في المواسير بعد المحارة.'],
+ ['P20','P50','FS',0,'2nd fix of all trades comes after the wall is closed.','الـ 2nd Fix لكل التخصصات بعد ما الحيطة تتقفل.'],
+ ['P20','F10','FS',0,'Floors do not need to wait for putty and paint base. Porcelain can run beside putty in other areas.','الأرضية مش لازم تستنى المعجون وتأسيس الدهان، والبورسلين ممكن يمشي جنب المعجون في مناطق تانية.'],
+ ['P20','F40','FS',0,'Stair treads can go in very early, with good protection.','درج السلم ينفع بدري جدًا، بشرط protection كويس.'],
+ ['P30','P60',['SS+4','SS+8','FS'],0,'Boards are fixed on prepared walls.','اللوحات بتتركب على حيطان متجهزة.'],
+ ['P30','F50','FS',0,'The final coat goes over finished putty.','الوجه النهائي على المعجون بعد ما يخلص.'],
+ ['P40','C10',['SS+5','FS','FS'],0,'Wiring above the ceiling is done before the grid closes it in.','الأسلاك اللي فوق السقف تخلص قبل الـ Grid.'],
+ ['P40','W60','FS',0,'Exhausts and wiring above the bathroom ceiling are finished first.','الشفاطات والسلك فوق سقف الحمام يخلصوا الأول.'],
+ ['P50','C10','FS',0,'FCUs and their connections sit above the ceiling.','الـ FCU وتوصيلاتها فوق السقف.'],
+ ['P60','F60','FS',0,'Cables are terminated at the boards, then each circuit is tested.','الكابلات بتتوصل في اللوحات، وبعدين كل دائرة بتتختبر.'],
+ ['W10','T10','FS',0,'Floor plumbing is tested with the rest of the network.','سباكة الأرضية بتتختبر مع باقي الشبكة.'],
+ ['W20','W30','FS',0,'The flood test runs 24 to 48 hours: the consultant checks the level stays put and nothing leaks below.','اختبار الغمر من 24 لـ 48 ساعة: الاستشاري بيتأكد إن المنسوب ثابت ومفيش مية نزلت تحت.'],
+ ['W30','W40','FS',0,'The test sits inside the waterproofing scope. Tiles only after it passes.','الاختبار جزء من العزل، والسيراميك بعد ما يعدّي.'],
+ ['W40','W50','FS',0,'Floor tiles are set out to line up with the walls.','الأرضية بتتقفل مظبوطة على الحوائط.'],
+ ['W50','W70','FS',0,'The door is fitted to the finished floor level.','الباب بيتظبط على منسوب الأرضية النهائي.'],
+ ['W60','W80','FS',0,'So nobody comes back to fix something above and breaks the WC.','علشان محدش يطلع يصلّح حاجة فوق ويكسر القعدة.'],
+ ['W70','W80','FS',0,'Fixtures go in once the room can be locked.','الأطقم بتتركب لما الأوضة تتقفل بالمفتاح.'],
+ ['W70','W85','FS',0,'The door locks, so nobody walks in and breaks anything.','الباب بيتقفل بالمفتاح، فمحدش يدخل يكسر حاجة.'],
+ ['W80','F90','FS',0,'Snag once fixtures are in.','الملاحظات بعد تركيب الأطقم.'],
+ ['W85','F90','FS',0,'Snag once accessories are in.','الملاحظات بعد الإكسسوارات.'],
+ ['C10','C30','FS',1,'2nd fix of every trade, tested, before the boards. Otherwise you cut the gypsum and open access panels.','الـ 2nd Fix لكل التخصصات متختبر قبل الألواح، وإلا هتقطّع الجبس وتفتح فتحات تصلّح.'],
+ ['C20','C30','FS',0,'Drops must be in before the boards close.','النزلات لازم تتركب قبل قفل الألواح.'],
+ ['C30','C40',['SS+2','FF','FS'],0,'Split the activity: drops before the ceiling, heads after it so they sit in the middle of the board.','قسّم النشاط: الـ drops قبل السقف، والرأس بعده علشان ييجي في نص البلاطة.'],
+ ['C30','C50',['SS+2','SS+5','FS'],0,'Diffusers and grilles are fixed into the closed ceiling.','الديفيوزرات والجريلات بتتركب في السقف بعد قفله.'],
+ ['C30','F50','FS',0,'The ceiling is painted with the walls.','السقف بيتدهن مع الحيطان.'],
+ ['F10','C30','SS',0,'They can run together: a scaffold on wheels will not damage the porcelain.','ينفعوا مع بعض: السقالة بعجل على البورسلين مش هتبهدله.'],
+ ['F10','F20','FS',0,'Skirting closes the joint between floor and wall.','الوزرة بتقفل العلاقة بين الأرضية والحيطة.'],
+ ['F10','F30','FS',0,'Doors are set on a finished floor, or they will rub on it.','الباب لازم يتظبط على أرضية خلصانة، وإلا هيحك فيها.'],
+ ['F20','F90','FS',0,'Snag the finished floors.','الملاحظات على الأرضيات بعد ما تخلص.'],
+ ['F30','F50','FS',1,'So a door does not knock a freshly painted wall. Touch-ups never match the original.','علشان باب ميتخبطش في حيطة لسه مدهونة، والترميم عمره ما يرجع زي الأول.'],
+ ['F40','F90','FS',0,'Protect the treads until snagging.','الدرج محمي لحد الملاحظات.'],
+ ['F50','C60',['SS+4','FF','FS'],0,'Light fittings go on with or after the final coat.','الكشافات بتتركب مع الوجه النهائي أو بعده.'],
+ ['F50','F70',['SS+4','FF','FS'],0,'Alarm, switches and sockets go on after paint, so they stay clean.','الإنذار والمفاتيح والبرايز بعد الدهان علشان متتوسخش.'],
+ ['F60','F70','FS',0,'Devices are fitted on tested circuits. Both must be in the activity list.','الأجهزة بتتركب على دوائر متختبرة، والاتنين لازم يبقوا أنشطة في البرنامج.'],
+ ['C40','F90','FS',0,'Heads are checked during snagging.','الرؤوس بتتراجع في الملاحظات.'],
+ ['C50','F90','FS',0,'Diffusers are checked during snagging.','الديفيوزرات بتتراجع في الملاحظات.'],
+ ['C60','F90','FS',0,'Lights are checked during snagging.','الكشافات بتتراجع في الملاحظات.'],
+ ['F70','F90','FS',0,'3rd fix of all trades comes once the room is closed.','الـ 3rd Fix لكل التخصصات بعد ما الأوضة تتقفل.'],
+ ['F90','H10','FS',0,'Full system testing starts once snags are cleared.','التشغيل الكامل بعد إصلاح الملاحظات.'],
+ ['R10','R20','FS',1,'The roof is the most exposed part. A problem here reaches the whole building.','السطح أكتر حتة معرضة للمطر، وأي مشكلة فيه هتوصل للمبنى كله.'],
+ ['R20','R30','FS',0,'Thermal insulation shields the bitumen from the sun. Left exposed, it softens.','الحراري بيحمي طبقة البيتومين من الشمس، ولو اتسابت هتسيح.'],
+ ['R30','R40','FS',0,'Slopes lead water to the drains, and lightweight concrete keeps the load down. Some specs place the slopes before the membrane: check the approved detail.','الميول بتودّي المية للصفايات، وخفيفة علشان الحمل على السقف. فيه مواصفات بتعمل الميول قبل العزل المائي، فراجع الـ detail المعتمد.'],
+ ['R40','R50','FS',0,'Tiles and skirting are laid on the slopes.','البلاط والوزرة على الميول.'],
+ ['R50','R60','FS',0,'Steel doors, because of the constant sun. Timber would decay.','الأبواب حديد علشان الشمس طول الوقت، والخشب هيتآكل.'],
+ ['R60','F90','FS',0,'The roof joins the snagging round.','السطح بيدخل في جولة الملاحظات.'],
+ ['X10','X20','FS',0,'Only the last block visible on the facade. The setback roof is not seen, so it does not hold it up.','آخر بلوك ظاهر في الواجهة. الرووف المرتد لجوه مش باين، فمش لازم تستناه.'],
+ ['X10','X30','FS',1,'If water passes the marble or cladding, damp shows inside and the paint peels.','لو المية عدّت من الرخام أو الكلادينج، الرطوبة هتظهر جوه والدهانات تقشّر.'],
+ ['X10','X70','FS',0,'Side facades nobody sees get a cheaper finish that resists damp and sun.','الجنب اللي محدش شايفه بياخد تشطيب أرخص ومقاوم للرطوبة والشمس.'],
+ ['X20','X30','FS',0,'Damp proofing is applied from the scaffold.','عزل الرطوبة بيتعمل من على السقالة.'],
+ ['X30','X40','FS',0,'Keeps heat out. Standard in hotels and malls.','علشان الحرارة متوصلش جوه، وده الـ standard في الفنادق والمولات.'],
+ ['X40','X50',['SS+1fl',null,'FS'],0,'The consultant releases each layer before the next. Fast track: each finished floor releases the one above, with a risk of damaging the floor below.','الاستشاري بيستلم كل طبقة ويدي release للي بعدها. في الـ Fast track كل دور يخلص يتشغل اللي فوقه، مع risk إن اللي تحت يتبهدل.'],
+ ['X50','X60','FS',1,'Marble above before glass below: a falling piece would break the glass and facade under it.','الرخام فوق قبل الزجاج تحت: لو حتة وقعت هتكسر الإزاز والواجهة اللي تحتها.'],
+ ['X50','H30','FS',0,'Work around the building starts after the facade is done and the scaffolding is removed.','الشغل حوالين المبنى بعد ما الواجهة تخلص والسقالات تتشال.'],
+ ['X60','F50','FS',1,'Windows go in before the final coat, for the same reason as doors.','الشبابيك قبل الدهان النهائي، لنفس سبب الأبواب.'],
+ ['X70','H30','FS',0,'The side scaffolding must be out of the way.','سقالات الجنب لازم تتشال الأول.'],
+ ['L10','L20','FS',0,'2nd fix is the longest lift stage, around 60 days.','الـ 2nd Fix أطول مرحلة، حوالي 60 يوم.'],
+ ['L20','L30','FS',0,'Mirror, floor marble, control panel and air grille.','المراية ورخام الأرضية ولوحة التحكم وجريلة الهوا.'],
+ ['L30','H10','FS',0,'Lifts are commissioned with the building systems.','المصاعد بتتشغل مع باقي أنظمة المبنى.'],
+ ['H10','H20','FS',1,'Civil defence must accept the systems and the lift. A building can be finished and still not handed over because of it.','الدفاع المدني لازم يستلم الأنظمة والمصعد، والمبنى ممكن يخلص وميتسلمش علشانه.'],
+ ['H20','H60','FS',1,'No handover without the authority approvals.','مفيش تسليم من غير اعتمادات الجهات.'],
+ ['H30','H40','FS',0,'Kerbs set the pavement line, then backfill and compaction.','البردورة بتحدد الرصيف، وبعدين ردم ودك.'],
+ ['H40','H50','FS',0,'Interlock is the last layer outside.','الإنترلوك آخر حاجة برة.'],
+ ['H50','H60','FS',0,'External works complete before handover.','الأعمال الخارجية تخلص قبل التسليم.']];
+
+/* ---------- indexes ---------- */
+var byId={}; A.forEach(function(a,i){byId[a[0]]={c:a[0],st:a[1],d:a[2],en:a[3],ar:a[4],i:i}});
+var stIdx={}; ST.forEach(function(s,i){stIdx[s[0]]=i});
+var P={},N={}; A.forEach(function(a){P[a[0]]=[];N[a[0]]=[]});
+R.forEach(function(r){P[r[1]].push(r);N[r[0]].push(r)});
+function nm(c){var a=byId[c];return a[S.lang]||a.en}
+function stName(id){var s=ST[stIdx[id]];return S.lang==='ar'?s[2]:s[1]}
+function dsName(id){var d=DS.filter(function(x){return x[0]===id})[0];return S.lang==='ar'?d[2]:d[1]}
+function walk(c,map){var seen={},st=[c];while(st.length){var x=st.pop();map[x].forEach(function(r){var y=r[0]===x?r[1]:r[0];if(!seen[y]){seen[y]=1;st.push(y)}})}return Object.keys(seen).length}
+
+/* ---------- state ---------- */
+var cur='P20', mode=1, fSt='', fDs='', q='';
+var h=(location.hash||'').slice(1).toUpperCase(); if(byId[h])cur=h;
+
+/* logic token → {type, lag text} */
+function pick(r){var l=r[2];if(typeof l==='string')return l;return l[mode]||l[1]||l[2]}
+function parse(tok){var m=/^(FS|SS|FF|SF)(?:\+(.+))?$/.exec(tok);var ty=m[1],lg=m[2]||'';
+  if(!lg)return {ty:ty,lag:'',n:0};
+  var u='d',v=lg; if(/h$/.test(lg)){u='h';v=lg.slice(0,-1)}else if(/fl$/.test(lg)){u='fl';v=lg.slice(0,-2)}
+  v=v.replace('-','–');
+  var ar=S.lang==='ar', unit=u==='d'?(ar?' يوم':'d'):u==='h'?(ar?' ساعة':'h'):(ar?' دور':(v==='1'?' floor':' floors'));
+  return {ty:ty,lag:'+'+v+unit,n:parseFloat(v)||0,u:u};}
+function badge(r,big){var p=parse(pick(r));var multi=typeof r[2]!=='string';
+  return '<span class="lg-rel '+p.ty.toLowerCase()+(big?' big':'')+'" dir="ltr"><b>'+p.ty+'</b>'+(p.lag?'<i>'+esc(p.lag)+'</i>':'')+'</span>'+(multi?'<span class="lg-opt" title="'+esc(t('opts'))+'">'+[0,1,2].map(function(k){return '<i class="'+(r[2][k]?'':'x ')+(k===mode||(!r[2][mode]&&k===(r[2][1]?1:2))?'on':'')+'"></i>'}).join('')+'</span>':'')}
+function relTxt(r){var p=parse(pick(r));return p.ty+(p.lag?' '+p.lag:'')}
+
+/* ---------- render ---------- */
+function renderStages(){
+  var cs=byId[cur].st;
+  $('stages').innerHTML='<button type="button" class="lg-st'+(fSt===''?' on':'')+'" data-st=""><span class="n">00</span><span>'+esc(t('all'))+'</span></button>'+ST.map(function(s,i){
+    var n=A.filter(function(a){return a[1]===s[0]}).length;
+    return '<button type="button" class="lg-st'+(fSt===s[0]?' on':'')+(cs===s[0]?' here':'')+'" data-st="'+s[0]+'"><span class="n">'+(i<9?'0':'')+(i+1)+'</span><span>'+esc(S.lang==='ar'?s[2]:s[1])+'</span><small>'+n+'</small></button>'}).join('');
+}
+function renderSide(){
+  $('q').placeholder=t('search');
+  $('discs').innerHTML='<button type="button" class="pill'+(fDs===''?' on':'')+'" data-ds="">'+esc(t('all'))+'</button>'+DS.map(function(d){return '<button type="button" class="pill lg-d-'+d[0].toLowerCase()+(fDs===d[0]?' on':'')+'" data-ds="'+d[0]+'"><i class="lg-dot"></i>'+esc(S.lang==='ar'?d[2]:d[1])+'</button>'}).join('');
+  $('mode').innerHTML=t('modes').map(function(m,i){return '<button type="button" data-m="'+i+'" class="'+(mode===i?'on':'')+'">'+m+'</button>'}).join('');
+  renderList();
+}
+function renderList(){
+  var qq=q.trim().toLowerCase(), html='', any=0;
+  ST.forEach(function(s){
+    if(fSt&&fSt!==s[0])return;
+    var items=A.filter(function(a){return a[1]===s[0]&&(!fDs||a[2]===fDs)&&(!qq||(a[0]+' '+a[3]+' '+a[4]).toLowerCase().indexOf(qq)>=0)});
+    if(!items.length)return; any=1;
+    html+='<div class="lg-grp">'+esc(S.lang==='ar'?s[2]:s[1])+'</div>'+items.map(function(a){
+      return '<button type="button" class="lg-item lg-d-'+a[2].toLowerCase()+(a[0]===cur?' on':'')+'" data-go="'+a[0]+'"><code>'+a[0]+'</code><span>'+esc(nm(a[0]))+'</span><i class="lg-dot"></i></button>'}).join('');
+  });
+  $('list').innerHTML=any?html:'<p class="hint" style="padding:10px 4px">'+esc(t('noRes'))+'</p>';
+}
+function node(r,side){
+  var c=side==='p'?r[0]:r[1], a=byId[c];
+  return '<button type="button" class="lg-node lg-d-'+a.d.toLowerCase()+(r[3]?' crit':'')+'" data-go="'+c+'" data-k="'+c+'">'+
+    '<span class="lg-nt">'+badge(r)+(r[3]?'<span class="lg-crit">'+esc(t('crit'))+'</span>':'')+'</span>'+
+    '<span class="lg-nn"><code>'+c+'</code>'+esc(nm(c))+'</span>'+
+    '<span class="lg-why">'+esc(S.lang==='ar'?r[5]:r[4])+'</span>'+
+    (a.st!==byId[cur].st?'<span class="lg-from">'+esc(stName(a.st))+'</span>':'')+'</button>';
+}
+function renderMain(){
+  var a=byId[cur], ps=P[cur], ns=N[cur];
+  $('head').innerHTML='<div class="lg-tags"><span class="lg-code">'+a.c+'</span><span class="chip">'+esc(stName(a.st))+'</span><span class="chip lg-dchip lg-d-'+a.d.toLowerCase()+'"><i class="lg-dot"></i>'+esc(dsName(a.d))+'</span></div>'+
+    '<h2>'+esc(nm(cur))+'</h2>'+
+    '<div class="kpis lg-k">'+[[t('preds'),ps.length],[t('succs'),ns.length],[t('up'),walk(cur,P)],[t('down'),walk(cur,N)]].map(function(k){return '<div class="kpi"><small>'+esc(k[0])+'</small><b>'+k[1]+'</b></div>'}).join('')+'</div>';
+  $('preds').innerHTML=ps.length?ps.map(function(r){return node(r,'p')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
+  $('succs').innerHTML=ns.length?ns.map(function(r){return node(r,'s')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
+  $('mid').innerHTML='<div class="lg-center lg-d-'+a.d.toLowerCase()+'" id="ctr"><span class="lg-cc">'+a.c+'</span><b>'+esc(nm(cur))+'</b><small>'+esc(stName(a.st))+'</small></div>';
+  $('legend').innerHTML=t('legend').map(function(l){return '<span><i class="lg-sw '+l[0].toLowerCase()+'"></i><b dir="ltr">'+l[0]+'</b> '+esc(l[1])+'</span>'}).join('')+'<span><i class="lg-sw crit"></i>'+esc(t('crit2'))+'</span>';
+  /* workflow strip */
+  var si=stIdx[a.st], flow=A.filter(function(x){return x[1]===a.st});
+  $('wfNo').setAttribute('data-en','STAGE '+(si<9?'0':'')+(si+1)); $('wfNo').textContent=(S.lang==='ar'?'المرحلة ':'STAGE ')+(si<9?'0':'')+(si+1);
+  $('wfT').textContent=stName(a.st);
+  var link={}; ps.forEach(function(r){link[r[0]]='p'}); ns.forEach(function(r){link[r[1]]='s'});
+  $('flow').innerHTML=flow.map(function(x,i){var k=x[0]===cur?'on':(link[x[0]]==='p'?'pr':link[x[0]]==='s'?'su':'');
+    return '<li><button type="button" class="lg-step lg-d-'+x[2].toLowerCase()+' '+k+'" data-go="'+x[0]+'"><span class="n">'+(i+1)+'</span><code>'+x[0]+'</code><span class="t">'+esc(nm(x[0]))+'</span></button></li>'}).join('');
+  /* table */
+  var rows=ps.concat(ns);
+  $('tbl').innerHTML='<thead><tr><th>'+esc(t('thPred'))+'</th><th>'+esc(t('thSucc'))+'</th><th>'+esc(t('thRel'))+'</th><th>'+esc(t('thWhy'))+'</th></tr></thead><tbody>'+rows.map(function(r){
+    return '<tr'+(r[0]===cur||r[1]===cur?'':'')+'><td><code>'+r[0]+'</code> '+esc(nm(r[0]))+'</td><td><code>'+r[1]+'</code> '+esc(nm(r[1]))+'</td><td class="rel">'+badge(r)+(r[3]?' <span class="lg-crit">'+esc(t('crit'))+'</span>':'')+'</td><td class="why">'+esc(S.lang==='ar'?r[5]:r[4])+'</td></tr>'}).join('')+'</tbody>';
+  requestAnimationFrame(wires);
+}
+/* connector lines between nodes and the center card */
+function wires(){
+  var svg=$('wires'), box=$('net').getBoundingClientRect(), c=$('ctr'); if(!c)return;
+  var cr=c.getBoundingClientRect(), out='';
+  svg.setAttribute('width',box.width); svg.setAttribute('height',box.height); svg.setAttribute('viewBox','0 0 '+box.width+' '+box.height);
+  function X(v){return v-box.left} function Y(v){return v-box.top}
+  function path(nr,isPred,cls){
+    var stacked=nr.right>cr.left+4&&nr.left<cr.right-4, d;
+    if(stacked){ /* mobile: vertical */
+      var x1=X(nr.left+nr.width/2), x2=X(cr.left+cr.width/2), y1,y2;
+      if(isPred){y1=Y(nr.bottom);y2=Y(cr.top)}else{y1=Y(cr.bottom);y2=Y(nr.top)}
+      var my=(y1+y2)/2; d='M'+x1+' '+y1+' C'+x1+' '+my+','+x2+' '+my+','+x2+' '+(y2-7);
+    }else{
+      var nLeft=nr.right<=cr.left+4, ny=Y(nr.top+Math.min(nr.height/2,34)), cy=Y(cr.top+cr.height/2), a1,a2;
+      if(isPred){a1=nLeft?X(nr.right):X(nr.left);a2=nLeft?X(cr.left):X(cr.right);}else{a1=nLeft?X(cr.left):X(cr.right);a2=nLeft?X(nr.right):X(nr.left);}
+      var y1b=isPred?ny:cy, y2b=isPred?cy:ny, mx=(a1+a2)/2;
+      d='M'+a1+' '+y1b+' C'+mx+' '+y1b+','+mx+' '+y2b+','+(a2+(a2>a1?-7:7))+' '+y2b;
+    }
+    out+='<path class="'+cls+'" d="'+d+'" marker-end="url(#ah-'+cls.split(' ')[0]+')"/>';
+  }
+  var css=getComputedStyle(document.documentElement);
+  var defs='<defs>'+['fs','ss','ff','sf','crit'].map(function(k){var col=css.getPropertyValue(k==='crit'?'--crit':'--r-'+k).trim();return '<marker id="ah-'+k+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+col+'"/></marker>'}).join('')+'</defs>';
+  P[cur].forEach(function(r){var el=document.querySelector('#preds [data-k="'+r[0]+'"]');if(el){var ty=parse(pick(r)).ty.toLowerCase();path(el.getBoundingClientRect(),true,(r[3]?'crit ':ty+' ')+'w')}});
+  N[cur].forEach(function(r){var el=document.querySelector('#succs [data-k="'+r[1]+'"]');if(el){var ty=parse(pick(r)).ty.toLowerCase();path(el.getBoundingClientRect(),false,(r[3]?'crit ':ty+' ')+'w')}});
+  svg.innerHTML=defs+out;
+}
+function renderNotes(){
+  $('tys').innerHTML=t('tys').map(function(x){return '<div class="panel lg-ty"><div class="lg-tyd" aria-hidden="true">'+tyDiagram(x[0])+'</div><h3><b dir="ltr" class="lg-tyk '+x[0].toLowerCase()+'">'+x[0]+'</b> '+esc(x[1])+'</h3><p>'+esc(x[2])+'</p></div>'}).join('');
+  $('rus').innerHTML=t('rus').map(function(m,i){return '<div class="panel"><div class="no2">0'+(i+1)+'</div><h3>'+esc(m[0])+'</h3><p>'+esc(m[1])+'</p></div>'}).join('');
+  $('src').innerHTML=[['Al Habtoor Engineering, Planning Department','Building Services Planning Manual (2007): MEP and civil interface tables with min, average and max lags','دليل تخطيط أعمال الخدمات (2007): جداول واجهة أعمال MEP مع المدني بـ Lag أقل ومتوسط وأقصى'],['Ahmed Heshmat · Khamsa Planning','Relationships library: site sequence from blockwork to handover','مكتبة العلاقات: التسلسل في الموقع من البلوك للتسليم']].map(function(s){return '<li><b>'+esc(s[0])+'</b> · '+esc(S.lang==='ar'?s[2]:s[1])+'</li>'}).join('');
+}
+/* small bar diagram for each relationship type */
+function tyDiagram(k){
+  var A1={x:14,w:90},B1;
+  if(k==='FS')B1={x:104,w:80};if(k==='SS')B1={x:44,w:110};if(k==='FF')B1={x:50,w:74};if(k==='SF')B1={x:4,w:50};
+  if(k==='SF')A1={x:54,w:120};
+  var ax,ay=24,bx,by=58;
+  if(k==='FS'){ax=A1.x+A1.w;bx=B1.x}
+  if(k==='SS'){ax=A1.x;bx=B1.x}
+  if(k==='FF'){ax=A1.x+A1.w;bx=B1.x+B1.w}
+  if(k==='SF'){ax=A1.x;bx=B1.x+B1.w}
+  var cls=k.toLowerCase();
+  return '<svg viewBox="0 0 200 80"><rect x="'+A1.x+'" y="12" width="'+A1.w+'" height="22" rx="4" class="tyA"/><rect x="'+B1.x+'" y="46" width="'+B1.w+'" height="22" rx="4" class="tyB '+cls+'"/>'+
+   '<path d="M'+ax+' '+(ay+10)+' C'+ax+' 44,'+bx+' 40,'+bx+' '+(by-14)+'" class="tyL '+cls+'" marker-end="url(#ty-'+cls+')"/>'+
+   '<defs><marker id="ty-'+cls+'" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="tyM '+cls+'"/></marker></defs>'+
+   '<text x="'+(A1.x+8)+'" y="27">A</text><text x="'+(B1.x+8)+'" y="61">B</text></svg>';
+}
+function render(){renderStages();renderSide();renderMain();renderNotes()}
+
+/* ---------- events ---------- */
+function go(c,scroll){if(!byId[c])return;cur=c;try{history.replaceState(null,'','#'+c)}catch(e){}renderStages();renderList();renderMain();
+  if(scroll&&window.innerWidth<900){$('main').scrollIntoView({behavior:'smooth',block:'start'})}
+  var on=document.querySelector('#list .lg-item.on'); if(on&&on.scrollIntoView){var l=$('list');if(on.offsetTop<l.scrollTop||on.offsetTop>l.scrollTop+l.clientHeight-40)l.scrollTop=on.offsetTop-l.clientHeight/2}}
+document.addEventListener('click',function(e){
+  var g=e.target.closest('[data-go]'); if(g){go(g.getAttribute('data-go'),!!e.target.closest('#list'));if(e.target.closest('#main'))$('net').scrollIntoView({behavior:'smooth',block:'nearest'});return}
+  var s=e.target.closest('[data-st]'); if(s){fSt=s.getAttribute('data-st'); if(fSt&&byId[cur].st!==fSt){var f=A.filter(function(a){return a[1]===fSt})[0];if(f){cur=f[0];try{history.replaceState(null,'','#'+cur)}catch(e2){}}} renderStages();renderList();renderMain();return}
+  var d=e.target.closest('[data-ds]'); if(d){fDs=d.getAttribute('data-ds');renderSide();return}
+  var m=e.target.closest('[data-m]'); if(m){mode=+m.getAttribute('data-m');renderSide();renderMain();return}
+});
+$('q').addEventListener('input',function(){q=this.value;renderList()});
+$('q').addEventListener('keydown',function(e){if(e.key==='Enter'){var f=document.querySelector('#list .lg-item');if(f)go(f.getAttribute('data-go'),true)}});
+window.addEventListener('resize',function(){requestAnimationFrame(wires)});
+window.addEventListener('hashchange',function(){var c=location.hash.slice(1).toUpperCase();if(byId[c]&&c!==cur)go(c)});
+
+function toast(msg){var el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2600)}
+function rowsFor(list){return list.map(function(r){var p=parse(pick(r));return [r[0],nm(r[0]),r[1],nm(r[1]),p.ty,'PR_'+p.ty,p.u==='d'||!p.u?p.n:'',p.lag,r[3]?t('crit'):'',S.lang==='ar'?r[5]:r[4]]})}
+var HEAD=['Pred ID','Predecessor','Succ ID','Successor','Type','P6 type','Lag (d)','Lag','Critical','Why'];
+$('copy').addEventListener('click',function(){
+  var txt=[HEAD].concat(rowsFor(P[cur].concat(N[cur]))).map(function(r){return r.join('\t')}).join('\n');
+  function ok(){toast(t('copied'))}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);ok()})}else{fallback(txt);ok()}
+});
+function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
+$('csv').addEventListener('click',function(){
+  function q2(v){v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+  var rows=[HEAD.concat(['Stage (pred)','Stage (succ)'])].concat(rowsFor(R).map(function(row,i){return row.concat([stName(byId[R[i][0]].st),stName(byId[R[i][1]].st)])}));
+  var blob=new Blob(['﻿'+rows.map(function(r){return r.map(q2).join(',')}).join('\r\n')],{type:'text/csv;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='activity-relationships-'+S.lang+'.csv';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+});
+
+S.init({T:T,title:{en:'Relationships library',ar:'مكتبة العلاقات'},render:render});
+})();
+</script>
+<script data-goatcounter="https://3okail-blueprint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
