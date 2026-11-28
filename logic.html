@@ -465,7 +465,7 @@ function parse(tok){var m=/^(FS|SS|FF|SF)(?:\+(.+))?$/.exec(tok);var ty=m[1],lg=
   if(!lg)return {ty:ty,lag:'',n:0};
   var u='d',v=lg; if(/h$/.test(lg)){u='h';v=lg.slice(0,-1)}else if(/fl$/.test(lg)){u='fl';v=lg.slice(0,-2)}
   v=v.replace('-','–');
-  var ar=S.lang==='ar', unit=u==='d'?(ar?' يوم':'d'):u==='h'?(ar?' ساعة':'h'):(ar?' دور':(v==='1'?' floor':' floors'));
+  var unit=u==='d'?'d':u==='h'?'h':(S.lang==='ar'?' دور':(v==='1'?' floor':' floors'));
   return {ty:ty,lag:'+'+v+unit,n:parseFloat(v)||0,u:u};}
 function badge(r,big){var p=parse(pick(r));var multi=typeof r[2]!=='string';
   return '<span class="lg-rel '+p.ty.toLowerCase()+(big?' big':'')+'" dir="ltr"><b>'+p.ty+'</b>'+(p.lag?'<i>'+esc(p.lag)+'</i>':'')+'</span>'+(multi?'<span class="lg-opt" title="'+esc(t('opts'))+'">'+[0,1,2].map(function(k){return '<i class="'+(r[2][k]?'':'x ')+(k===mode||(!r[2][mode]&&k===(r[2][1]?1:2))?'on':'')+'"></i>'}).join('')+'</span>':'')}
