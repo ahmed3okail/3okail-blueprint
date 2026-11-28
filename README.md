@@ -11,9 +11,9 @@ A static, bilingual (English / Arabic RTL) site with light/dark mode. No build s
 | `evm.html` | Earned value lab: sliders drive an S-curve, SPI/CPI/EAC |
 | `delay.html` | Delay analysis lab: insert a delay, see the critical path and EOT entitlement |
 | `tender.html` | Tender schedule lab: BOQ to schedule, critical path, S-curve and monthly cash flow |
-| `logic.html` | Activity relationships library: pick an activity, see its predecessors, successors, relationship types and lags (fast / medium / relaxed), and its workflow. Data is in the `A` (activities) and `R` (relationships) arrays |
+| `logic.html` | Activity relationships library: pick an activity, see its predecessors, successors, relationship types and lags (fast / medium / relaxed), and its workflow. Build a fragnet, run a DCMA-style logic check, and download CSV or a P6 XER. Data is in the `A` (activities, with typical durations) and `R` (relationships) arrays |
 | `app.html` | Injaz (إنجاز): the progress tracking app, with screenshots from its demo data |
-| `articles.html`, `article-*.html` | Articles (EN/AR): Time Impact Analysis, SPI/CPI, BOQ to tender schedule |
+| `articles.html`, `article-*.html` | Articles (EN/AR): Time Impact Analysis, SPI/CPI, BOQ to tender schedule, activity relationships |
 
 Shared styles and behaviour live in `assets/site.css` and `assets/site.js`.
 

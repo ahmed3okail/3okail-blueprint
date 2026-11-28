@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20">
+<link rel="stylesheet" href="assets/site.css?v=21">
 </head>
 <body data-page="logic">
 
@@ -79,6 +79,27 @@
     </div>
   </section>
 
+  <section id="frag" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sheet reveal"><div><div class="no">FRAGNET</div><h2 data-i="frT"></h2></div><p data-i="frP"></p></div>
+      <div class="panel lg-fr reveal">
+        <div class="lg-frbar">
+          <div class="lg-frpre"><span class="lg-frl" data-i="frPre"></span><span id="frPre"></span></div>
+          <div class="lg-frbtn">
+            <button class="btn btn-line lg-sm" id="frClear" type="button" data-i="frClear"></button>
+            <button class="btn btn-line lg-sm" id="frCsv" type="button"><span data-i="frCsv"></span></button>
+            <button class="btn btn-primary lg-sm" id="frXer" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg><span data-i="frXer"></span></button>
+          </div>
+        </div>
+        <div class="lg-chips" id="frSel"></div>
+        <div class="lg-frgrid">
+          <div class="lg-frnet"><div class="lg-frscroll" id="frWrap"><div class="lg-frcanvas" id="frCanvas"></div></div><p class="hint lg-frhint" data-i="frHint"></p></div>
+          <div class="lg-chk"><div class="lg-chkh"><h3 data-i="ckT"></h3><span class="lg-score" id="ckScore"></span></div><div id="ck"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="types" style="padding-top:20px">
     <div class="wrap">
       <div class="sheet reveal"><div><div class="no">NOTES</div><h2 data-i="tyT"></h2></div><p data-i="tyP"></p></div>
@@ -91,7 +112,7 @@
       <div class="sheet reveal"><div><div class="no">5 RULES</div><h2 data-i="ruT"></h2></div><p data-i="ruP"></p></div>
       <div class="svc reveal" id="rus"></div>
       <div class="lg-src reveal"><b data-i="srcT"></b><ul id="src"></ul><p data-i="srcN"></p></div>
-      <div class="nextlinks"><button class="btn btn-primary" id="csv" type="button" data-i="csv"></button><a class="btn btn-line" href="tender.html" data-i="goTender"></a></div>
+      <div class="nextlinks"><button class="btn btn-primary" id="xerAll" type="button" data-i="xerAll"></button><button class="btn btn-line" id="csv" type="button" data-i="csv"></button><a class="btn btn-line" href="article-logic.html" data-i="goArt"></a></div>
     </div>
   </section>
 </main>
@@ -100,7 +121,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=20"></script>
+<script src="assets/site.js?v=21"></script>
 <script>
 (function(){
 "use strict";
@@ -124,7 +145,16 @@ en:{back:'← Tools I have developed', lT:'Activity relationships library', lP:'
  ruT:'5 rules before you copy any relationship', ruP:'So your schedule tells the truth.',
  rus:[['FF alone only closes the finish','The start of the activity is left with no logic (an open start). Add an SS or link it to the activity before it.'],['SS alone can mislead','On paper the successor can finish before the predecessor. Close it with an FF.'],['A lag without a reason is hidden duration','Write the reason in the notes. In the DCMA check, lags should stay under 5% of relationships, and leads (negative lags) at zero.'],['A test is an activity, not a milestone','It has a duration and an inspection. As a zero duration milestone, P6 assumes the next work starts the same day.'],['Split the activity to fit the logic','Sprinklers: drops before the ceiling, heads after it. Bathrooms floor by floor or zone by zone. Otherwise the lag loses its meaning.']],
  srcT:'References', srcN:'Durations, lags and sequences differ between projects. Your approved specifications, drawings and method statements always govern.',
- csv:'Download the full library (CSV)', goTender:'Tender schedule lab →',
+ csv:'Download the full library (CSV)', goTender:'Tender schedule lab →', xerAll:'Download the full library for P6 (XER)', goArt:'Read the article: how to use it →',
+ dur:'Typical duration', perFl:'per floor / zone', dd:'d', ms:'Milestone', addFr:'+ Add to fragnet', inFr:'✓ In the fragnet',
+ frT:'Build your fragnet', frP:'Pick activities and get the network between them, a logic check, and a file you can import straight into Primavera P6.',
+ frPre:'Quick start:', frClear:'Clear', frCsv:'CSV', frXer:'Download XER for P6', frEmpty:'Add activities with “+ Add to fragnet”, or start from a preset.',
+ frHint:'Each line leaves from the side its relationship ties: the start (left or top) or the finish (right or bottom). Click any box to open it.',
+ frStage:'This stage', frAll:'Whole library',
+ frPresets:[['WET+CLG','Bathrooms + ceiling'],['SUB','Substructure'],['FAC','Facades'],['PLS+CLG+FIN','Plaster to final paint']],
+ ckT:'Logic check', ckOf:'checks passed',
+ ck:{os:'Open starts',osD:'No predecessor inside the selection. Link them to your schedule.',oe:'Open ends',oeD:'No successor inside the selection. Link them to your schedule.',ff:'Start held only by FF',ffD:'Every predecessor is FF, so the start floats free. Add an SS or an FS.',ss:'Finish held only by SS',ssD:'Every successor is SS, so this finish drives nothing. Add an FF or an FS.',lag:'Links with a lag',lagD:'DCMA: keep lags under 5% of relationships and write the reason for each.',lead:'Leads (negative lags)',leadD:'DCMA: zero.',fs:'Finish to start share',fsD:'DCMA: at least 90% of relationships.',sf:'Start to finish links',sfD:'Rare. Check each one.',long:'Long lags (over 10 days)',longD:'A long lag often hides an activity. Model it instead.'},
+ xerNote:'XER downloaded. Import it in P6, then press F9 to schedule.',
  activities:'activities', relations:'relationships'},
 ar:{back:'→ أدوات طورتها', lT:'مكتبة العلاقات بين الأنشطة', lP:'اختار أي نشاط في المبنى وشوف إيه اللي لازم قبله، وإيه اللي بعده، ونوع العلاقة والـ Lag، وليه بتتعمل كده في الموقع، والـ Workflow اللي هو جزء منه.',
  search:'دوّر على نشاط…', all:'الكل', modeL:'اختيار الـ Lag', modes:['سريع','متوسط','مريح'],
@@ -142,12 +172,23 @@ ar:{back:'→ أدوات طورتها', lT:'مكتبة العلاقات بين �
  ruT:'5 قواعد قبل ما تنسخ أي علاقة', ruP:'علشان برنامجك ميكدبش.',
  rus:[['الـ FF لوحدها بتقفل النهاية بس','بداية النشاط بتفضل من غير logic (open start). اربطها كمان بـ SS أو بالنشاط اللي قبلها.'],['الـ SS لوحدها ممكن تكدب','على الورق التاني ممكن يخلص قبل الأول. اقفلها بـ FF.'],['أي Lag من غير سبب = مدة مستخبية','اكتب السبب في الـ Notes. وفي فحص DCMA الـ Lags متعديش 5% من العلاقات، والـ Lead لازم يبقى صفر.'],['الاختبار نشاط مش milestone','ليه مدة واستلام. لو خليته milestone بمدة صفر، البرنامج هيفترض إن اللي بعده يبدأ في نفس اليوم.'],['قسّم النشاط على قد العلاقة','الرشاشات: الـ drops قبل السقف والرؤوس بعده. والحمامات دور دور أو zone zone، وإلا الـ Lag يفقد معناه.']],
  srcT:'المراجع', srcN:'المدد والـ Lags والتسلسل بيختلفوا من مشروع للتاني. المواصفات والرسومات وطرق التنفيذ المعتمدة في مشروعك هي اللي بتحكم في الآخر.',
- csv:'نزّل المكتبة كاملة (CSV)', goTender:'أداة برنامج المناقصة ←',
+ csv:'نزّل المكتبة كاملة (CSV)', goTender:'أداة برنامج المناقصة ←', xerAll:'نزّل المكتبة كاملة لـ P6 (XER)', goArt:'← اقرا المقال: إزاي تستخدمها',
+ dur:'المدة المعتادة', perFl:'للدور / المنطقة', dd:' يوم', ms:'Milestone', addFr:'+ ضيف للـ Fragnet', inFr:'✓ موجود في الـ Fragnet',
+ frT:'ابني الـ Fragnet بتاعك', frP:'اختار الأنشطة، وخد الشبكة اللي بينها، وفحص للـ Logic، وملف تعمله Import في Primavera P6 على طول.',
+ frPre:'ابدأ بسرعة:', frClear:'امسح', frCsv:'CSV', frXer:'نزّل XER لـ P6', frEmpty:'ضيف أنشطة بزرار "+ ضيف للـ Fragnet"، أو ابدأ من اختيار جاهز.',
+ frHint:'كل خط بيطلع من الجنب اللي العلاقة مربوطة بيه: البداية (شمال أو فوق) أو النهاية (يمين أو تحت). اضغط على أي صندوق علشان تفتحه.',
+ frStage:'المرحلة دي', frAll:'المكتبة كلها',
+ frPresets:[['WET+CLG','الحمامات + السقف'],['SUB','الأساسات والبدروم'],['FAC','الواجهات'],['PLS+CLG+FIN','من المحارة للدهان']],
+ ckT:'فحص الـ Logic', ckOf:'فحص سليم',
+ ck:{os:'أنشطة بدايتها مفتوحة',osD:'ملهاش نشاط قبلها جوه الاختيار. اربطها ببرنامجك.',oe:'أنشطة نهايتها مفتوحة',oeD:'ملهاش نشاط بعدها جوه الاختيار. اربطها ببرنامجك.',ff:'بداية ماسكاها FF بس',ffD:'كل اللي قبلها FF، فالبداية سايبة. ضيف SS أو FS.',ss:'نهاية ماسكاها SS بس',ssD:'كل اللي بعدها SS، فنهايتها مش بتأثر على حاجة. ضيف FF أو FS.',lag:'علاقات عليها Lag',lagD:'DCMA: الـ Lags أقل من 5% من العلاقات، واكتب سبب كل واحد.',lead:'Leads (Lag بالسالب)',leadD:'DCMA: صفر.',fs:'نسبة علاقات FS',fsD:'DCMA: 90% من العلاقات على الأقل.',sf:'علاقات SF',sfD:'نادرة. راجع كل واحدة.',long:'Lags طويلة (أكتر من 10 أيام)',longD:'الـ Lag الطويل غالبًا مخبّي نشاط. اعمله نشاط.'},
+ xerNote:'الـ XER نزل. اعمله Import في P6 وبعدين اضغط F9.',
  activities:'نشاط', relations:'علاقة'}};
 
 /* ---------- Library data ---------- */
 /* stages: [id, en, ar] — the workflow an activity belongs to, in site order */
 var ST=[
+ ['PRE','Approvals & procurement','الاعتمادات والتوريد'],
+ ['SUB','Earthworks & substructure','الحفر والأساسات والبدروم'],
  ['STR','Structure: floor cycle','الهيكل: دورة الدور'],
  ['BLK','Blockwork & 1st fix','البلوك وأعمال 1st Fix'],
  ['TST','Testing before closing','الاختبارات قبل القفل'],
@@ -160,83 +201,138 @@ var ST=[
  ['LFT','Lifts','المصاعد'],
  ['HND','Commissioning & handover','التشغيل والتسليم']];
 /* disciplines */
-var DS=[['CIV','Civil','مدني'],['ELE','Electrical','كهربا'],['PLM','Plumbing','سباكة'],['HVAC','HVAC','تكييف'],['FF','Fire fighting','حريق'],['LFT','Lifts','مصاعد']];
-/* activities: [code, stage, discipline, English, Arabic] */
+var DS=[['GEN','General','عام'],['CIV','Civil','مدني'],['ELE','Electrical','كهربا'],['PLM','Plumbing','سباكة'],['HVAC','HVAC','تكييف'],['FF','Fire fighting','حريق'],['LFT','Lifts','مصاعد']];
+/* activities: [code, stage, discipline, English, Arabic, typical duration in working days (per floor or zone where it repeats)] */
 var A=[
- ['S10','STR','CIV','Slab formwork & rebar','شدة وحديد السقف'],
- ['S20','STR','ELE','MEP sleeves & conduits in slab','الجلب والمواسير المدفونة في السقف'],
- ['S30','STR','CIV','Slab concrete pour','صب السقف'],
- ['S40','STR','CIV','Formwork striking','فك الشدة'],
- ['B10','BLK','CIV','Blockwork','البلوك'],
- ['B20','BLK','CIV','Blockwork inspection & release','استلام البلوك وتسليمه للتخصصات'],
- ['B30','BLK','ELE','Marking & chasing walls','تعليم وتكسير الحوائط للكهربا'],
- ['B40','BLK','ELE','Power & low-current conduits in walls','مواسير الكهربا والتيار الخفيف في الحوائط'],
- ['B50','BLK','PLM','Concealed water & drainage pipes','مواسير المياه والصرف في الحوائط'],
- ['B60','BLK','HVAC','Duct & pipe hangers and supports','حوامل وعلاقات الدكت والمواسير'],
- ['B70','BLK','HVAC','Ductwork','الدكت'],
- ['B80','BLK','HVAC','Chilled water piping','مواسير المياه المثلجة'],
- ['B85','BLK','FF','Fire fighting piping','مواسير الحريق'],
- ['B90','BLK','ELE','Cable trays & trunking','حوامل الكابلات (Cable trays)'],
- ['T10','TST','PLM','Water & drainage leak test','اختبار تسريب المياه والصرف'],
- ['T20','TST','HVAC','Chilled water pressure test','اختبار ضغط مواسير التكييف'],
- ['T30','TST','FF','Fire fighting pipe test','اختبار مواسير الحريق'],
- ['T40','TST','HVAC','Duct & pipe insulation','عزل الدكت ومواسير التكييف'],
- ['T50','TST','HVAC','Volume, fire & smoke dampers','الدامبرات (تحكم وحريق ودخان)'],
- ['P10','PLS','CIV','Plaster preparation (mesh at joints)','تحضير المحارة (شبك الفواصل)'],
- ['P20','PLS','CIV','Internal plaster','المحارة الداخلية'],
- ['P30','PLS','CIV','Putty / skim coats','المعجون'],
- ['P40','PLS','ELE','Wire & cable pulling','سحب السلك والكابلات'],
- ['P50','PLS','HVAC','FCU installation & connections','تركيب وتوصيل وحدات FCU'],
- ['P60','PLS','ELE','Distribution boards & terminations','لوحات التوزيع والتوصيلات'],
- ['W10','WET','PLM','Bathroom floor plumbing & drains','سباكة أرضية الحمام والصفايات'],
- ['W20','WET','CIV','Bathroom waterproofing','عزل الحمام'],
- ['W30','WET','CIV','Flood test','اختبار الغمر'],
- ['W40','WET','CIV','Wall tiling','سيراميك الحوائط'],
- ['W50','WET','CIV','Floor tiling','سيراميك الأرضيات'],
- ['W60','WET','CIV','Bathroom gypsum ceiling','سقف جبس الحمام'],
- ['W70','WET','CIV','Bathroom door','باب الحمام'],
- ['W80','WET','PLM','Sanitary ware (3rd fix plumbing)','الأطقم الصحية (3rd Fix سباكة)'],
- ['W85','WET','CIV','Bathroom accessories','إكسسوارات الحمام'],
- ['C10','CLG','CIV','Ceiling grid & suspension','شبكة السقف والتعليق (Grid)'],
- ['C20','CLG','FF','Sprinkler drops','نزلات الرشاشات (drops)'],
- ['C30','CLG','CIV','Ceiling closure (boards)','قفل السقف (ألواح الجبس)'],
- ['C40','CLG','FF','Sprinkler heads','رؤوس الرشاشات'],
- ['C50','CLG','HVAC','Diffusers & grilles','الديفيوزرات والجريلات'],
- ['C60','CLG','ELE','Light fittings','الكشافات'],
- ['F10','FIN','CIV','Porcelain & floor finishes','البورسلين والأرضيات'],
- ['F20','FIN','CIV','Skirting','الوزرة'],
- ['F30','FIN','CIV','Doors & fire doors','الأبواب وأبواب الحريق'],
- ['F40','FIN','CIV','Stair treads (marble / granite)','درج السلم (رخام / جرانيت)'],
- ['F50','FIN','CIV','Final paint','الدهان النهائي'],
- ['F60','FIN','ELE','Circuit continuity test','اختبار استمرارية الدوائر'],
- ['F70','FIN','ELE','Switches, sockets & fire alarm (3rd fix)','المفاتيح والبرايز والإنذار (3rd Fix)'],
- ['F90','FIN','CIV','Preliminary testing & snagging','الاختبارات المبدئية والملاحظات'],
- ['R10','ROF','CIV','Roof plaster / screed','محارة السطح'],
- ['R20','ROF','CIV','Roof waterproofing','العزل المائي للسطح'],
- ['R30','ROF','CIV','Roof thermal insulation','العزل الحراري للسطح'],
- ['R40','ROF','CIV','Lightweight slope concrete','خرسانة الميول الخفيفة'],
- ['R50','ROF','CIV','Terrazzo tiles & skirting','بلاط ووزرة التيرازو'],
- ['R60','ROF','CIV','Steel ladder & roof doors','السلم الحديد وأبواب السطح'],
- ['X10','FAC','CIV','External blockwork','البلوك الخارجي'],
- ['X20','FAC','CIV','Facade scaffolding & preparation','سقالات وتأسيس الواجهة'],
- ['X30','FAC','CIV','Damp proofing','عزل الرطوبة'],
- ['X40','FAC','CIV','Thermal insulation (rock wool)','العزل الحراري (صوف)'],
- ['X50','FAC','CIV','Cladding system & marble','الـ System والرخام'],
- ['X60','FAC','CIV','Glazing & windows','الزجاج والشبابيك'],
- ['X70','FAC','CIV','Side facades: plaster & paint','لياسة ودهان الواجهات الجانبية'],
- ['L10','LFT','LFT','Lift 1st fix (rails)','مصاعد 1st Fix (القضبان)'],
- ['L20','LFT','LFT','Lift 2nd fix (cabin)','مصاعد 2nd Fix (الكابينة)'],
- ['L30','LFT','LFT','Lift 3rd fix (finishes)','مصاعد 3rd Fix (التشطيب)'],
- ['H10','HND','ELE','Testing & commissioning','الاختبارات والتشغيل'],
- ['H20','HND','CIV','Civil defence & authority approvals','اعتماد الدفاع المدني والجهات'],
- ['H30','HND','CIV','Kerbs','البردورات'],
- ['H40','HND','CIV','Backfill & compaction','الردم والدك'],
- ['H50','HND','CIV','Interlock paving','الإنترلوك'],
- ['H60','HND','CIV','Handover','التسليم']];
+ ['G10','PRE','GEN','Notice to proceed','أمر المباشرة',0],
+ ['G20','PRE','GEN','Site handover & mobilization','استلام الموقع والتجهيز',15],
+ ['G30','PRE','CIV','Survey & setting out','الرفع المساحي والتوقيع',5],
+ ['G40','PRE','CIV','Structural shop drawings approval','اعتماد الرسومات التنفيذية الإنشائية',21],
+ ['G50','PRE','GEN','MEP shop drawings & coordination','رسومات MEP التنفيذية والتنسيق',30],
+ ['G60','PRE','GEN','Material submittals & approvals','تقديم واعتماد عينات المواد',30],
+ ['G70','PRE','FF','Civil defence drawings approval','اعتماد رسومات الدفاع المدني',30],
+ ['G80','PRE','GEN','Long-lead procurement (lifts, chillers, generators)','توريد البنود طويلة التوريد (مصاعد، تشيلرات، مولدات)',120],
+ ['U10','SUB','CIV','Dewatering','نزح المياه الجوفية',90],
+ ['U20','SUB','CIV','Bored piles','الخوازيق',30],
+ ['U30','SUB','CIV','Pile integrity & load tests','اختبارات الخوازيق (سلامة وتحميل)',10],
+ ['U40','SUB','CIV','Excavation','الحفر',25],
+ ['U50','SUB','CIV','Pile head cutting','تكسير رؤوس الخوازيق',8],
+ ['U60','SUB','CIV','Blinding concrete','الخرسانة العادية (النظافة)',4],
+ ['U70','SUB','CIV','Raft waterproofing & protection screed','عزل اللبشة وطبقة الحماية',7],
+ ['U80','SUB','CIV','Raft rebar & formwork','حديد وشدات اللبشة',15],
+ ['U90','SUB','CIV','Raft concrete pour','صب اللبشة',2],
+ ['U100','SUB','CIV','Basement walls & columns','حوائط وأعمدة البدروم',20],
+ ['U110','SUB','CIV','Ground floor slab','سقف البدروم (بلاطة الدور الأرضي)',15],
+ ['U120','SUB','CIV','External waterproofing of basement walls','العزل الخارجي لحوائط البدروم',10],
+ ['U130','SUB','CIV','Backfill & compaction','الردم والدمك',10],
+ ['U135','SUB','CIV','Dewatering shutdown & well sealing','إيقاف النزح وقفل الآبار',3],
+ ['S10','STR','CIV','Slab formwork & rebar','شدة وحديد السقف',6],
+ ['S20','STR','ELE','MEP sleeves & conduits in slab','الجلب والمواسير المدفونة في السقف',2],
+ ['S30','STR','CIV','Slab concrete pour','صب السقف',1],
+ ['S40','STR','CIV','Formwork striking','فك الشدة',2],
+ ['B10','BLK','CIV','Blockwork','البلوك',12],
+ ['B20','BLK','CIV','Blockwork inspection & release','استلام البلوك وتسليمه للتخصصات',2],
+ ['B30','BLK','ELE','Marking & chasing walls','تعليم وتكسير الحوائط للكهربا',5],
+ ['B40','BLK','ELE','Power & low-current conduits in walls','مواسير الكهربا والتيار الخفيف في الحوائط',8],
+ ['B50','BLK','PLM','Concealed water & drainage pipes','مواسير المياه والصرف في الحوائط',8],
+ ['B60','BLK','HVAC','Duct & pipe hangers and supports','حوامل وعلاقات الدكت والمواسير',6],
+ ['B70','BLK','HVAC','Ductwork','الدكت',12],
+ ['B80','BLK','HVAC','Chilled water piping','مواسير المياه المثلجة',10],
+ ['B85','BLK','FF','Fire fighting piping','مواسير الحريق',8],
+ ['B90','BLK','ELE','Cable trays & trunking','حوامل الكابلات (Cable trays)',6],
+ ['T10','TST','PLM','Water & drainage leak test','اختبار تسريب المياه والصرف',2],
+ ['T20','TST','HVAC','Chilled water pressure test','اختبار ضغط مواسير التكييف',2],
+ ['T30','TST','FF','Fire fighting pipe test','اختبار مواسير الحريق',2],
+ ['T40','TST','HVAC','Duct & pipe insulation','عزل الدكت ومواسير التكييف',8],
+ ['T50','TST','HVAC','Volume, fire & smoke dampers','الدامبرات (تحكم وحريق ودخان)',4],
+ ['P10','PLS','CIV','Plaster preparation (mesh at joints)','تحضير المحارة (شبك الفواصل)',4],
+ ['P20','PLS','CIV','Internal plaster','المحارة الداخلية',12],
+ ['P30','PLS','CIV','Putty / skim coats','المعجون',8],
+ ['P40','PLS','ELE','Wire & cable pulling','سحب السلك والكابلات',6],
+ ['P50','PLS','HVAC','FCU installation & connections','تركيب وتوصيل وحدات FCU',6],
+ ['P60','PLS','ELE','Distribution boards & terminations','لوحات التوزيع والتوصيلات',5],
+ ['W10','WET','PLM','Bathroom floor plumbing & drains','سباكة أرضية الحمام والصفايات',4],
+ ['W20','WET','CIV','Bathroom waterproofing','عزل الحمام',3],
+ ['W30','WET','CIV','Flood test','اختبار الغمر',2],
+ ['W40','WET','CIV','Wall tiling','سيراميك الحوائط',8],
+ ['W50','WET','CIV','Floor tiling','سيراميك الأرضيات',6],
+ ['W60','WET','CIV','Bathroom gypsum ceiling','سقف جبس الحمام',4],
+ ['W70','WET','CIV','Bathroom door','باب الحمام',2],
+ ['W80','WET','PLM','Sanitary ware (3rd fix plumbing)','الأطقم الصحية (3rd Fix سباكة)',4],
+ ['W85','WET','CIV','Bathroom accessories','إكسسوارات الحمام',2],
+ ['C10','CLG','CIV','Ceiling grid & suspension','شبكة السقف والتعليق (Grid)',6],
+ ['C20','CLG','FF','Sprinkler drops','نزلات الرشاشات (drops)',3],
+ ['C30','CLG','CIV','Ceiling closure (boards)','قفل السقف (ألواح الجبس)',8],
+ ['C40','CLG','FF','Sprinkler heads','رؤوس الرشاشات',3],
+ ['C50','CLG','HVAC','Diffusers & grilles','الديفيوزرات والجريلات',3],
+ ['C60','CLG','ELE','Light fittings','الكشافات',4],
+ ['F10','FIN','CIV','Porcelain & floor finishes','البورسلين والأرضيات',10],
+ ['F20','FIN','CIV','Skirting','الوزرة',3],
+ ['F30','FIN','CIV','Doors & fire doors','الأبواب وأبواب الحريق',6],
+ ['F40','FIN','CIV','Stair treads (marble / granite)','درج السلم (رخام / جرانيت)',6],
+ ['F50','FIN','CIV','Final paint','الدهان النهائي',6],
+ ['F60','FIN','ELE','Circuit continuity test','اختبار استمرارية الدوائر',2],
+ ['F70','FIN','ELE','Switches, sockets & fire alarm (3rd fix)','المفاتيح والبرايز والإنذار (3rd Fix)',4],
+ ['F90','FIN','CIV','Preliminary testing & snagging','الاختبارات المبدئية والملاحظات',8],
+ ['R10','ROF','CIV','Roof plaster / screed','محارة السطح',5],
+ ['R20','ROF','CIV','Roof waterproofing','العزل المائي للسطح',4],
+ ['R30','ROF','CIV','Roof thermal insulation','العزل الحراري للسطح',3],
+ ['R40','ROF','CIV','Lightweight slope concrete','خرسانة الميول الخفيفة',4],
+ ['R50','ROF','CIV','Terrazzo tiles & skirting','بلاط ووزرة التيرازو',6],
+ ['R60','ROF','CIV','Steel ladder & roof doors','السلم الحديد وأبواب السطح',3],
+ ['X10','FAC','CIV','External blockwork','البلوك الخارجي',20],
+ ['X20','FAC','CIV','Facade scaffolding & preparation','سقالات وتأسيس الواجهة',10],
+ ['X30','FAC','CIV','Damp proofing','عزل الرطوبة',8],
+ ['X40','FAC','CIV','Thermal insulation (rock wool)','العزل الحراري (صوف)',8],
+ ['X50','FAC','CIV','Cladding system & marble','الـ System والرخام',30],
+ ['X60','FAC','CIV','Glazing & windows','الزجاج والشبابيك',20],
+ ['X70','FAC','CIV','Side facades: plaster & paint','لياسة ودهان الواجهات الجانبية',15],
+ ['L10','LFT','LFT','Lift 1st fix (rails)','مصاعد 1st Fix (القضبان)',20],
+ ['L20','LFT','LFT','Lift 2nd fix (cabin)','مصاعد 2nd Fix (الكابينة)',60],
+ ['L30','LFT','LFT','Lift 3rd fix (finishes)','مصاعد 3rd Fix (التشطيب)',10],
+ ['H10','HND','ELE','Testing & commissioning','الاختبارات والتشغيل',20],
+ ['H20','HND','CIV','Civil defence & authority approvals','اعتماد الدفاع المدني والجهات',15],
+ ['H30','HND','CIV','Kerbs','البردورات',8],
+ ['H40','HND','CIV','Backfill & compaction','الردم والدك',6],
+ ['H50','HND','CIV','Interlock paving','الإنترلوك',12],
+ ['H60','HND','CIV','Handover','التسليم',0]];
 
 /* relationships: [predecessor, successor, logic, critical, why EN, why AR]
    logic: 'FS', 'SS+2', 'FS+5-15', 'FS+24-48h', 'SS+1fl' (floor), or [fast, medium, relaxed] */
 var R=[
+ ['G10','G20','FS',0,'The employer hands over the site after the notice to proceed.','المالك بيسلّم الموقع بعد أمر المباشرة.'],
+ ['G10','G40','FS',0,'Shop drawings start as soon as the contract is active.','الرسومات التنفيذية بتبدأ أول ما العقد يسري.'],
+ ['G10','G50','FS',0,'MEP coordination starts with the contract.','تنسيق الـ MEP بيبدأ مع العقد.'],
+ ['G10','G60','FS',0,'Submittals start with the contract.','تقديم العينات بيبدأ مع العقد.'],
+ ['G20','G30','SS+5',0,'Surveyors start once the site office and benchmarks are in place.','المساحة بتبدأ لما يبقى فيه مكتب موقع ونقط ثابتة.'],
+ ['G30','U10','FS',0,'Dewatering wells are set out from the survey.','آبار النزح بتتوقّع من الرفع المساحي.'],
+ ['G30','U20','FS',0,'Piles are set out from survey points.','أماكن الخوازيق بتتوقّع من نقط المساحة.'],
+ ['G40','U20','FS',1,'Piling needs an approved pile layout.','الخوازيق محتاجة رسومات معتمدة.'],
+ ['G50','G70','FS',0,'Civil defence reviews the coordinated fire fighting drawings.','الدفاع المدني بيراجع رسومات الحريق بعد التنسيق.'],
+ ['G50','S20','FS',0,'Sleeves follow the coordinated MEP drawings.','الجلب بتتركب حسب رسومات MEP المنسقة.'],
+ ['G50','B60','FS',0,'HVAC routes need coordinated drawings.','مسارات التكييف محتاجة رسومات منسقة.'],
+ ['G60','G80','FS',0,'Long-lead items are ordered only after approval.','البنود طويلة التوريد مبتتطلبش إلا بعد الاعتماد.'],
+ ['G60','B10','FS',0,'Blocks and mortar must be approved first.','البلوك والمونة لازم يتعتمدوا الأول.'],
+ ['G70','B85','FS',0,'Fire fighting work runs on civil defence approved drawings.','شغل الحريق ماشي على رسومات معتمدة من الدفاع المدني.'],
+ ['G80','L10','FS',1,'Lift equipment must be on site. Lifts are the classic long-lead item.','معدات المصاعد لازم توصل الموقع، والمصاعد أشهر بند طويل التوريد.'],
+ ['U20','U30','FS+7',0,'Integrity tests need at least 7 days of concrete age.','اختبار السلامة محتاج عمر خرسانة 7 أيام على الأقل.'],
+ ['U20','U40','FS',1,'Bulk excavation starts after piling from ground level.','الحفر بيبدأ بعد تنفيذ الخوازيق من منسوب الأرض.'],
+ ['U10','U40','SS+7',0,'Lower the water table before digging below it.','لازم منسوب المية ينزل قبل الحفر تحته.'],
+ ['U40','U50',['SS+5','SS+10','FS'],0,'Pile heads are cut as soon as the first zones reach formation level.','تكسير الرؤوس بيبدأ أول ما أول جزء يوصل لمنسوب التأسيس.'],
+ ['U30','U50','FS',0,'Piles are cut only after the tests pass.','مفيش تكسير قبل نجاح الاختبارات.'],
+ ['U50','U60',['SS+2','SS+3','FS'],0,'Blinding follows the cut piles zone by zone.','النظافة بتمشي ورا التكسير منطقة منطقة.'],
+ ['U60','U70','FS+2',0,'Blinding must cure and dry before the membrane.','النظافة لازم تتعالج وتنشف قبل العزل.'],
+ ['U70','U80','FS+1',0,'Rebar is fixed on the protection screed.','الحديد بيتركب فوق طبقة الحماية.'],
+ ['U80','U90','FS',1,'Pour only after the consultant accepts the rebar.','الصب بعد استلام الحديد من الاستشاري.'],
+ ['U90','U100','FS+2',1,'Starter bars and kickers need the raft to gain strength.','أشاير الأعمدة والحوائط محتاجة اللبشة تاخد قوتها.'],
+ ['U100','U110','FS',1,'Slab formwork bears on completed walls and columns.','شدة السقف بتركب على حوائط وأعمدة خلصانة.'],
+ ['U100','U120','FS+7',0,'Waterproofing needs dry, cured wall faces.','العزل محتاج سطح حوائط ناشف ومعالج.'],
+ ['U110','U130','FS+7',0,'The slab braces the walls against backfill pressure.','السقف بيسند الحوائط ضد ضغط الردم.'],
+ ['U120','U130','FS+2',0,'Backfill only after the membrane is protected.','الردم بعد حماية العزل.'],
+ ['U130','U135','FS',0,'Dewatering runs until backfill is complete, against uplift. Only then are the wells shut down.','النزح يفضل شغال لحد ما الردم يخلص، ضد ضغط الطفو، وبعدها بس الآبار تتقفل.'],
+ ['U10','U135','FF',0,'The dewatering activity closes with the shutdown, not before.','نشاط النزح بيخلص مع قفل الآبار، مش قبله.'],
+ ['U135','H40','FS',0,'Wells are sealed before external works cover them.','الآبار بتتقفل قبل الأعمال الخارجية ما تغطيها.'],
+ ['U110','S10','FS+3',1,'The first typical floor starts on the ground floor slab.','أول دور متكرر بيبدأ على سقف البدروم.'],
  ['S10','S20','SS+1',0,'Sleeves and conduits go in while the rebar is being fixed.','الجلب والمواسير بتتركب مع تركيب الحديد.'],
  ['S10','S30','FS',0,'Pour only after the consultant accepts the rebar.','الصب بعد استلام الحديد من الاستشاري.'],
  ['S20','S30','FS',0,'Everything embedded must be in before the pour. Forgetting it means core drilling later.','كل المدفون لازم يتركب قبل الصب، وإلا هتخرّم الخرسانة بعدين.'],
@@ -338,10 +434,18 @@ var R=[
  ['H20','H60','FS',1,'No handover without the authority approvals.','مفيش تسليم من غير اعتمادات الجهات.'],
  ['H30','H40','FS',0,'Kerbs set the pavement line, then backfill and compaction.','البردورة بتحدد الرصيف، وبعدين ردم ودك.'],
  ['H40','H50','FS',0,'Interlock is the last layer outside.','الإنترلوك آخر حاجة برة.'],
- ['H50','H60','FS',0,'External works complete before handover.','الأعمال الخارجية تخلص قبل التسليم.']];
+ ['H50','H60','FS',0,'External works complete before handover.','الأعمال الخارجية تخلص قبل التسليم.'],
+ ['C20','C40','FS',0,'Heads are fitted on drops that are already installed.','الرؤوس بتتركب على نزلات متركبة.'],
+ ['C30','C60','FS',0,'Light fittings go into the closed ceiling.','الكشافات بتتركب في السقف بعد قفله.'],
+ ['G20','U10','FS',0,'The dewatering plant needs the site set up and powered.','معدات النزح محتاجة الموقع متجهز وفيه كهربا.'],
+ ['U40','U60','FF+2',0,'Blinding finishes shortly after the last excavation zone.','النظافة بتخلص بعد آخر منطقة حفر بشوية.'],
+ ['U50','U70','FS',0,'The membrane goes down once every pile head is trimmed.','العزل بيتفرش بعد تكسير كل رؤوس الخوازيق.'],
+ ['B30','P10','FS',0,'Chased walls are made good before plaster preparation.','الحيطان المتكسرة بتتقفل قبل تحضير المحارة.'],
+ ['B90','C10','FS',0,'Trays above the ceiling are finished before the grid.','حوامل الكابلات فوق السقف تخلص قبل الـ Grid.'],
+ ['T50','C10','FS',0,'Dampers are reachable only before the grid closes them in.','الدامبرات بتتركب قبل ما الـ Grid يقفل عليها.']];
 
 /* ---------- indexes ---------- */
-var byId={}; A.forEach(function(a,i){byId[a[0]]={c:a[0],st:a[1],d:a[2],en:a[3],ar:a[4],i:i}});
+var byId={}; A.forEach(function(a,i){byId[a[0]]={c:a[0],st:a[1],d:a[2],en:a[3],ar:a[4],dur:a[5],i:i}});
 var stIdx={}; ST.forEach(function(s,i){stIdx[s[0]]=i});
 var P={},N={}; A.forEach(function(a){P[a[0]]=[];N[a[0]]=[]});
 R.forEach(function(r){P[r[1]].push(r);N[r[0]].push(r)});
@@ -351,8 +455,9 @@ function dsName(id){var d=DS.filter(function(x){return x[0]===id})[0];return S.l
 function walk(c,map){var seen={},st=[c];while(st.length){var x=st.pop();map[x].forEach(function(r){var y=r[0]===x?r[1]:r[0];if(!seen[y]){seen[y]=1;st.push(y)}})}return Object.keys(seen).length}
 
 /* ---------- state ---------- */
-var cur='P20', mode=1, fSt='', fDs='', q='';
+var cur='P20', mode=1, fSt='', fDs='', q='', sel={};
 var h=(location.hash||'').slice(1).toUpperCase(); if(byId[h])cur=h;
+A.forEach(function(a){if(a[1]===byId[cur].st)sel[a[0]]=1});
 
 /* logic token → {type, lag text} */
 function pick(r){var l=r[2];if(typeof l==='string')return l;return l[mode]||l[1]||l[2]}
@@ -402,6 +507,8 @@ function renderMain(){
   var a=byId[cur], ps=P[cur], ns=N[cur];
   $('head').innerHTML='<div class="lg-tags"><span class="lg-code">'+a.c+'</span><span class="chip">'+esc(stName(a.st))+'</span><span class="chip lg-dchip lg-d-'+a.d.toLowerCase()+'"><i class="lg-dot"></i>'+esc(dsName(a.d))+'</span></div>'+
     '<h2>'+esc(nm(cur))+'</h2>'+
+    '<div class="lg-meta"><span class="lg-dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+(a.dur?esc(t('dur'))+': <b>'+a.dur+esc(t('dd'))+'</b> <small>'+esc(t('perFl'))+'</small>':'<b>'+esc(t('ms'))+'</b>')+'</span>'+
+    '<button type="button" class="lg-add'+(sel[cur]?' on':'')+'" data-add="'+cur+'">'+esc(sel[cur]?t('inFr'):t('addFr'))+'</button></div>'+
     '<div class="kpis lg-k">'+[[t('preds'),ps.length],[t('succs'),ns.length],[t('up'),walk(cur,P)],[t('down'),walk(cur,N)]].map(function(k){return '<div class="kpi"><small>'+esc(k[0])+'</small><b>'+k[1]+'</b></div>'}).join('')+'</div>';
   $('preds').innerHTML=ps.length?ps.map(function(r){return node(r,'p')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
   $('succs').innerHTML=ns.length?ns.map(function(r){return node(r,'s')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
@@ -467,13 +574,145 @@ function tyDiagram(k){
    '<defs><marker id="ty-'+cls+'" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="tyM '+cls+'"/></marker></defs>'+
    '<text x="'+(A1.x+8)+'" y="27">A</text><text x="'+(B1.x+8)+'" y="61">B</text></svg>';
 }
-function render(){renderStages();renderSide();renderMain();renderNotes()}
+function render(){renderStages();renderSide();renderMain();renderNotes();renderFrag()}
+
+
+/* ---------- lags in working days (for scheduling and XER) ---------- */
+function lagDays(r,predDur){var p=parse(pick(r)), tok=pick(r), m=/\+(.+)$/.exec(tok); if(!m)return 0;
+  var v=m[1], u='d'; if(/h$/.test(v)){u='h';v=v.slice(0,-1)}else if(/fl$/.test(v)){u='fl';v=v.slice(0,-2)}
+  var nums=v.split('-').map(Number), x=nums.length>1?(nums[0]+nums[1])/2:nums[0];
+  if(u==='h')return Math.ceil(x/8); if(u==='fl')return x*(predDur||1); return Math.round(x);}
+/* forward pass on working-day indexes, inside a set of activities */
+function schedule(codes){
+  var inS={}; codes.forEach(function(c){inS[c]=1});
+  var rels=R.filter(function(r){return inS[r[0]]&&inS[r[1]]});
+  var indeg={},out={},es={},ef={}; codes.forEach(function(c){indeg[c]=0;out[c]=[]});
+  rels.forEach(function(r){indeg[r[1]]++;out[r[0]].push(r)});
+  var q=codes.filter(function(c){return !indeg[c]}).sort(function(a,b){return byId[a].i-byId[b].i}), order=[];
+  codes.forEach(function(c){es[c]=0});
+  while(q.length){var c=q.shift();order.push(c);ef[c]=es[c]+byId[c].dur;
+    out[c].forEach(function(r){var s2=r[1],d=byId[s2].dur,ty=parse(pick(r)).ty,l=lagDays(r,byId[c].dur),v;
+      if(ty==='FS')v=ef[c]+l; else if(ty==='SS')v=es[c]+l; else if(ty==='FF')v=ef[c]+l-d; else v=es[c]+l-d;
+      if(v>es[s2])es[s2]=Math.max(0,v); if(--indeg[s2]===0)q.push(s2)})}
+  codes.forEach(function(c){if(ef[c]===undefined){ef[c]=es[c]+byId[c].dur;order.push(c)}}); /* safety: loops */
+  return {order:order,rels:rels,es:es,ef:ef};
+}
+/* ---------- fragnet ---------- */
+function selCodes(){return A.map(function(a){return a[0]}).filter(function(c){return sel[c]})}
+function setSel(codes){sel={};codes.forEach(function(c){sel[c]=1});renderFrag();renderMain()}
+function stageCodes(list){return A.filter(function(a){return list.indexOf(a[1])>=0}).map(function(a){return a[0]})}
+var NW=166,NH=58,GX=68,GY=16,PAD=20;
+function renderFrag(){
+  var pres=[['@stage',t('frStage')]].concat(t('frPresets')).concat([['@all',t('frAll')]]);
+  $('frPre').innerHTML=pres.map(function(p){return '<button type="button" class="pill" data-pre="'+p[0]+'">'+esc(p[1])+'</button>'}).join('');
+  var codes=selCodes();
+  $('frSel').innerHTML=codes.length?codes.map(function(c){return '<span class="lg-chip lg-d-'+byId[c].d.toLowerCase()+(c===cur?' on':'')+'"><i class="lg-dot"></i><button type="button" data-go="'+c+'"><code>'+c+'</code> '+esc(nm(c))+'</button><button type="button" class="x" data-rm="'+c+'" aria-label="Remove">×</button></span>'}).join(''):'';
+  $('frXer').disabled=$('frCsv').disabled=!codes.length;
+  if(!codes.length){$('frCanvas').innerHTML='<p class="lg-none" style="margin:16px">'+esc(t('frEmpty'))+'</p>';$('frCanvas').style.width='';$('frCanvas').style.height='';renderChecks(codes);return}
+  var sc=schedule(codes), layer={}, rows=[];
+  sc.order.forEach(function(c){layer[c]=layer[c]||0});
+  sc.order.forEach(function(c){sc.rels.forEach(function(r){if(r[0]===c){layer[r[1]]=Math.max(layer[r[1]]||0,layer[c]+1)}})});
+  codes.forEach(function(c){var L=layer[c]||0;(rows[L]=rows[L]||[]).push(c)});
+  var pos={};
+  rows.forEach(function(col,L){col.sort(function(a,b){return byId[a].i-byId[b].i});col.forEach(function(c,k){pos[c]=k})});
+  /* two barycenter sweeps to reduce crossings */
+  for(var sw=0;sw<2;sw++){rows.forEach(function(col,L){if(!L)return;var bc={};col.forEach(function(c){var ps=sc.rels.filter(function(r){return r[1]===c}).map(function(r){return pos[r[0]]});bc[c]=ps.length?ps.reduce(function(a,b){return a+b},0)/ps.length:pos[c]});col.sort(function(a,b){return bc[a]-bc[b]||byId[a].i-byId[b].i});col.forEach(function(c,k){pos[c]=k})})}
+  var maxR=Math.max.apply(null,rows.map(function(c){return c?c.length:0})), nL=rows.length, mob=window.innerWidth<560, V=mob||(nL>4&&nL>maxR*1.6), xy={}, W, H;
+  /* deep, narrow networks read better top-down; wide ones left to right */
+  var gx=V?18:GX, gy=V?54:GY;
+  if(V){W=PAD*2+maxR*NW+(maxR-1)*gx;H=PAD*2+nL*NH+(nL-1)*gy;rows.forEach(function(col,Lr){var off=(maxR-col.length)*(NW+gx)/2;col.forEach(function(c,k){xy[c]={x:PAD+off+k*(NW+gx),y:PAD+Lr*(NH+gy)}})})}
+  else{W=PAD*2+nL*NW+(nL-1)*gx;H=PAD*2+maxR*NH+(maxR-1)*gy;rows.forEach(function(col,Lr){var off=(maxR-col.length)*(NH+gy)/2;col.forEach(function(c,k){xy[c]={x:PAD+Lr*(NW+gx),y:PAD+off+k*(NH+gy)}})})}
+  /* anchor: start side (left / top) or finish side (right / bottom), with its outward normal */
+  function anc(o,fin){return V?{x:o.x+NW/2,y:fin?o.y+NH:o.y,nx:0,ny:fin?1:-1}:{x:fin?o.x+NW:o.x,y:o.y+NH/2,nx:fin?1:-1,ny:0}}
+  var css=getComputedStyle(document.documentElement), out='', labels='', gap=V?gy:gx;
+  sc.rels.forEach(function(r){var p=parse(pick(r)), ty=p.ty, a=anc(xy[r[0]],ty==='FS'||ty==='FF'), b=anc(xy[r[1]],ty==='FF'||ty==='SF');
+    var dist=V?Math.abs(b.y-a.y):Math.abs(b.x-a.x), k=ty==='FS'?Math.max(28,dist/2):32;
+    var ex=b.x+b.nx*6, ey=b.y+b.ny*6, cls=(r[3]?'crit':ty.toLowerCase());
+    out+='<path class="'+cls+'" d="M'+a.x+' '+a.y+' C'+(a.x+a.nx*k)+' '+(a.y+a.ny*k)+','+(b.x+b.nx*k)+' '+(b.y+b.ny*k)+','+ex+' '+ey+'" marker-end="url(#fa-'+cls+')"/>';
+    var m=/\+(.+)$/.exec(pick(r));
+    if(m){var lv=m[1].replace('-','–'), lt=ty+' +'+(/h$/.test(lv)?lv:/fl$/.test(lv)?lv.replace('fl',' fl'):lv+'d');
+      var lx=b.x+b.nx*gap/2+(V?NW/4:0), ly=b.y+b.ny*gap/2+(V?4:-7);
+      labels+='<text x="'+lx+'" y="'+ly+'" class="'+cls+'">'+esc(lt)+'</text>'}});
+  var defs='<defs>'+['fs','ss','ff','sf','crit'].map(function(k){var col=css.getPropertyValue(k==='crit'?'--crit':'--r-'+k).trim();return '<marker id="fa-'+k+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+col+'"/></marker>'}).join('')+'</defs>';
+  var nodes=codes.map(function(c){var a=byId[c],o=xy[c];return '<button type="button" class="lg-fn lg-d-'+a.d.toLowerCase()+(c===cur?' on':'')+'" data-go="'+c+'" style="left:'+o.x+'px;top:'+o.y+'px;width:'+NW+'px;height:'+NH+'px"><span class="h"><code>'+c+'</code><small dir="auto">'+(a.dur?a.dur+esc(t('dd')):'◆')+'</small></span><span class="t" dir="auto">'+esc(nm(c))+'</span></button>'}).join('');
+  var C=$('frCanvas'); C.style.width=W+'px'; C.style.height=H+'px';
+  /* shrink slightly to fit when it only just overflows */
+  var cw=$('frWrap').clientWidth-4, z=W>cw&&W/cw<(mob?1.9:1.45)?cw/W:1; C.style.zoom=z<1?z.toFixed(3):'';
+  C.innerHTML='<svg class="lg-frw" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+defs+out+labels+'</svg>'+nodes;
+  renderChecks(codes,sc);
+}
+function markFrag(){document.querySelectorAll('#frCanvas .lg-fn,#frSel .lg-chip').forEach(function(el){var c=el.getAttribute('data-go')||(el.querySelector('[data-go]')||{}).getAttribute&&el.querySelector('[data-go]').getAttribute('data-go');el.classList.toggle('on',c===cur)})}
+/* ---------- logic check (DCMA-style) ---------- */
+function renderChecks(codes,sc){
+  var K=t('ck');
+  if(!codes.length){$('ck').innerHTML='';$('ckScore').textContent='';return}
+  var rels=sc.rels, ps={}, ns={}; codes.forEach(function(c){ps[c]=[];ns[c]=[]}); rels.forEach(function(r){ps[r[1]].push(r);ns[r[0]].push(r)});
+  function ty(r){return parse(pick(r)).ty}
+  var os=codes.filter(function(c){return !ps[c].length}), oe=codes.filter(function(c){return !ns[c].length});
+  var ff=codes.filter(function(c){return ps[c].length&&ps[c].every(function(r){return ty(r)==='FF'||ty(r)==='SF'})});
+  var ss=codes.filter(function(c){return ns[c].length&&ns[c].every(function(r){return ty(r)==='SS'})});
+  var lagged=rels.filter(function(r){return lagDays(r,byId[r[0]].dur)>0}), sf=rels.filter(function(r){return ty(r)==='SF'});
+  var fsN=rels.filter(function(r){return ty(r)==='FS'}).length, longL=rels.filter(function(r){return lagDays(r,byId[r[0]].dur)>10});
+  var n=rels.length||1, lagPct=Math.round(lagged.length/n*100), fsPct=Math.round(fsN/n*100);
+  function chips(list){return list.length?'<div class="lg-ckc">'+list.slice(0,14).map(function(c){return '<button type="button" data-go="'+c+'"><code>'+c+'</code> '+esc(nm(c))+'</button>'}).join('')+(list.length>14?'<span>+'+(list.length-14)+'</span>':'')+'</div>':''}
+  function rchips(list){return chips(list.map(function(r){return r[1]}).filter(function(c,i,a){return a.indexOf(c)===i}))}
+  var rows=[
+    [os.length<=1,K.os,os.length,K.osD,chips(os)],
+    [oe.length<=1,K.oe,oe.length,K.oeD,chips(oe)],
+    [!ff.length,K.ff,ff.length,K.ffD,chips(ff)],
+    [!ss.length,K.ss,ss.length,K.ssD,chips(ss)],
+    [lagPct<=5,K.lag,lagPct+'%',K.lagD,''],
+    [true,K.lead,0,K.leadD,''],
+    [fsPct>=90,K.fs,fsPct+'%',K.fsD,''],
+    [!sf.length,K.sf,sf.length,K.sfD,rchips(sf)],
+    [!longL.length,K.long,longL.length,K.longD,rchips(longL)]];
+  var ok=rows.filter(function(r){return r[0]}).length;
+  $('ckScore').innerHTML='<b>'+ok+'/'+rows.length+'</b> '+esc(t('ckOf'));
+  $('ckScore').className='lg-score '+(ok===rows.length?'good':ok>=rows.length-3?'mix':'bad');
+  $('ck').innerHTML=rows.map(function(r){return '<div class="lg-ck '+(r[0]?'ok':'warn')+'"><span class="ic">'+(r[0]?'✓':'!')+'</span><div><div class="tt"><b>'+esc(r[1])+'</b><span class="v" dir="ltr">'+r[2]+'</span></div><p>'+esc(r[3])+'</p>'+(r[0]?'':r[4])+'</div></div>'}).join('');
+}
+/* ---------- XER export (Primavera P6) ---------- */
+function pad(n){return (n<10?'0':'')+n}
+function fmt(d,h){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+h}
+function ascii(x){return String(x).replace(/[–—]/g,'-').replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/[^\x20-\x7E]/g,'').replace(/\t/g,' ')}
+function xer(codes,name){
+  var sc=schedule(codes), start=new Date(); start.setHours(0,0,0,0); start.setDate(start.getDate()+1);
+  while(start.getDay()===5)start.setDate(start.getDate()+1); /* Friday off */
+  var days=[]; function wd(i){while(days.length<=i){var d=days.length?new Date(days[days.length-1]):new Date(start); if(days.length)d.setDate(d.getDate()+1); while(d.getDay()===5)d.setDate(d.getDate()+1); days.push(d)} return days[i]}
+  var now=fmt(new Date(),'00:00').slice(0,16), ps=fmt(start,'08:00'), end=0; codes.forEach(function(c){end=Math.max(end,sc.ef[c])});
+  var pe=fmt(wd(Math.max(end-1,0)),'17:00');
+  var L=[], T2=function(name,fields,rows){L.push('%T\t'+name);L.push('%F\t'+fields.join('\t'));rows.forEach(function(r){L.push('%R\t'+fields.map(function(f){var v=r[f];return v===undefined||v===null?'':ascii(v)}).join('\t'))})};
+  L.push(['ERMHDR','19.12',fmt(new Date(),'').trim(),'Project','admin','admin','dbxDatabaseNoName','Project Management','USD'].join('\t'));
+  T2('CURRTYPE',['curr_id','decimal_digit_cnt','curr_symbol','decimal_symbol','digit_group_symbol','pos_curr_fmt_type','neg_curr_fmt_type','curr_type','curr_short_name','group_digit_cnt','base_exch_rate'],[{curr_id:1,decimal_digit_cnt:2,curr_symbol:'$',decimal_symbol:'.',digit_group_symbol:',',pos_curr_fmt_type:'#1.1',neg_curr_fmt_type:'(#1.1)',curr_type:'US Dollar',curr_short_name:'USD',group_digit_cnt:3,base_exch_rate:1}]);
+  T2('OBS',['obs_id','parent_obs_id','guid','seq_num','obs_name','obs_descr'],[{obs_id:1,seq_num:0,obs_name:'Enterprise'}]);
+  T2('PROJECT',['proj_id','fy_start_month_num','rsrc_self_add_flag','allow_complete_flag','rsrc_multi_assign_flag','checkout_flag','project_flag','step_complete_flag','cost_qty_recalc_flag','batch_sum_flag','name_sep_char','def_complete_pct_type','proj_short_name','acct_id','orig_proj_id','source_proj_id','base_type_id','clndr_id','sum_base_proj_id','task_code_base','task_code_step','priority_num','wbs_max_sum_level','strgy_priority_num','last_checksum','critical_drtn_hr_cnt','def_cost_per_qty','last_recalc_date','plan_start_date','plan_end_date','scd_end_date','add_date','last_tasksum_date','fcst_start_date','def_duration_type','task_code_prefix','guid','def_qty_type','add_by_name','web_local_root_path','proj_url','def_rate_type','add_act_remain_flag','act_this_per_link_flag','def_task_type','act_pct_link_flag','critical_path_type','task_code_prefix_flag','def_rollup_dates_flag','use_project_baseline_flag','rem_target_link_flag','reset_planned_flag','allow_neg_act_flag','sum_assign_level','last_fin_dates_id','last_baseline_update_date','cr_external_key','apply_actuals_date','location_id','last_schedule_date','loaded_scope_level','export_flag','new_fin_dates_id','baselines_to_export','baseline_names_to_export','next_data_date','close_period_flag','sum_refresh_date','trsrcsum_loaded','sumtask_loaded'],
+    [{proj_id:1,fy_start_month_num:1,rsrc_self_add_flag:'Y',allow_complete_flag:'Y',rsrc_multi_assign_flag:'Y',checkout_flag:'N',project_flag:'Y',step_complete_flag:'N',cost_qty_recalc_flag:'Y',batch_sum_flag:'Y',name_sep_char:'.',def_complete_pct_type:'CP_Drtn',proj_short_name:name,clndr_id:1,task_code_base:1000,task_code_step:10,priority_num:10,wbs_max_sum_level:0,strgy_priority_num:100,critical_drtn_hr_cnt:0,def_cost_per_qty:0,last_recalc_date:ps,plan_start_date:ps,scd_end_date:pe,add_date:now,def_duration_type:'DT_FixedDUR2',def_qty_type:'QT_Hour',add_by_name:'admin',def_rate_type:'COST_PER_QTY',add_act_remain_flag:'N',act_this_per_link_flag:'Y',def_task_type:'TT_Task',act_pct_link_flag:'N',critical_path_type:'CT_TotFloat',task_code_prefix_flag:'Y',def_rollup_dates_flag:'Y',use_project_baseline_flag:'Y',rem_target_link_flag:'Y',reset_planned_flag:'N',allow_neg_act_flag:'N',sum_assign_level:'SL_Taskrsrc',last_schedule_date:ps,loaded_scope_level:7,export_flag:'Y',close_period_flag:'N'}]);
+  var day='(0||0(s|08:00|f|12:00)())(0||1(s|13:00|f|17:00)())';
+  var cd='(0||CalendarData()((0||DaysOfWeek()('+[1,2,3,4,5,6,7].map(function(d){return d===6?'(0||6()())':'(0||'+d+'()('+day+'))'}).join('')+'))(0||VIEW(ShowTotal|Y)())(0||Exceptions()()))';
+  T2('CALENDAR',['clndr_id','default_flag','clndr_name','proj_id','base_clndr_id','last_chng_date','clndr_type','day_hr_cnt','week_hr_cnt','month_hr_cnt','year_hr_cnt','rsrc_private','clndr_data'],[{clndr_id:1,default_flag:'N',clndr_name:'6d x 8h (Fri off)',proj_id:1,last_chng_date:now,clndr_type:'CA_Project',day_hr_cnt:8,week_hr_cnt:48,month_hr_cnt:208,year_hr_cnt:2496,rsrc_private:'N',clndr_data:cd}]);
+  var wf=['wbs_id','proj_id','obs_id','seq_num','est_wt','proj_node_flag','sum_data_flag','status_code','wbs_short_name','wbs_name','phase_id','parent_wbs_id','ev_user_pct','ev_etc_user_value','orig_cost','indep_remain_total_cost','ann_dscnt_rate_pct','dscnt_period_type','indep_remain_work_qty','anticip_start_date','anticip_end_date','ev_compute_type','ev_etc_compute_type','guid','tmpl_guid','plan_open_state'];
+  var wrows=[{wbs_id:1,proj_id:1,obs_id:1,seq_num:0,est_wt:1,proj_node_flag:'Y',sum_data_flag:'N',status_code:'WS_Open',wbs_short_name:name,wbs_name:name==='RELLIB'?'Activity relationships library':'Fragnet',parent_wbs_id:'',ev_user_pct:6,ev_etc_user_value:0.88,orig_cost:0,indep_remain_total_cost:0,ann_dscnt_rate_pct:'',indep_remain_work_qty:0,ev_compute_type:'EC_Cmp_pct',ev_etc_compute_type:'EE_Rem_hr'}], wid={};
+  ST.forEach(function(s,i){if(!codes.some(function(c){return byId[c].st===s[0]}))return;wid[s[0]]=wrows.length+1;wrows.push({wbs_id:wid[s[0]],proj_id:1,obs_id:1,seq_num:(i+1)*10,est_wt:1,proj_node_flag:'N',sum_data_flag:'N',status_code:'WS_Open',wbs_short_name:pad(i+1),wbs_name:s[1],parent_wbs_id:1,ev_user_pct:6,ev_etc_user_value:0.88,orig_cost:0,indep_remain_total_cost:0,indep_remain_work_qty:0,ev_compute_type:'EC_Cmp_pct',ev_etc_compute_type:'EE_Rem_hr'})});
+  T2('PROJWBS',wf,wrows);
+  var tf=['task_id','proj_id','wbs_id','clndr_id','phys_complete_pct','rev_fdbk_flag','est_wt','lock_plan_flag','auto_compute_act_flag','complete_pct_type','task_type','duration_type','status_code','task_code','task_name','rsrc_id','total_float_hr_cnt','free_float_hr_cnt','remain_drtn_hr_cnt','act_work_qty','remain_work_qty','target_work_qty','target_drtn_hr_cnt','target_equip_qty','act_equip_qty','remain_equip_qty','cstr_date','act_start_date','act_end_date','late_start_date','late_end_date','expect_end_date','early_start_date','early_end_date','restart_date','reend_date','target_start_date','target_end_date','rem_late_start_date','rem_late_end_date','cstr_type','priority_type','suspend_date','resume_date','float_path','float_path_order','guid','tmpl_guid','cstr_date2','cstr_type2','driving_path_flag','act_this_per_work_qty','act_this_per_equip_qty','external_early_start_date','external_late_end_date','create_date','update_date','create_user','update_user','location_id'];
+  var tid={}, trows=codes.map(function(c,i){var a=byId[c], id=1000+i; tid[c]=id; var hrs=a.dur*8, isMs=!a.dur, startMs=isMs&&!sc.rels.some(function(r){return r[1]===c});
+    var sd=fmt(wd(sc.es[c]),'08:00'), ed=a.dur?fmt(wd(sc.ef[c]-1),'17:00'):sd;
+    return {task_id:id,proj_id:1,wbs_id:wid[a.st],clndr_id:1,phys_complete_pct:0,rev_fdbk_flag:'N',est_wt:1,lock_plan_flag:'N',auto_compute_act_flag:'N',complete_pct_type:'CP_Drtn',task_type:isMs?(startMs?'TT_Mile':'TT_FinMile'):'TT_Task',duration_type:'DT_FixedDUR2',status_code:'TK_NotStart',task_code:c,task_name:a.en,remain_drtn_hr_cnt:hrs,act_work_qty:0,remain_work_qty:0,target_work_qty:0,target_drtn_hr_cnt:hrs,target_equip_qty:0,act_equip_qty:0,remain_equip_qty:0,early_start_date:sd,early_end_date:ed,target_start_date:sd,target_end_date:ed,priority_type:'PT_Normal',driving_path_flag:'N',act_this_per_work_qty:0,act_this_per_equip_qty:0,create_date:now,update_date:now,create_user:'admin',update_user:'admin'}});
+  T2('TASK',tf,trows);
+  T2('TASKPRED',['task_pred_id','task_id','pred_task_id','proj_id','pred_proj_id','pred_type','lag_hr_cnt','comments','float_path','aref','arls'],sc.rels.map(function(r,i){return {task_pred_id:5000+i,task_id:tid[r[1]],pred_task_id:tid[r[0]],proj_id:1,pred_proj_id:1,pred_type:'PR_'+parse(pick(r)).ty,lag_hr_cnt:lagDays(r,byId[r[0]].dur)*8,comments:r[4]}}));
+  L.push('%E');
+  return L.join('\r\n')+'\r\n';
+}
+function download(txt,fname,type){var blob=new Blob([txt],{type:type});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
 
 /* ---------- events ---------- */
-function go(c,scroll){if(!byId[c])return;cur=c;try{history.replaceState(null,'','#'+c)}catch(e){}renderStages();renderList();renderMain();
+function go(c,scroll){if(!byId[c])return;cur=c;try{history.replaceState(null,'','#'+c)}catch(e){}renderStages();renderList();renderMain();markFrag();
   if(scroll&&window.innerWidth<900){$('main').scrollIntoView({behavior:'smooth',block:'start'})}
   var on=document.querySelector('#list .lg-item.on'); if(on&&on.scrollIntoView){var l=$('list');if(on.offsetTop<l.scrollTop||on.offsetTop>l.scrollTop+l.clientHeight-40)l.scrollTop=on.offsetTop-l.clientHeight/2}}
 document.addEventListener('click',function(e){
+  var ad=e.target.closest('[data-add]'); if(ad){var c=ad.getAttribute('data-add');if(sel[c])delete sel[c];else sel[c]=1;renderFrag();renderMain();return}
+  var rm=e.target.closest('[data-rm]'); if(rm){delete sel[rm.getAttribute('data-rm')];renderFrag();renderMain();return}
+  var pr=e.target.closest('[data-pre]'); if(pr){var k=pr.getAttribute('data-pre');setSel(k==='@all'?A.map(function(a){return a[0]}):k==='@stage'?stageCodes([byId[cur].st]):stageCodes(k.split('+')));return}
   var g=e.target.closest('[data-go]'); if(g){go(g.getAttribute('data-go'),!!e.target.closest('#list'));if(e.target.closest('#main'))$('net').scrollIntoView({behavior:'smooth',block:'nearest'});return}
   var s=e.target.closest('[data-st]'); if(s){fSt=s.getAttribute('data-st'); if(fSt&&byId[cur].st!==fSt){var f=A.filter(function(a){return a[1]===fSt})[0];if(f){cur=f[0];try{history.replaceState(null,'','#'+cur)}catch(e2){}}} renderStages();renderList();renderMain();return}
   var d=e.target.closest('[data-ds]'); if(d){fDs=d.getAttribute('data-ds');renderSide();return}
@@ -481,7 +720,7 @@ document.addEventListener('click',function(e){
 });
 $('q').addEventListener('input',function(){q=this.value;renderList()});
 $('q').addEventListener('keydown',function(e){if(e.key==='Enter'){var f=document.querySelector('#list .lg-item');if(f)go(f.getAttribute('data-go'),true)}});
-window.addEventListener('resize',function(){requestAnimationFrame(wires)});
+window.addEventListener('resize',function(){requestAnimationFrame(wires);clearTimeout(window._frT);window._frT=setTimeout(renderFrag,200)});
 window.addEventListener('hashchange',function(){var c=location.hash.slice(1).toUpperCase();if(byId[c]&&c!==cur)go(c)});
 
 function toast(msg){var el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2600)}
@@ -493,12 +732,16 @@ $('copy').addEventListener('click',function(){
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);ok()})}else{fallback(txt);ok()}
 });
 function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
-$('csv').addEventListener('click',function(){
+$('frClear').addEventListener('click',function(){setSel([])});
+$('frXer').addEventListener('click',function(){var c=selCodes();if(!c.length)return;download(xer(c,'FRAGNET'),'fragnet-'+c.length+'-activities.xer','application/octet-stream');toast(t('xerNote'))});
+$('xerAll').addEventListener('click',function(){download(xer(A.map(function(a){return a[0]}),'RELLIB'),'activity-relationships-library.xer','application/octet-stream');toast(t('xerNote'))});
+$('frCsv').addEventListener('click',function(){var c=selCodes();if(!c.length)return;var inS={};c.forEach(function(x){inS[x]=1});csvOf(R.filter(function(r){return inS[r[0]]&&inS[r[1]]}),'fragnet-relationships-'+S.lang+'.csv')});
+$('csv').addEventListener('click',function(){csvOf(R,'activity-relationships-'+S.lang+'.csv')});
+function csvOf(list,fname){
   function q2(v){v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
-  var rows=[HEAD.concat(['Stage (pred)','Stage (succ)'])].concat(rowsFor(R).map(function(row,i){return row.concat([stName(byId[R[i][0]].st),stName(byId[R[i][1]].st)])}));
-  var blob=new Blob(['﻿'+rows.map(function(r){return r.map(q2).join(',')}).join('\r\n')],{type:'text/csv;charset=utf-8'});
-  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='activity-relationships-'+S.lang+'.csv';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
-});
+  var rows=[HEAD.concat(['Stage (pred)','Stage (succ)'])].concat(rowsFor(list).map(function(row,k){return row.concat([stName(byId[list[k][0]].st),stName(byId[list[k][1]].st)])}));
+  download('\ufeff'+rows.map(function(r){return r.map(q2).join(',')}).join('\r\n'),fname,'text/csv;charset=utf-8');
+}
 
 S.init({T:T,title:{en:'Relationships library',ar:'مكتبة العلاقات'},render:render});
 })();
