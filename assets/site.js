@@ -11,7 +11,7 @@ var C={
  ar:{coT:'شركات اشتغلت فيها',toolT:'الأدوات اللي بستخدمها',langBtn:'English',nav:['الرئيسية','المسيرة','أدوات طورتها','مقالات','تواصل'],fullName:'أحمد عبد الباسط أبوعقيل',titleSfx:'أحمد أبوعقيل',home:'→ الرئيسية'}
 };
 var NO_AR={PROFILE:'الملف الشخصي',SERVICES:'الخدمات',PROJECTS:'المشروعات',TOOLS:'الأدوات',CONTACT:'تواصل',PROBLEM:'المشكلة',FEATURES:'المميزات',SCREENS:'الشاشات',STACK:'التقنيات',SCHEDULE:'الجدول الزمني',WBS:'هيكل تجزئة العمل',TRAINING:'التدريب',NOTES:'ملاحظات','NOT FOUND':'غير موجودة','END OF DRAWING SET':'نهاية الصفحة',DWG:'لوحة',REV:'إصدار'};
-var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay tender'],['articles.html','articles'],['index.html#contact','contact']];
+var NAV=[['index.html','home'],['career.html','career'],['index.html#labs','app evm delay tender logic'],['articles.html','articles'],['index.html#contact','contact']];
 var page=null, lang='en';
 
 var TOOLS=[['p6','Primavera P6'],['excel','Excel'],['powerbi','Power BI'],['autocad','AutoCAD'],['word','Word'],['powerpoint','PowerPoint'],['ai',{en:'AI tools',ar:'أدوات AI'}]];
