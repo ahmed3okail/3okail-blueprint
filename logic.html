@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=21">
+<link rel="stylesheet" href="assets/site.css?v=22">
 </head>
 <body data-page="logic">
 
@@ -37,6 +37,7 @@
   <div class="subhero"><div class="wrap">
     <a class="crumb" href="index.html#labs" data-i="back"></a>
     <h1 data-i="lT"></h1><p data-i="lP"></p>
+    <ol class="lg-how" id="how"></ol>
   </div></div>
 
   <section id="lib">
@@ -49,9 +50,11 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input type="search" id="q" autocomplete="off">
           </div>
-          <div class="lg-discs" id="discs"></div>
-          <div class="ctrl" style="margin:14px 0 6px"><label><span data-i="modeL"></span></label><div class="seg" id="mode"></div></div>
-          <p class="hint lg-mhint" data-i="modeH"></p>
+          <details class="lg-adv"><summary data-i="adv"></summary>
+            <div class="lg-discs" id="discs"></div>
+            <div class="ctrl" style="margin:14px 0 6px"><label><span data-i="modeL"></span></label><div class="seg" id="mode"></div></div>
+            <p class="hint lg-mhint" data-i="modeH"></p>
+          </details>
           <div class="lg-list" id="list"></div>
         </div>
 
@@ -70,10 +73,11 @@
             <ol class="lg-flow" id="flow"></ol>
           </div>
 
-          <div class="lg-tbl">
+          <details class="lg-tbl">
+            <summary data-i="tblSum"></summary>
             <div class="lg-tblh"><h3 data-i="tblT"></h3><button class="btn btn-line lg-copy" id="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i="copy"></span></button></div>
             <div class="boq-scroll"><table class="lg-t" id="tbl"></table></div>
-          </div>
+          </details>
         </div>
       </div>
     </div>
@@ -83,18 +87,41 @@
     <div class="wrap">
       <div class="sheet reveal"><div><div class="no">FRAGNET</div><h2 data-i="frT"></h2></div><p data-i="frP"></p></div>
       <div class="panel lg-fr reveal">
-        <div class="lg-frbar">
-          <div class="lg-frpre"><span class="lg-frl" data-i="frPre"></span><span id="frPre"></span></div>
-          <div class="lg-frbtn">
-            <button class="btn btn-line lg-sm" id="frClear" type="button" data-i="frClear"></button>
-            <button class="btn btn-line lg-sm" id="frCsv" type="button"><span data-i="frCsv"></span></button>
-            <button class="btn btn-primary lg-sm" id="frXer" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg><span data-i="frXer"></span></button>
+        <div class="lg-sb">
+          <span class="lg-sn">1</span>
+          <div class="lg-sbody">
+            <h3 data-i="s1T"></h3><p class="lg-sp" data-i="s1P"></p>
+            <div class="lg-ways">
+              <div class="lg-way"><span class="lg-wl" data-i="w1"></span>
+                <div class="lg-search lg-frq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="frQ" autocomplete="off"><div class="lg-dd" id="frDD" hidden></div></div>
+              </div>
+              <div class="lg-way"><span class="lg-wl" data-i="w2"></span><button type="button" class="lg-add lg-nb" id="frNb"></button></div>
+              <div class="lg-way"><span class="lg-wl" data-i="w3"></span><div class="lg-pres" id="frPre"></div></div>
+            </div>
+            <div class="lg-selh"><b id="frCount"></b><button type="button" class="lg-link" id="frClear" data-i="frClear"></button></div>
+            <div class="lg-chips" id="frSel"></div>
           </div>
         </div>
-        <div class="lg-chips" id="frSel"></div>
-        <div class="lg-frgrid">
-          <div class="lg-frnet"><div class="lg-frscroll" id="frWrap"><div class="lg-frcanvas" id="frCanvas"></div></div><p class="hint lg-frhint" data-i="frHint"></p></div>
-          <div class="lg-chk"><div class="lg-chkh"><h3 data-i="ckT"></h3><span class="lg-score" id="ckScore"></span></div><div id="ck"></div></div>
+        <div class="lg-sb">
+          <span class="lg-sn">2</span>
+          <div class="lg-sbody">
+            <h3 data-i="s2T"></h3><p class="lg-sp" data-i="s2P"></p>
+            <div class="lg-legend lg-frleg" id="frLeg"></div>
+            <div class="lg-frscroll" id="frWrap"><div class="lg-frcanvas" id="frCanvas"></div></div>
+            <p class="hint lg-frhint" data-i="frHint"></p>
+            <div class="lg-chk"><div class="lg-chkh"><h3 data-i="ckT"></h3><span class="lg-score" id="ckScore"></span></div><div id="ck"></div></div>
+          </div>
+        </div>
+        <div class="lg-sb">
+          <span class="lg-sn">3</span>
+          <div class="lg-sbody">
+            <h3 data-i="s3T"></h3><p class="lg-sp" data-i="s3P"></p>
+            <div class="lg-dl">
+              <button class="btn btn-primary" id="frXer" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg><span data-i="frXer"></span></button>
+              <button class="btn btn-line" id="frCsv" type="button"><span data-i="frCsv"></span></button>
+            </div>
+            <ol class="lg-howp6" id="howP6"></ol>
+          </div>
         </div>
       </div>
     </div>
@@ -121,7 +148,7 @@
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> 3okail Blueprint · <span data-i="fullName"></span></span><span class="mono"><span id="visits" hidden></span><span class="no-l">END OF DRAWING SET</span></span></div></footer>
 
-<script src="assets/site.js?v=21"></script>
+<script src="assets/site.js?v=22"></script>
 <script>
 (function(){
 "use strict";
@@ -147,12 +174,22 @@ en:{back:'← Tools I have developed', lT:'Activity relationships library', lP:'
  srcT:'References', srcN:'Durations, lags and sequences differ between projects. Your approved specifications, drawings and method statements always govern.',
  csv:'Download the full library (CSV)', goTender:'Tender schedule lab →', xerAll:'Download the full library for P6 (XER)', goArt:'Read the article: how to use it →',
  dur:'Typical duration', perFl:'per floor / zone', dd:'d', ms:'Milestone', addFr:'+ Add to fragnet', inFr:'✓ In the fragnet',
- frT:'Build your fragnet', frP:'Pick activities and get the network between them, a logic check, and a file you can import straight into Primavera P6.',
- frPre:'Quick start:', frClear:'Clear', frCsv:'CSV', frXer:'Download XER for P6', frEmpty:'Add activities with “+ Add to fragnet”, or start from a preset.',
- frHint:'Each line leaves from the side its relationship ties: the start (left or top) or the finish (right or bottom). Click any box to open it.',
+ frT:'Build a fragnet in 3 steps', frP:'A fragnet is a small piece of a schedule: a few activities already linked together, ready to drop into your main programme. Pick them, check them, and download a file that opens in P6.',
+ frPre:'Quick start:', frClear:'Clear all', frCsv:'Relationships as CSV', frXer:'Download XER for P6', frEmpty:'Nothing selected yet. Use one of the three ways above.',
+ how:[['Pick an activity','From the stages bar or the list on the side.'],['See before and after','What must finish first, what follows it, and why.'],['Build a fragnet','Group activities, check the logic, download for P6.']],
+ adv:'Discipline filter and lag options', tblSum:'Show as a table and copy to Excel',
+ s1T:'Pick the activities', s1P:'Use any of these three ways, and mix them as you like.',
+ w1:'Search and add', w2:'The open activity and its neighbours', w3:'Or a ready set',
+ frQ:'Type an activity name or code…', frNo:'No match', nb:'+ {n} with what comes right before and after it',
+ frCount:'{n} activities selected', added:'Added to the fragnet.', addedGo:'Show me ↓',
+ s2T:'Review the network', s2P:'Each box is an activity and each line is a relationship. The quick check under it tells you what to fix before you download.',
+ s3T:'Download and open it in P6', s3P:'The XER holds the activities, durations, relationships and lags, with one WBS per stage.',
+ howP6:['In P6: File › Import › Primavera PM (XER).','Choose “Create a new project” and finish the wizard.','Open the project and press F9 to schedule it.'],
+ ckFix:'Worth a look', ckGood:'Passed', ckAll:'Everything looks right.',
+ frHint:'A line from the end of a box means “after it finishes”; from its start means “after it starts”. Click any box to open it above.',
  frStage:'This stage', frAll:'Whole library',
  frPresets:[['WET+CLG','Bathrooms + ceiling'],['SUB','Substructure'],['FAC','Facades'],['PLS+CLG+FIN','Plaster to final paint']],
- ckT:'Logic check', ckOf:'checks passed',
+ ckT:'Quick logic check', ckOf:'checks passed',
  ck:{os:'Open starts',osD:'No predecessor inside the selection. Link them to your schedule.',oe:'Open ends',oeD:'No successor inside the selection. Link them to your schedule.',ff:'Start held only by FF',ffD:'Every predecessor is FF, so the start floats free. Add an SS or an FS.',ss:'Finish held only by SS',ssD:'Every successor is SS, so this finish drives nothing. Add an FF or an FS.',lag:'Links with a lag',lagD:'DCMA: keep lags under 5% of relationships and write the reason for each.',lead:'Leads (negative lags)',leadD:'DCMA: zero.',fs:'Finish to start share',fsD:'DCMA: at least 90% of relationships.',sf:'Start to finish links',sfD:'Rare. Check each one.',long:'Long lags (over 10 days)',longD:'A long lag often hides an activity. Model it instead.'},
  xerNote:'XER downloaded. Import it in P6, then press F9 to schedule.',
  activities:'activities', relations:'relationships'},
@@ -174,12 +211,22 @@ ar:{back:'→ أدوات طورتها', lT:'مكتبة العلاقات بين �
  srcT:'المراجع', srcN:'المدد والـ Lags والتسلسل بيختلفوا من مشروع للتاني. المواصفات والرسومات وطرق التنفيذ المعتمدة في مشروعك هي اللي بتحكم في الآخر.',
  csv:'نزّل المكتبة كاملة (CSV)', goTender:'أداة برنامج المناقصة ←', xerAll:'نزّل المكتبة كاملة لـ P6 (XER)', goArt:'← اقرا المقال: إزاي تستخدمها',
  dur:'المدة المعتادة', perFl:'للدور / المنطقة', dd:' يوم', ms:'Milestone', addFr:'+ ضيف للـ Fragnet', inFr:'✓ موجود في الـ Fragnet',
- frT:'ابني الـ Fragnet بتاعك', frP:'اختار الأنشطة، وخد الشبكة اللي بينها، وفحص للـ Logic، وملف تعمله Import في Primavera P6 على طول.',
- frPre:'ابدأ بسرعة:', frClear:'امسح', frCsv:'CSV', frXer:'نزّل XER لـ P6', frEmpty:'ضيف أنشطة بزرار "+ ضيف للـ Fragnet"، أو ابدأ من اختيار جاهز.',
- frHint:'كل خط بيطلع من الجنب اللي العلاقة مربوطة بيه: البداية (شمال أو فوق) أو النهاية (يمين أو تحت). اضغط على أي صندوق علشان تفتحه.',
+ frT:'ابني Fragnet في 3 خطوات', frP:'الـ Fragnet حتة صغيرة من البرنامج: كام نشاط مربوطين ببعض، جاهزين تحطهم جوه برنامجك الأساسي. اختارهم، افحصهم، ونزّل ملف يفتح على P6.',
+ frPre:'ابدأ بسرعة:', frClear:'امسح الكل', frCsv:'العلاقات CSV', frXer:'نزّل XER لـ P6', frEmpty:'لسه مفيش أنشطة. استخدم أي طريقة من التلاتة اللي فوق.',
+ how:[['اختار نشاط','من شريط المراحل أو من القايمة اللي على الجنب.'],['شوف اللي قبله واللي بعده','إيه اللي لازم يخلص الأول، وإيه اللي بعده، وليه.'],['ابني Fragnet','جمّع أنشطة، افحص الـ Logic، ونزّلها لـ P6.']],
+ adv:'فلتر التخصص واختيار الـ Lag', tblSum:'اعرضها كجدول وانسخها لـ Excel',
+ s1T:'اختار الأنشطة', s1P:'استخدم أي طريقة من التلاتة، وممكن تجمع بينهم.',
+ w1:'دوّر وضيف', w2:'النشاط المفتوح واللي حواليه', w3:'أو مجموعة جاهزة',
+ frQ:'اكتب اسم النشاط أو الكود…', frNo:'مفيش نتيجة', nb:'+ {n} واللي قبله واللي بعده على طول',
+ frCount:'المختار: {n} نشاط', added:'اتضاف للـ Fragnet.', addedGo:'وريني ↓',
+ s2T:'راجع الشبكة', s2P:'كل صندوق نشاط، وكل خط علاقة. الفحص السريع اللي تحتها بيقولك تصلّح إيه قبل ما تنزّل.',
+ s3T:'نزّلها وافتحها في P6', s3P:'ملف الـ XER فيه الأنشطة والمدد والعلاقات والـ Lags، وكل مرحلة في WBS لوحدها.',
+ howP6:['في P6: File › Import › Primavera PM (XER).','اختار Create a new project وكمّل.','افتح المشروع واضغط F9 علشان يتعمل Schedule.'],
+ ckFix:'محتاج تراجعه', ckGood:'سليم', ckAll:'كله تمام.',
+ frHint:'الخط اللي طالع من آخر الصندوق معناه "بعد ما يخلص"، واللي طالع من أوله معناه "بعد ما يبدأ". اضغط على أي صندوق يفتحلك فوق.',
  frStage:'المرحلة دي', frAll:'المكتبة كلها',
  frPresets:[['WET+CLG','الحمامات + السقف'],['SUB','الأساسات والبدروم'],['FAC','الواجهات'],['PLS+CLG+FIN','من المحارة للدهان']],
- ckT:'فحص الـ Logic', ckOf:'فحص سليم',
+ ckT:'فحص سريع للـ Logic', ckOf:'فحص سليم',
  ck:{os:'أنشطة بدايتها مفتوحة',osD:'ملهاش نشاط قبلها جوه الاختيار. اربطها ببرنامجك.',oe:'أنشطة نهايتها مفتوحة',oeD:'ملهاش نشاط بعدها جوه الاختيار. اربطها ببرنامجك.',ff:'بداية ماسكاها FF بس',ffD:'كل اللي قبلها FF، فالبداية سايبة. ضيف SS أو FS.',ss:'نهاية ماسكاها SS بس',ssD:'كل اللي بعدها SS، فنهايتها مش بتأثر على حاجة. ضيف FF أو FS.',lag:'علاقات عليها Lag',lagD:'DCMA: الـ Lags أقل من 5% من العلاقات، واكتب سبب كل واحد.',lead:'Leads (Lag بالسالب)',leadD:'DCMA: صفر.',fs:'نسبة علاقات FS',fsD:'DCMA: 90% من العلاقات على الأقل.',sf:'علاقات SF',sfD:'نادرة. راجع كل واحدة.',long:'Lags طويلة (أكتر من 10 أيام)',longD:'الـ Lag الطويل غالبًا مخبّي نشاط. اعمله نشاط.'},
  xerNote:'الـ XER نزل. اعمله Import في P6 وبعدين اضغط F9.',
  activities:'نشاط', relations:'علاقة'}};
@@ -457,8 +504,9 @@ function walk(c,map){var seen={},st=[c];while(st.length){var x=st.pop();map[x].f
 /* ---------- state ---------- */
 var cur='P20', mode=1, fSt='', fDs='', q='', sel={};
 var h=(location.hash||'').slice(1).toUpperCase(); if(byId[h])cur=h;
-A.forEach(function(a){if(a[1]===byId[cur].st)sel[a[0]]=1});
+nbrs(cur).forEach(function(c){sel[c]=1});
 
+function nbrs(c){return [c].concat(P[c].map(function(r){return r[0]}),N[c].map(function(r){return r[1]}))}
 /* logic token → {type, lag text} */
 function pick(r){var l=r[2];if(typeof l==='string')return l;return l[mode]||l[1]||l[2]}
 function parse(tok){var m=/^(FS|SS|FF|SF)(?:\+(.+))?$/.exec(tok);var ty=m[1],lg=m[2]||'';
@@ -508,12 +556,12 @@ function renderMain(){
   $('head').innerHTML='<div class="lg-tags"><span class="lg-code">'+a.c+'</span><span class="chip">'+esc(stName(a.st))+'</span><span class="chip lg-dchip lg-d-'+a.d.toLowerCase()+'"><i class="lg-dot"></i>'+esc(dsName(a.d))+'</span></div>'+
     '<h2>'+esc(nm(cur))+'</h2>'+
     '<div class="lg-meta"><span class="lg-dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+(a.dur?esc(t('dur'))+': <b>'+a.dur+esc(t('dd'))+'</b> <small>'+esc(t('perFl'))+'</small>':'<b>'+esc(t('ms'))+'</b>')+'</span>'+
-    '<button type="button" class="lg-add'+(sel[cur]?' on':'')+'" data-add="'+cur+'">'+esc(sel[cur]?t('inFr'):t('addFr'))+'</button></div>'+
-    '<div class="kpis lg-k">'+[[t('preds'),ps.length],[t('succs'),ns.length],[t('up'),walk(cur,P)],[t('down'),walk(cur,N)]].map(function(k){return '<div class="kpi"><small>'+esc(k[0])+'</small><b>'+k[1]+'</b></div>'}).join('')+'</div>';
+    '<button type="button" class="lg-add'+(sel[cur]?' on':'')+'" data-add="'+cur+'">'+esc(sel[cur]?t('inFr'):t('addFr'))+'</button></div>';
   $('preds').innerHTML=ps.length?ps.map(function(r){return node(r,'p')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
   $('succs').innerHTML=ns.length?ns.map(function(r){return node(r,'s')}).join(''):'<p class="lg-none">'+esc(t('none'))+'</p>';
   $('mid').innerHTML='<div class="lg-center lg-d-'+a.d.toLowerCase()+'" id="ctr"><span class="lg-cc">'+a.c+'</span><b>'+esc(nm(cur))+'</b><small>'+esc(stName(a.st))+'</small></div>';
-  $('legend').innerHTML=t('legend').map(function(l){return '<span><i class="lg-sw '+l[0].toLowerCase()+'"></i><b dir="ltr">'+l[0]+'</b> '+esc(l[1])+'</span>'}).join('')+'<span><i class="lg-sw crit"></i>'+esc(t('crit2'))+'</span>';
+  $('legend').innerHTML=$('frLeg').innerHTML=t('legend').map(function(l){return '<span><i class="lg-sw '+l[0].toLowerCase()+'"></i><b dir="ltr">'+l[0]+'</b> '+esc(l[1])+'</span>'}).join('')+'<span><i class="lg-sw crit"></i>'+esc(t('crit2'))+'</span>';
+  $('frNb').textContent=t('nb').replace('{n}',a.c);
   /* workflow strip */
   var si=stIdx[a.st], flow=A.filter(function(x){return x[1]===a.st});
   $('wfNo').setAttribute('data-en','STAGE '+(si<9?'0':'')+(si+1)); $('wfNo').textContent=(S.lang==='ar'?'المرحلة ':'STAGE ')+(si<9?'0':'')+(si+1);
@@ -603,9 +651,13 @@ function setSel(codes){sel={};codes.forEach(function(c){sel[c]=1});renderFrag();
 function stageCodes(list){return A.filter(function(a){return list.indexOf(a[1])>=0}).map(function(a){return a[0]})}
 var NW=166,NH=58,GX=68,GY=16,PAD=20;
 function renderFrag(){
-  var pres=[['@stage',t('frStage')]].concat(t('frPresets')).concat([['@all',t('frAll')]]);
+  var pres=t('frPresets');
+  $('frQ').placeholder=t('frQ');
+  $('how').innerHTML=t('how').map(function(h,i){return '<li><a href="'+(i<2?'#lib':'#frag')+'"><span class="lg-sn">'+(i+1)+'</span><span><b>'+esc(h[0])+'</b><small>'+esc(h[1])+'</small></span></a></li>'}).join('');
+  $('howP6').innerHTML=t('howP6').map(function(x){return '<li>'+esc(x)+'</li>'}).join('');
   $('frPre').innerHTML=pres.map(function(p){return '<button type="button" class="pill" data-pre="'+p[0]+'">'+esc(p[1])+'</button>'}).join('');
   var codes=selCodes();
+  $('frCount').textContent=t('frCount').replace('{n}',codes.length); $('frClear').hidden=!codes.length;
   $('frSel').innerHTML=codes.length?codes.map(function(c){return '<span class="lg-chip lg-d-'+byId[c].d.toLowerCase()+(c===cur?' on':'')+'"><i class="lg-dot"></i><button type="button" data-go="'+c+'"><code>'+c+'</code> '+esc(nm(c))+'</button><button type="button" class="x" data-rm="'+c+'" aria-label="Remove">×</button></span>'}).join(''):'';
   $('frXer').disabled=$('frCsv').disabled=!codes.length;
   if(!codes.length){$('frCanvas').innerHTML='<p class="lg-none" style="margin:16px">'+esc(t('frEmpty'))+'</p>';$('frCanvas').style.width='';$('frCanvas').style.height='';renderChecks(codes);return}
@@ -669,7 +721,10 @@ function renderChecks(codes,sc){
   var ok=rows.filter(function(r){return r[0]}).length;
   $('ckScore').innerHTML='<b>'+ok+'/'+rows.length+'</b> '+esc(t('ckOf'));
   $('ckScore').className='lg-score '+(ok===rows.length?'good':ok>=rows.length-3?'mix':'bad');
-  $('ck').innerHTML=rows.map(function(r){return '<div class="lg-ck '+(r[0]?'ok':'warn')+'"><span class="ic">'+(r[0]?'✓':'!')+'</span><div><div class="tt"><b>'+esc(r[1])+'</b><span class="v" dir="ltr">'+r[2]+'</span></div><p>'+esc(r[3])+'</p>'+(r[0]?'':r[4])+'</div></div>'}).join('');
+  function one(r){return '<div class="lg-ck '+(r[0]?'ok':'warn')+'"><span class="ic">'+(r[0]?'✓':'!')+'</span><div><div class="tt"><b>'+esc(r[1])+'</b><span class="v" dir="ltr">'+r[2]+'</span></div><p>'+esc(r[3])+'</p>'+(r[0]?'':r[4])+'</div></div>'}
+  var bad=rows.filter(function(r){return !r[0]}), good=rows.filter(function(r){return r[0]});
+  $('ck').innerHTML=(bad.length?'<div class="lg-ckg"><div class="lg-ckl warn">'+esc(t('ckFix'))+' ('+bad.length+')</div><div class="lg-ckgrid">'+bad.map(one).join('')+'</div></div>':'<p class="lg-ckall">✓ '+esc(t('ckAll'))+'</p>')+
+    (good.length?'<details class="lg-ckg"><summary class="lg-ckl ok">'+esc(t('ckGood'))+' ('+good.length+')</summary><div class="lg-ckgrid">'+good.map(one).join('')+'</div></details>':'');
 }
 /* ---------- XER export (Primavera P6) ---------- */
 function pad(n){return (n<10?'0':'')+n}
@@ -710,7 +765,10 @@ function go(c,scroll){if(!byId[c])return;cur=c;try{history.replaceState(null,'',
   if(scroll&&window.innerWidth<900){$('main').scrollIntoView({behavior:'smooth',block:'start'})}
   var on=document.querySelector('#list .lg-item.on'); if(on&&on.scrollIntoView){var l=$('list');if(on.offsetTop<l.scrollTop||on.offsetTop>l.scrollTop+l.clientHeight-40)l.scrollTop=on.offsetTop-l.clientHeight/2}}
 document.addEventListener('click',function(e){
-  var ad=e.target.closest('[data-add]'); if(ad){var c=ad.getAttribute('data-add');if(sel[c])delete sel[c];else sel[c]=1;renderFrag();renderMain();return}
+  var ad=e.target.closest('[data-add]'); if(ad){var c=ad.getAttribute('data-add');if(sel[c])delete sel[c];else{sel[c]=1;toast(t('added'),true)}renderFrag();renderMain();return}
+  var pu=e.target.closest('[data-put]'); if(pu){sel[pu.getAttribute('data-put')]=1;$('frQ').value='';$('frDD').hidden=true;renderFrag();renderMain();$('frQ').focus();return}
+  if(e.target.closest('#toastGo')){$('toast').hidden=true;$('frag').scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(!e.target.closest('.lg-frq'))$('frDD').hidden=true;
   var rm=e.target.closest('[data-rm]'); if(rm){delete sel[rm.getAttribute('data-rm')];renderFrag();renderMain();return}
   var pr=e.target.closest('[data-pre]'); if(pr){var k=pr.getAttribute('data-pre');setSel(k==='@all'?A.map(function(a){return a[0]}):k==='@stage'?stageCodes([byId[cur].st]):stageCodes(k.split('+')));return}
   var g=e.target.closest('[data-go]'); if(g){go(g.getAttribute('data-go'),!!e.target.closest('#list'));if(e.target.closest('#main'))$('net').scrollIntoView({behavior:'smooth',block:'nearest'});return}
@@ -723,7 +781,7 @@ $('q').addEventListener('keydown',function(e){if(e.key==='Enter'){var f=document
 window.addEventListener('resize',function(){requestAnimationFrame(wires);clearTimeout(window._frT);window._frT=setTimeout(renderFrag,200)});
 window.addEventListener('hashchange',function(){var c=location.hash.slice(1).toUpperCase();if(byId[c]&&c!==cur)go(c)});
 
-function toast(msg){var el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2600)}
+function toast(msg,go){var el=$('toast');el.innerHTML=esc(msg)+(go?' <button type="button" id="toastGo">'+esc(t('addedGo'))+'</button>':'');el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},go?4500:2600)}
 function rowsFor(list){return list.map(function(r){var p=parse(pick(r));return [r[0],nm(r[0]),r[1],nm(r[1]),p.ty,'PR_'+p.ty,p.u==='d'||!p.u?p.n:'',p.lag,r[3]?t('crit'):'',S.lang==='ar'?r[5]:r[4]]})}
 var HEAD=['Pred ID','Predecessor','Succ ID','Successor','Type','P6 type','Lag (d)','Lag','Critical','Why'];
 $('copy').addEventListener('click',function(){
@@ -733,6 +791,14 @@ $('copy').addEventListener('click',function(){
 });
 function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
 $('frClear').addEventListener('click',function(){setSel([])});
+$('frNb').addEventListener('click',function(){nbrs(cur).forEach(function(c){sel[c]=1});renderFrag();renderMain()});
+function frSearch(){var v=$('frQ').value.trim().toLowerCase(), dd=$('frDD'); if(!v){dd.hidden=true;return}
+  var hits=A.filter(function(a){return (a[0]+' '+a[3]+' '+a[4]).toLowerCase().indexOf(v)>=0}).slice(0,8);
+  dd.innerHTML=hits.length?hits.map(function(a){return '<button type="button" class="lg-d-'+a[2].toLowerCase()+(sel[a[0]]?' in':'')+'" data-put="'+a[0]+'"><i class="lg-dot"></i><code>'+a[0]+'</code><span>'+esc(nm(a[0]))+'</span><b>'+(sel[a[0]]?'✓':'+')+'</b></button>'}).join(''):'<p>'+esc(t('frNo'))+'</p>';
+  dd.hidden=false}
+$('frQ').addEventListener('input',frSearch);
+$('frQ').addEventListener('focus',frSearch);
+$('frQ').addEventListener('keydown',function(e){if(e.key==='Enter'){var f=document.querySelector('#frDD [data-put]');if(f)f.click()}else if(e.key==='Escape')$('frDD').hidden=true});
 $('frXer').addEventListener('click',function(){var c=selCodes();if(!c.length)return;download(xer(c,'FRAGNET'),'fragnet-'+c.length+'-activities.xer','application/octet-stream');toast(t('xerNote'))});
 $('xerAll').addEventListener('click',function(){download(xer(A.map(function(a){return a[0]}),'RELLIB'),'activity-relationships-library.xer','application/octet-stream');toast(t('xerNote'))});
 $('frCsv').addEventListener('click',function(){var c=selCodes();if(!c.length)return;var inS={};c.forEach(function(x){inS[x]=1});csvOf(R.filter(function(r){return inS[r[0]]&&inS[r[1]]}),'fragnet-relationships-'+S.lang+'.csv')});
